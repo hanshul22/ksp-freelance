@@ -1,3 +1,4 @@
+import React from 'react'
 import Header from '@/components/layout/Header';
 import {
   Hero,
@@ -11,8 +12,10 @@ import {
 } from './components';
 
 
+
 const Home = () => {
   return (
+
     <div className="min-h-screen">
       <Header />
       <Hero />
@@ -23,6 +26,7 @@ const Home = () => {
       <WhyChooseUs />
       <ClientsSection />
       <ContactCTA />
+
     </div>
   );
 };
