@@ -40,33 +40,32 @@ const Hero = () => {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           
           {/* Left Content - Text Block */}
-          <div className="space-y-8 lg:space-y-10">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight">
-              <span className="block text-gray-900">Transform Wastewater Into</span>
-              <span className="block">
-                <span className="text-blue-600">Reusable & Potable</span>
-              </span>
-              <span className="block text-green-500">Water</span>
+          <div className="space-y-5">
+            <h1 className="text-4xl md:text-5xl lg:text-[3.25rem] font-bold leading-[1.15] tracking-tight">
+              <span className="text-gray-900">Transform Wastewater Into</span>
+              <br />
+              <span className="text-blue-600">Reusable & Potable</span>{' '}
+              <span className="text-green-500">Water</span>
             </h1>
 
-            <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-xl">
+            <p className="text-base md:text-lg text-gray-600 leading-relaxed max-w-lg">
               Engineering excellence in water purification, wastewater treatment, and fire-fighting 
               systems for industries, institutions, and communities.
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-2">
+            <div className="flex flex-col sm:flex-row gap-3 pt-1">
               <Link
                 to="/products"
-                className="inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-8 py-4 rounded-lg text-base font-semibold hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl"
+                className="inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-7 py-3.5 rounded-lg text-sm font-semibold hover:bg-blue-700 transition-all shadow-md hover:shadow-lg"
               >
                 Explore Our Solutions
-                <ArrowRight className="w-5 h-5" />
+                <ArrowRight className="w-4 h-4" />
               </Link>
               
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-transparent text-blue-600 px-8 py-4 rounded-lg text-base font-semibold border-2 border-blue-600 hover:bg-blue-50 transition-all"
+                className="inline-flex items-center justify-center gap-2 bg-white text-blue-600 px-7 py-3.5 rounded-lg text-sm font-semibold border-2 border-blue-600 hover:bg-blue-50 transition-all"
               >
                 Schedule a Consultation
               </Link>
