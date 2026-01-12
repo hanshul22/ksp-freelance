@@ -1,5 +1,6 @@
 import { Droplet, Recycle, Factory, Settings } from 'lucide-react';
 import { products } from '@/data/products';
+import productsWaveBg from '@/assets/images/products-wave-bg.png';
 
 const ProductsSection = () => {
   const iconMap = {
@@ -10,11 +11,12 @@ const ProductsSection = () => {
   };
 
   return (
-    <section className="relative py-16 md:py-24 bg-gradient-to-b from-blue-600 to-blue-500 overflow-hidden">
-      {/* Wavy Top Border */}
-      <div className="absolute top-0 left-0 right-0 h-16 bg-white" style={{
-        clipPath: 'polygon(0 0, 0 100%, 2% 95%, 4% 90%, 6% 88%, 8% 90%, 10% 95%, 12% 100%, 14% 95%, 16% 90%, 18% 88%, 20% 90%, 22% 95%, 24% 100%, 26% 95%, 28% 90%, 30% 88%, 32% 90%, 34% 95%, 36% 100%, 38% 95%, 40% 90%, 42% 88%, 44% 90%, 46% 95%, 48% 100%, 50% 95%, 52% 90%, 54% 88%, 56% 90%, 58% 95%, 60% 100%, 62% 95%, 64% 90%, 66% 88%, 68% 90%, 70% 95%, 72% 100%, 74% 95%, 76% 90%, 78% 88%, 80% 90%, 82% 95%, 84% 100%, 86% 95%, 88% 90%, 90% 88%, 92% 90%, 94% 95%, 96% 100%, 98% 95%, 100% 90%, 100% 0)'
-      }}></div>
+    <section className="relative py-16 md:py-24 overflow-hidden">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-top bg-no-repeat"
+        style={{ backgroundImage: `url(${productsWaveBg})` }}
+      />
 
       <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10 pt-8">
         {/* Section Header */}
