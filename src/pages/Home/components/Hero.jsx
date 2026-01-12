@@ -1,80 +1,116 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import { waterDroplet } from '@/assets';
+import { waterDroplet, heroVector } from '@/assets';
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen bg-white overflow-hidden">
+    <section className="relative min-h-[95vh] overflow-hidden" style={{ background: 'linear-gradient(135deg, #E0F4F8 0%, #EAF7FA 50%, #F0FAFB 100%)' }}>
+      
+      {/* Background Wave Decoration */}
+      <div 
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: `url(${heroVector})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          opacity: 0.6,
+        }}
+      />
+
+      {/* Abstract Organic Shapes - Top Left */}
+      <div 
+        className="absolute -top-32 -left-32 w-[600px] h-[600px] rounded-full pointer-events-none"
+        style={{
+          background: 'radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 70%)',
+        }}
+      />
+      
+      {/* Abstract Organic Shapes - Bottom Right */}
+      <div 
+        className="absolute -bottom-48 -right-48 w-[800px] h-[800px] rounded-full pointer-events-none"
+        style={{
+          background: 'radial-gradient(circle, rgba(34, 197, 94, 0.06) 0%, transparent 70%)',
+        }}
+      />
 
       {/* Main Content */}
-      <div className="relative max-w-7xl mx-auto px-4 md:px-6 lg:px-8 pt-24 md:pt-32 pb-20">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left Content */}
-          <div className="space-y-6 lg:space-y-8">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-gray-900">
-              <div className="whitespace-normal">Transform Wastewater Into</div>
-              <div className="whitespace-normal">
-                <span className="text-blue-600">Reusable & Potable</span>
-                {' '}
-                <span className="text-green-500">Water</span>
-              </div>
+      <div className="relative px-6 pb-16 mx-auto max-w-7xl lg:px-12 xl:px-16 pt-36 lg:pt-44">
+        <div className="flex items-center justify-between gap-12 lg:flex-row lg:gap-0">
+          
+          {/* Left Content - Text Block */}
+          <div className="space-y-5">
+            <h1 className="  text-4xl md:text-5xl lg:text-[3.25rem] font-bold leading-[1.15] tracking-tight w-[900px]">
+              <span className="text-gray-900">Transform Wastewater Into</span>
+              <br />
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#155DFC] via-[#00B8DB] to-[#00C950]">Reusable & Potable Water</span>{' '}
             </h1>
 
-            <p className="text-base md:text-lg text-gray-600 leading-relaxed">
+            <p className="w-[600px] text-base leading-relaxed text-gray-600 md:text-lg">
               Engineering excellence in water purification, wastewater treatment, and fire-fighting 
               systems for industries, institutions, and communities.
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row flex-wrap gap-4">
+            <div className="flex flex-col gap-3 pt-1 sm:flex-row">
               <Link
                 to="/products"
-                className="inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-lg text-sm md:text-base font-medium hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl"
+                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#155DFC] to-[#0092B8] text-white px-7 py-3.5 rounded-lg text-sm font-semibold hover:opacity-90 transition-all shadow-md hover:shadow-lg"
               >
                 Explore Our Solutions
-                <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
+                <ArrowRight className="w-4 h-4" />
               </Link>
               
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-white text-blue-600 px-6 md:px-8 py-3 md:py-4 rounded-lg text-sm md:text-base font-medium border-2 border-blue-600 hover:bg-blue-50 transition-all"
+                className="inline-flex items-center justify-center gap-2 bg-white text-blue-600 px-7 py-3.5 rounded-lg text-sm font-semibold border-2 border-blue-600 hover:bg-blue-50 transition-all"
               >
                 Schedule a Consultation
               </Link>
             </div>
           </div>
 
-          {/* Right Visual - Water Droplet */}
+          {/* Right Column - Water Drop Illustration */}
           <div className="relative flex items-center justify-center order-first lg:order-last">
-            <div className="relative w-full max-w-sm lg:max-w-md aspect-square">
+            <div className="relative w-full max-w-lg lg:max-w-xl xl:max-w-2xl">
+              {/* Soft Glow Behind Droplet */}
+              <div 
+                className="absolute inset-0 rounded-full blur-3xl"
+                style={{
+                  background: 'radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, rgba(14, 165, 233, 0.08) 50%, transparent 70%)',
+                  transform: 'scale(1.2)',
+                }}
+              />
+              
               {/* Water Droplet Image */}
-              <div className="relative w-full h-full flex items-center justify-center">
+              <div className="relative flex items-center justify-center w-full p-8 aspect-square">
                 <img 
                   src={waterDroplet} 
                   alt="Water Droplet" 
-                  className="w-full h-full object-contain"
+                  className="object-contain w-full h-full drop-shadow-2xl"
                 />
               </div>
             </div>
           </div>
         </div>
 
-        {/* Trust Indicators */}
-        <div className="mt-16 lg:mt-20 pt-8 lg:pt-12 border-t border-gray-200">
-          <div className="flex flex-col sm:flex-row flex-wrap justify-center lg:justify-start gap-6 lg:gap-12 xl:gap-16">
+        {/* Trust Indicators Row */}
+        <div className="pt-8 mt-20 lg:mt-28">
+          <div className="flex flex-col flex-wrap justify-center gap-8 sm:flex-row lg:gap-16">
             <div className="flex items-center justify-center gap-3">
-              <div className="w-3 h-3 rounded-full bg-green-500" />
-              <span className="text-sm md:text-base text-gray-700 font-medium">ISO Certified</span>
+              <div className="w-3 h-3 bg-green-500 rounded-full shadow-sm" />
+              <span className="text-base font-medium text-gray-600">ISO Certified</span>
             </div>
             
             <div className="flex items-center justify-center gap-3">
-              <div className="w-3 h-3 rounded-full bg-blue-500" />
-              <span className="text-sm md:text-base text-gray-700 font-medium">20+ Years Experience</span>
+              <div className="w-3 h-3 bg-blue-500 rounded-full shadow-sm" />
+              <span className="text-base font-medium text-gray-600">20+ Years Experience</span>
             </div>
             
             <div className="flex items-center justify-center gap-3">
-              <div className="w-3 h-3 rounded-full bg-cyan-500" />
-              <span className="text-sm md:text-base text-gray-700 font-medium">500+ Projects Delivered</span>
+              <div className="w-3 h-3 bg-green-500 rounded-full shadow-sm" />
+              <span className="text-base font-medium text-gray-600">500+ Projects Delivered</span>
             </div>
           </div>
         </div>
