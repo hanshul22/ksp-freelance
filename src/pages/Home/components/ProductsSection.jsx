@@ -1,6 +1,5 @@
 import { Droplet, Recycle, Factory, Settings } from 'lucide-react';
 import { products } from '@/data/products';
-import productsWaveBg from '@/assets/images/products-wave-bg.png';
 
 const ProductsSection = () => {
   const iconMap = {
@@ -12,11 +11,35 @@ const ProductsSection = () => {
 
   return (
     <section className="relative py-16 md:py-24 overflow-hidden">
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-top bg-no-repeat"
-        style={{ backgroundImage: `url(${productsWaveBg})` }}
-      />
+      {/* SVG Wave Background */}
+      <svg
+        className="absolute inset-0 w-full h-full"
+        preserveAspectRatio="none"
+        viewBox="0 0 1440 800"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <linearGradient id="waveGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="#0066FF" />
+            <stop offset="50%" stopColor="#3B8BF5" />
+            <stop offset="100%" stopColor="#FFFFFF" />
+          </linearGradient>
+        </defs>
+        {/* Main gradient background */}
+        <rect x="0" y="60" width="1440" height="740" fill="url(#waveGradient)" />
+        {/* Wavy top border - light blue stroke */}
+        <path
+          d="M0 80 Q60 40 120 80 T240 80 T360 80 T480 80 T600 80 T720 80 T840 80 T960 80 T1080 80 T1200 80 T1320 80 T1440 80 L1440 0 L0 0 Z"
+          fill="#FFFFFF"
+        />
+        <path
+          d="M0 80 Q60 40 120 80 T240 80 T360 80 T480 80 T600 80 T720 80 T840 80 T960 80 T1080 80 T1200 80 T1320 80 T1440 80"
+          stroke="#B8E0F0"
+          strokeWidth="6"
+          fill="none"
+        />
+      </svg>
 
       <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10 pt-8">
         {/* Section Header */}
