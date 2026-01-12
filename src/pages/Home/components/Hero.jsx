@@ -5,52 +5,23 @@ import { waterDroplet, heroVector } from '@/assets';
 
 const Hero = () => {
   return (
-    <section className="relative min-h-[95vh] overflow-hidden">
+    <section className="relative min-h-[95vh]" >
       
-      {/* Soft Aqua Background */}
+      {/* Background Wave Decoration */}
       <div 
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: 'linear-gradient(135deg, #E8F6FA 0%, #F0FAFC 50%, #E6F4F8 100%)',
-        }}
-      />
-      
-      {/* Top Right Wave Shape */}
-      <div 
-        className="absolute pointer-events-none"
-        style={{
-          top: '-5%',
-          right: '-10%',
-          width: '60%',
-          height: '70%',
-          background: 'radial-gradient(ellipse at center, rgba(180, 220, 235, 0.4) 0%, rgba(200, 235, 245, 0.2) 50%, transparent 70%)',
-          borderRadius: '50%',
-          filter: 'blur(40px)',
-        }}
-      />
-      
-      {/* Bottom Left Wave Shape */}
-      <div 
-        className="absolute pointer-events-none"
-        style={{
-          bottom: '-10%',
-          left: '-15%',
-          width: '50%',
-          height: '60%',
-          background: 'radial-gradient(ellipse at center, rgba(180, 220, 235, 0.3) 0%, rgba(200, 235, 245, 0.15) 50%, transparent 70%)',
-          borderRadius: '50%',
-          filter: 'blur(50px)',
-        }}
-      />
-      
-      {/* Curved Wave Border at Top */}
-      <div 
-        className="absolute top-0 right-0 pointer-events-none"
-        style={{
-          width: '80%',
-          height: '200px',
-          background: 'linear-gradient(180deg, rgba(200, 230, 245, 0.5) 0%, transparent 100%)',
-          borderRadius: '0 0 0 100%',
+          backgroundImage: `url(${heroVector})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          opacity: 1,
+          // width: '1368px',
+          // height: '897px',
+          width: '100%',
+          height: '100%',
+          zIndex: -1,
+  
         }}
       />
 
