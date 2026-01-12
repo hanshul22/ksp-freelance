@@ -1,0 +1,8 @@
+export { default as Hero } from './Hero';
+export { default as AboutSection } from './AboutSection';
+export { default as SectorsSection } from './SectorsSection';
+export { default as ProductsSection } from './ProductsSection';
+export { default as ServicesSection } from './ServicesSection';
+export { default as WhyChooseUs } from './WhyChooseUs';
+export { default as ClientsSection } from './ClientsSection';
+export { default as ContactCTA } from './ContactCTA';

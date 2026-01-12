@@ -1,18 +1,28 @@
-import React from 'react';
-import Navbar from '@/components/Navbar';
-import Hero from '@/components/Hero';
-import Features from '@/components/Features';
-import CTA from '@/components/CTA';
-import Footer from '@/components/Footer';
+import Header from '@/components/layout/Header';
+import {
+  Hero,
+  AboutSection,
+  SectorsSection,
+  ProductsSection,
+  ServicesSection,
+  WhyChooseUs,
+  ClientsSection,
+  ContactCTA,
+} from './components';
+
 
 const Home = () => {
   return (
-    <div className="min-h-screen bg-[hsl(var(--background))]">
-      <Navbar />
+    <div className="min-h-screen">
+      <Header />
       <Hero />
-      <Features />
-      <CTA />
-      <Footer />
+      <AboutSection />
+      <SectorsSection />
+      <ProductsSection />
+      <ServicesSection />
+      <WhyChooseUs />
+      <ClientsSection />
+      <ContactCTA />
     </div>
   );
 };
