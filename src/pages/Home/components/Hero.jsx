@@ -5,7 +5,7 @@ import { waterDroplet, heroVector } from '@/assets';
 
 const Hero = () => {
   return (
-    <section className="relative min-h-[95vh] overflow-hidden" style={{ background: 'linear-gradient(135deg, #E0F4F8 0%, #EAF7FA 50%, #F0FAFB 100%)' }}>
+    <section className="relative min-h-[95vh]" >
       
       {/* Background Wave Decoration */}
       <div 
@@ -15,28 +15,20 @@ const Hero = () => {
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
-          opacity: 0.6,
+          opacity: 1,
+          // width: '1368px',
+          // height: '897px',
+          width: '100%',
+          height: '100%',
+          zIndex: -1,
+  
         }}
       />
 
-      {/* Abstract Organic Shapes - Top Left */}
-      <div 
-        className="absolute -top-32 -left-32 w-[600px] h-[600px] rounded-full pointer-events-none"
-        style={{
-          background: 'radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 70%)',
-        }}
-      />
-      
-      {/* Abstract Organic Shapes - Bottom Right */}
-      <div 
-        className="absolute -bottom-48 -right-48 w-[800px] h-[800px] rounded-full pointer-events-none"
-        style={{
-          background: 'radial-gradient(circle, rgba(34, 197, 94, 0.06) 0%, transparent 70%)',
-        }}
-      />
+   
 
       {/* Main Content */}
-      <div className="relative px-6 pb-16 mx-auto max-w-7xl lg:px-12 xl:px-16 pt-36 lg:pt-44">
+      <div className="relative pt-48 mx-auto max-w-7xl">
         <div className="flex items-center justify-between gap-12 lg:flex-row lg:gap-0">
           
           {/* Left Content - Text Block */}
@@ -73,7 +65,7 @@ const Hero = () => {
 
           {/* Right Column - Water Drop Illustration */}
           <div className="relative flex items-center justify-center order-first lg:order-last">
-            <div className="relative w-full max-w-lg lg:max-w-xl xl:max-w-2xl">
+            <div className="relative w-[32rem] lg:max-w-2xl xl:max-w-[48rem]">
               {/* Soft Glow Behind Droplet */}
               <div 
                 className="absolute inset-0 rounded-full blur-3xl"
@@ -96,7 +88,7 @@ const Hero = () => {
         </div>
 
         {/* Trust Indicators Row */}
-        <div className="pt-8 mt-20 lg:mt-28">
+        <div className="pt-8 mt-12 lg:mt-16">
           <div className="flex flex-col flex-wrap justify-center gap-8 sm:flex-row lg:gap-16">
             <div className="flex items-center justify-center gap-3">
               <div className="w-3 h-3 bg-green-500 rounded-full shadow-sm" />
