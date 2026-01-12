@@ -12,7 +12,7 @@ const ContactCTA = () => {
       <div className="max-w-7xl mx-auto px-4 md:px-8 text-center">
         <div className="max-w-3xl mx-auto space-y-5">
           {/* Heading */}
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white whitespace-nowrap">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white">
             Let&apos;s discuss your water solution
           </h2>
 
