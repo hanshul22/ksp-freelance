@@ -8,22 +8,17 @@ const Hero = () => {
     <section className="relative min-h-[95vh]" >
       
       {/* Background Wave Decoration */}
-      <div 
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage: `url(${heroVector})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          opacity: 1,
-          // width: '1368px',
-          // height: '897px',
-          width: '100%',
-          height: '100%',
-          zIndex: -1,
-  
-        }}
-      />
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <svg 
+          className="w-full h-full"
+          preserveAspectRatio="none"
+          viewBox="0 0 1341 897" 
+          fill="none" 
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M386.29 779.592C163.314 675.646 27.19 814.553 -13 897L-9.86831 241.078C71.5556 139.325 187.428 133.063 242.233 142.455C297.037 151.848 356.539 109.581 359.671 84.534C373.45 16.9068 404.036 0 417.607 0H1350.85C1358.37 269.256 1353.98 362.661 1350.85 375.707C1334.57 464.624 1249.07 555.733 1208.36 590.172C1146.77 636.092 997.909 713.843 895.189 657.487C792.47 601.131 719.815 654.878 696.327 688.796C598.619 851.602 448.924 817.162 386.29 779.592Z" fill="#EFFAFE"/>
+        </svg>
+      </div>
 
    
 
