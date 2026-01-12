@@ -10,41 +10,59 @@ const ProductsSection = () => {
   };
 
   return (
-    <section className="relative py-16 md:py-24 overflow-hidden">
+    <section className="relative py-20 md:py-28 pb-24 md:pb-32 overflow-hidden">
       {/* SVG Wave Background */}
       <svg
         className="absolute inset-0 w-full h-full"
         preserveAspectRatio="none"
-        viewBox="0 0 1440 800"
+        viewBox="0 0 1440 900"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
         <defs>
-          <linearGradient id="waveGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="#0066FF" />
-            <stop offset="50%" stopColor="#3B8BF5" />
-            <stop offset="100%" stopColor="#FFFFFF" />
+          {/* Main gradient - blue to light blue to white */}
+          <linearGradient id="productsGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="#1E7CF5" />
+            <stop offset="25%" stopColor="#4A9DF8" />
+            <stop offset="50%" stopColor="#7FBCFB" />
+            <stop offset="75%" stopColor="#C5E2FC" />
+            <stop offset="100%" stopColor="#EDF6FE" />
           </linearGradient>
         </defs>
-        {/* Main gradient background */}
-        <rect x="0" y="60" width="1440" height="740" fill="url(#waveGradient)" />
-        {/* Wavy top border - light blue stroke */}
+        
+        {/* White background for wave area */}
+        <rect x="0" y="0" width="1440" height="70" fill="#FFFFFF" />
+        
+        {/* Main gradient background starting below wave */}
         <path
-          d="M0 80 Q60 40 120 80 T240 80 T360 80 T480 80 T600 80 T720 80 T840 80 T960 80 T1080 80 T1200 80 T1320 80 T1440 80 L1440 0 L0 0 Z"
-          fill="#FFFFFF"
+          d="M0 55 
+             C120 20, 180 90, 300 55 
+             C420 20, 480 90, 600 55 
+             C720 20, 780 90, 900 55 
+             C1020 20, 1080 90, 1200 55 
+             C1320 20, 1380 90, 1440 55
+             L1440 900 L0 900 Z"
+          fill="url(#productsGradient)"
         />
+        
+        {/* Light cyan wave stroke */}
         <path
-          d="M0 80 Q60 40 120 80 T240 80 T360 80 T480 80 T600 80 T720 80 T840 80 T960 80 T1080 80 T1200 80 T1320 80 T1440 80"
-          stroke="#B8E0F0"
-          strokeWidth="6"
+          d="M0 55 
+             C120 20, 180 90, 300 55 
+             C420 20, 480 90, 600 55 
+             C720 20, 780 90, 900 55 
+             C1020 20, 1080 90, 1200 55 
+             C1320 20, 1380 90, 1440 55"
+          stroke="#A8DDF0"
+          strokeWidth="5"
           fill="none"
         />
       </svg>
 
-      <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10 pt-8">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10 pt-6">
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">
-          <p className="text-sm font-semibold text-white/90 uppercase tracking-wide mb-3">
+          <p className="text-sm font-semibold text-blue-100 uppercase tracking-widest mb-3">
             Our Solutions
           </p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
@@ -74,18 +92,18 @@ const ProductsSection = () => {
                   
                   {/* Icon Badge */}
                   <div className="absolute top-4 right-4 z-10">
-                    <div className="w-10 h-10 rounded-lg bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-md">
+                    <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center shadow-md">
                       <Icon className="w-5 h-5 text-blue-600" strokeWidth={2} />
                     </div>
                   </div>
                 </div>
 
                 {/* Content */}
-                <div className="p-6">
-                  <h3 className="text-lg font-bold text-gray-900 mb-2 leading-tight">
+                <div className="p-5">
+                  <h3 className="text-base font-bold text-gray-900 mb-1.5 leading-tight">
                     {product.title}
                   </h3>
-                  <p className="text-sm text-slate-600">
+                  <p className="text-sm text-slate-500">
                     {product.description}
                   </p>
                 </div>
