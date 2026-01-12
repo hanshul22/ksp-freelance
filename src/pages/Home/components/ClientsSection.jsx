@@ -1,4 +1,3 @@
-import React from 'react';
 import clientLogo1 from '@/assets/images/clientlogo1.png';
 import clientLogo2 from '@/assets/images/clientlogo2.png';
 import clientLogo3 from '@/assets/images/clientlogo3.png';
@@ -43,7 +42,7 @@ const ClientsSection = () => {
                 key={`${client.id}-${index}`}
                 className="flex-shrink-0 mx-3 md:mx-4"
               >
-                <div className="flex items-center justify-center w-56 h-32 md:w-64 md:h-36">
+                <div className="flex items-center justify-center w-40 h-24 sm:w-56 sm:h-32 md:w-64 md:h-36">
                   <img
                     src={client.logo}
                     alt={client.name}

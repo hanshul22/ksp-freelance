@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import logo from '@/assets/images/logo.png';
 
 const Header = () => {
   const location = useLocation();
@@ -17,13 +18,15 @@ const Header = () => {
   const isActive = (path) => location.pathname === path;
 
   return (
-    <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-7xl">
-      <div className="bg-white rounded-full shadow-lg px-6 lg:px-8 py-4 flex items-center justify-between">
+    <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[100%]  max-w-7xl">
+      <div className="bg-white rounded-full shadow-lg px-8 lg:px-12 py-4 flex items-center justify-between">
         {/* Logo Section */}
         <Link to="/" className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
-            <span className="text-white font-bold text-lg">KSP</span>
-          </div>
+          <img 
+            src={logo} 
+            alt="KSP Hydro Engineers Logo" 
+            className="h-10 w-10 object-contain"
+          />
           <span className="text-gray-900 font-semibold text-base lg:text-lg">
             KSP Hydro Engineers
           </span>
@@ -37,8 +40,8 @@ const Header = () => {
               to={link.path}
               className={`text-sm font-medium transition-colors ${
                 isActive(link.path)
-                  ? 'text-blue-600'
-                  : 'text-gray-600 hover:text-gray-900'
+                  ? 'text-black'
+                  : 'text-black hover:text-gray-700'
               }`}
             >
               {link.name}
@@ -48,7 +51,7 @@ const Header = () => {
           {/* Contact Button */}
           <Link
             to="/contact"
-            className="bg-blue-600 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-blue-700 transition-colors shadow-md"
+            className="bg-blue-600 text-white px-6 py-2.5 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors shadow-md"
           >
             Contact
           </Link>
@@ -73,7 +76,7 @@ const Header = () => {
               onClick={() => setIsMenuOpen(false)}
               className={`block text-base font-medium transition-colors ${
                 isActive(link.path)
-                  ? 'text-blue-600'
+                  ? 'text-black'
                   : 'text-gray-600 hover:text-gray-900'
               }`}
             >
@@ -84,7 +87,7 @@ const Header = () => {
           <Link
             to="/contact"
             onClick={() => setIsMenuOpen(false)}
-            className="block w-full text-center bg-blue-600 text-white px-6 py-3 rounded-full text-base font-medium hover:bg-blue-700 transition-colors shadow-md"
+            className="block w-full text-center bg-blue-600 text-white px-6 py-3 rounded-lg text-base font-medium hover:bg-blue-700 transition-colors shadow-md"
           >
             Contact
           </Link>

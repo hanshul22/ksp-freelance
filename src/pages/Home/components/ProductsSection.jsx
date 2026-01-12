@@ -25,7 +25,7 @@ const ProductsSection = () => {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
             Our Products
           </h2>
-          <p className="text-base md:text-lg text-white/90 max-w-2xl mx-auto whitespace-nowrap">
+          <p className="text-base md:text-lg text-white/90 max-w-2xl mx-auto">
             Comprehensive water treatment solutions engineered for reliability and sustainability
           </p>
         </div>

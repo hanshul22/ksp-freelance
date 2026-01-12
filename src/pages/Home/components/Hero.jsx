@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { waterDroplet } from '@/assets';
@@ -8,7 +7,7 @@ const Hero = () => {
     <section className="relative min-h-screen bg-white overflow-hidden">
 
       {/* Main Content */}
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-8 pt-32 pb-20">
+      <div className="relative max-w-7xl mx-auto px-4 md:px-6 lg:px-8 pt-24 md:pt-32 pb-20">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Content */}
           <div className="space-y-6 lg:space-y-8">
