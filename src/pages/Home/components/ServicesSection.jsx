@@ -23,23 +23,24 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 md:px-8">
+    <section className="relative py-16 md:py-24">
+      
+      <div className="relative z-10 px-4 mx-auto max-w-7xl md:px-8">
         {/* Section Header */}
-        <div className="text-center mb-12 md:mb-16">
-          <p className="text-sm font-semibold text-teal-600 uppercase tracking-wide mb-3">
+        <div className="mb-12 text-center md:mb-16">
+          <p className="mb-3 text-sm font-semibold tracking-wide text-teal-600 uppercase">
             End-to-End Support
           </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl lg:text-5xl">
             Our Services
           </h2>
-          <p className="text-base md:text-lg text-slate-600 max-w-2xl mx-auto">
+          <p className="max-w-2xl mx-auto text-base md:text-lg text-slate-600">
             Complete lifecycle support from initial design through ongoing maintenance
           </p>
         </div>
 
         {/* Services Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-10">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
@@ -50,28 +51,28 @@ const ServicesSection = () => {
                 )}
 
                 {/* Card */}
-                <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition-shadow h-full">
+                <div className="h-full p-8 transition-shadow bg-white border border-gray-100 shadow-sm rounded-2xl hover:shadow-md">
                   {/* Number Badge */}
                   <div className="absolute -top-6 left-8">
-                    <div className="w-12 h-12 rounded-full bg-teal-500 flex items-center justify-center text-white font-bold text-lg">
+                    <div className="flex items-center justify-center w-12 h-12 text-lg font-bold text-white bg-teal-500 rounded-full">
                       {service.id}
                     </div>
                   </div>
 
                   {/* Icon */}
-                  <div className="mb-6 mt-4">
-                    <div className="w-16 h-16 rounded-2xl bg-teal-50 flex items-center justify-center">
+                  <div className="mt-4 mb-6">
+                    <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-teal-50">
                       <Icon className="w-8 h-8 text-teal-600" strokeWidth={1.5} />
                     </div>
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 leading-tight">
+                  <h3 className="mb-3 text-xl font-bold leading-tight text-gray-900">
                     {service.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-sm text-slate-600 leading-relaxed">
+                  <p className="text-sm leading-relaxed text-slate-600">
                     {service.description}
                   </p>
                 </div>
