@@ -87,17 +87,17 @@ const Hero = () => {
           <div className="flex flex-col flex-wrap justify-center gap-8 sm:flex-row lg:gap-16">
             <div className="flex items-center justify-center gap-3">
               <div className="w-3 h-3 bg-green-500 rounded-full shadow-sm" />
-              <span className="text-base font-medium text-gray-600">ISO Certified</span>
+              <span className="text-lg font-medium text-gray-600">ISO Certified</span>
             </div>
             
             <div className="flex items-center justify-center gap-3">
               <div className="w-3 h-3 bg-blue-500 rounded-full shadow-sm" />
-              <span className="text-base font-medium text-gray-600">20+ Years Experience</span>
+              <span className="text-lg font-medium text-gray-600">20+ Years Experience</span>
             </div>
             
             <div className="flex items-center justify-center gap-3">
               <div className="w-3 h-3 bg-green-500 rounded-full shadow-sm" />
-              <span className="text-base font-medium text-gray-600">500+ Projects Delivered</span>
+              <span className="text-lg font-medium text-gray-600">500+ Projects Delivered</span>
             </div>
           </div>
         </div>
