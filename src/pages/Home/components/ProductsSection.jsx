@@ -10,6 +10,7 @@ const ProductsSection = () => {
   };
 
   return (
+
     <section className="relative py-16 mt-28">
       {/* Light Blue Wave Layer */}
       <div className=" absolute top-0 left-0 w-full h-[200px] -translate-y-6 md:-translate-y-8 z-0 pointer-events-none ">
@@ -42,6 +43,7 @@ const ProductsSection = () => {
           </defs>
         </svg>
       </div>
+
 
       <div className="relative z-10 px-4 mx-auto max-w-7xl md:px-8">
         {/* Section Header */}
