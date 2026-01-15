@@ -23,19 +23,18 @@ const Hero = () => {
    
 
       {/* Main Content */}
-      <div className="relative px-4 pt-20 mx-auto md:pt-48 max-w-7xl md:px-8">
-        <div className="flex flex-col-reverse items-center justify-between gap-8 lg:flex-row lg:gap-12">
+      <div className="relative pt-20 md:pt-48 mx-auto max-w-7xl px-4 md:px-8">
+        <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-8 lg:gap-12">
           
-
           {/* Left Content - Text Block */}
-          <div className="w-full space-y-5 lg:w-1/2">
+          <div className="space-y-5 w-full lg:w-1/2">
             <h1 className="text-3xl md:text-5xl lg:text-[3.25rem] font-bold leading-[1.15] tracking-tight">
               <span className="text-gray-900">Transform Wastewater Into</span>
               <br />
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#155DFC] via-[#00B8DB] to-[#00C950]">Reusable & Potable Water</span>{' '}
             </h1>
 
-            <p className="max-w-xl text-base leading-relaxed text-gray-600 md:text-lg">
+            <p className="text-base leading-relaxed text-gray-600 md:text-lg max-w-xl">
               Engineering excellence in water purification, wastewater treatment, and fire-fighting 
               systems for industries, institutions, and communities.
             </p>
@@ -60,9 +59,8 @@ const Hero = () => {
           </div>
 
           {/* Right Column - Water Drop Illustration */}
-          <div className="relative flex items-center justify-center order-first w-full lg:w-1/2 lg:order-last">
+          <div className="relative flex items-center justify-center w-full lg:w-1/2 order-first lg:order-last">
             <div className="relative w-full max-w-sm md:max-w-md lg:max-w-2xl xl:max-w-[48rem]">
-
               {/* Soft Glow Behind Droplet */}
               <div 
                 className="absolute inset-0 rounded-full blur-3xl"
@@ -88,18 +86,18 @@ const Hero = () => {
         <div className="pt-8 mt-8 md:mt-12 lg:mt-16">
           <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:justify-center lg:gap-16">
             <div className="flex items-center justify-center gap-3">
-              <div className="flex-shrink-0 w-3 h-3 bg-green-500 rounded-full shadow-sm" />
-              <span className="text-sm font-medium text-gray-600 md:text-lg">ISO Certified</span>
+              <div className="w-3 h-3 bg-green-500 rounded-full shadow-sm flex-shrink-0" />
+              <span className="text-sm md:text-lg font-medium text-gray-600">ISO Certified</span>
             </div>
             
             <div className="flex items-center justify-center gap-3">
-              <div className="flex-shrink-0 w-3 h-3 bg-blue-500 rounded-full shadow-sm" />
-              <span className="text-sm font-medium text-gray-600 md:text-lg">20+ Years Experience</span>
+              <div className="w-3 h-3 bg-blue-500 rounded-full shadow-sm flex-shrink-0" />
+              <span className="text-sm md:text-lg font-medium text-gray-600">20+ Years Experience</span>
             </div>
             
             <div className="flex items-center justify-center gap-3">
-              <div className="flex-shrink-0 w-3 h-3 bg-green-500 rounded-full shadow-sm" />
-              <span className="text-sm font-medium text-gray-600 md:text-lg">500+ Projects Delivered</span>
+              <div className="w-3 h-3 bg-green-500 rounded-full shadow-sm flex-shrink-0" />
+              <span className="text-sm md:text-lg font-medium text-gray-600">500+ Projects Delivered</span>
             </div>
           </div>
         </div>
