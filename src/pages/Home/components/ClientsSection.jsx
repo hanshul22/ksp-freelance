@@ -51,11 +51,11 @@ const ClientsSection = () => {
         </div>
 
         {/* Mobile Grid Layout */}
-        <div className="grid grid-cols-2 gap-4 mb-12 md:hidden">
+        <div className="grid grid-cols-2 gap-6 mb-12 md:hidden">
           {clients.map((client) => (
             <div
               key={client.id}
-              className="flex items-center justify-center p-4 bg-white border border-gray-100 shadow-sm rounded-2xl h-28"
+              className="flex items-center justify-center p-2 h-32"
             >
               <img
                 src={client.logo}
