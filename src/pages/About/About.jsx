@@ -1,4 +1,3 @@
-import Header from '@/components/layout/Header';
 import {
   HeroSection,
   WhoWeAreSection,
@@ -14,7 +13,6 @@ import {
 const About = () => {
   return (
     <div className="min-h-screen">
-      <Header />
       <HeroSection />
       <WhoWeAreSection />
       <JourneySection />
