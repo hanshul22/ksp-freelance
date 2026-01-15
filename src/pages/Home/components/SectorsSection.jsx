@@ -76,7 +76,7 @@ const SectorsSection = () => {
 
         {/* CTA Button */}
         <div className="flex justify-center mt-12">
-          <button className="inline-flex items-center gap-2 px-8 py-4 text-base font-semibold text-white transition-all duration-300 bg-blue-600 rounded-xl hover:bg-blue-700">
+          <button className="inline-flex items-center gap-2 px-8 py-4 text-base font-semibold text-white transition-all duration-300 bg-blue-600 rounded-full hover:bg-blue-700">
             Explore Sector Solutions
             <ArrowRight className="w-5 h-5" />
           </button>
