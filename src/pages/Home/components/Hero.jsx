@@ -70,7 +70,7 @@ const Hero = () => {
             <div className="flex flex-col gap-3 pt-1 sm:flex-row sm:justify-center lg:justify-start">
               <Link
                 to="/products"
-                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#155DFC] to-[#0092B8] text-white px-7 py-3.5 rounded-full text-sm font-semibold shadow-md w-full sm:w-auto"
+                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#155DFC] to-[#00A5C4] text-white px-7 py-3.5 rounded-xl text-sm font-semibold shadow-md w-full sm:w-auto"
               >
                 Explore Our Solutions
                 <ArrowRight className="w-4 h-4" />
@@ -78,7 +78,7 @@ const Hero = () => {
               
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-white text-blue-600 px-7 py-3.5 rounded-full text-sm font-semibold border-2 border-blue-600 w-full sm:w-auto"
+                className="inline-flex items-center justify-center gap-2 bg-white text-blue-600 px-7 py-3.5 rounded-xl text-sm font-semibold border-2 border-blue-500 w-full sm:w-auto"
               >
                 Schedule a Consultation
               </Link>
