@@ -8,7 +8,7 @@ const AboutSection = () => {
       <div className="px-6 mx-auto max-w-7xl md:px-8">
         <div className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-12 lg:items-center">
           {/* Content - Appears first on mobile */}
-          <div className="space-y-5 order-1 lg:order-2">
+          <div className="space-y-5 order-1 lg:order-2 text-center lg:text-left">
             {/* Label */}
             <div className="text-xs font-semibold tracking-wider text-blue-600 uppercase">
               About KSP Hydro Engineers
@@ -27,7 +27,7 @@ const AboutSection = () => {
             </p>
 
             {/* CTA Button */}
-            <div className="pt-1">
+            <div className="pt-1 flex justify-center lg:justify-start">
               <Link
                 to="/about"
                 className="inline-flex items-center gap-2 px-5 py-2.5 text-blue-600 bg-white border-2 border-blue-500 rounded-lg text-sm font-medium"
