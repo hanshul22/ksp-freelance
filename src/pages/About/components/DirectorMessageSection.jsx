@@ -1,34 +1,23 @@
 const DirectorMessageSection = () => {
   return (
-    <section className="w-full py-20 px-6 relative overflow-hidden" style={{ backgroundColor: '#F5FAFF' }}>
+    <section className="relative w-full px-6 py-20 overflow-hidden" >
       {/* Subtle wave shapes at bottom */}
-      <div 
-        className="absolute bottom-0 left-0 w-full h-32 opacity-40"
-        style={{
-          background: 'radial-gradient(ellipse 80% 100% at 20% 100%, #d4f1f9 0%, transparent 60%)'
-        }}
-      />
-      <div 
-        className="absolute bottom-0 right-0 w-full h-24 opacity-30"
-        style={{
-          background: 'radial-gradient(ellipse 60% 100% at 80% 100%, #dbeafe 0%, transparent 60%)'
-        }}
-      />
+  
 
-      <div className="max-w-4xl mx-auto relative z-10">
+      <div className="relative z-10 max-w-4xl mx-auto">
         {/* Main Card */}
         <article 
-          className="rounded-2xl p-8 md:p-12 shadow-lg"
+          className="p-8 shadow-lg rounded-2xl md:p-12"
           style={{
             background: 'linear-gradient(135deg, #f8fcff 0%, #f0f7ff 100%)',
             boxShadow: '0 10px 40px -10px rgba(0, 0, 0, 0.1)'
           }}
         >
           {/* Header Row */}
-          <header className="flex flex-col sm:flex-row items-start sm:items-center gap-5 mb-8">
+          <header className="flex flex-col items-start gap-5 mb-8 sm:flex-row sm:items-center">
             {/* Avatar Circle */}
             <div 
-              className="w-16 h-16 rounded-full flex-shrink-0"
+              className="flex-shrink-0 w-16 h-16 rounded-full"
               style={{
                 background: 'linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)'
               }}
@@ -36,10 +25,10 @@ const DirectorMessageSection = () => {
             
             {/* Title and Subtitle */}
             <div>
-              <h2 className="text-xl md:text-2xl font-bold text-slate-900">
+              <h2 className="text-xl font-bold md:text-2xl text-slate-900">
                 Managing Director&apos;s Message
               </h2>
-              <p className="text-blue-600 font-semibold text-sm md:text-base mt-1">
+              <p className="mt-1 text-sm font-semibold text-blue-600 md:text-base">
                 Vision for Sustainable Future
               </p>
             </div>
@@ -64,10 +53,10 @@ const DirectorMessageSection = () => {
           </div>
 
           {/* Divider */}
-          <div className="border-t border-slate-200 mt-8 pt-6">
+          <div className="pt-6 mt-8 border-t border-slate-200">
             {/* Signature Block */}
-            <p className="text-slate-900 font-bold">Mr. Kumar S. Patel</p>
-            <p className="text-slate-500 text-sm mt-1">
+            <p className="font-bold text-slate-900">Mr. Kumar S. Patel</p>
+            <p className="mt-1 text-sm text-slate-500">
               Managing Director, KSP Hydro Engineers Pvt. Ltd.
             </p>
           </div>

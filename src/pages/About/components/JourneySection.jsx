@@ -45,37 +45,27 @@ const JourneySection = () => {
   ];
 
   return (
-    <section className="w-full py-20 px-6 relative overflow-hidden bg-white">
-      {/* Subtle green background shapes */}
-      <div 
-        className="absolute top-20 left-0 w-96 h-96 rounded-full opacity-20"
-        style={{ 
-          background: 'radial-gradient(circle, #d1fae5 0%, transparent 70%)',
-          transform: 'translate(-40%, 0%)'
-        }}
-      />
-      <div 
-        className="absolute bottom-20 right-0 w-80 h-80 rounded-full opacity-20"
-        style={{ 
-          background: 'radial-gradient(circle, #d1fae5 0%, transparent 70%)',
-          transform: 'translate(40%, 0%)'
-        }}
-      />
-      <div 
-        className="absolute top-1/2 left-10 w-64 h-64 rounded-full opacity-15"
-        style={{ 
-          background: 'radial-gradient(circle, #a7f3d0 0%, transparent 70%)',
-          transform: 'translateY(-50%)'
-        }}
-      />
+    <section className="relative w-full px-6 py-20 overflow-hidden">
+      {/* Background SVG */}
+      <div className="absolute inset-0 z-0 w-full h-full mt-40 pointer-events-none">
+        <svg
+          // className="w-full h-full"
+          preserveAspectRatio="none"
+          viewBox="0 0 1340 1036"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M945.56 918.092C1168.54 814.147 1304.66 953.054 1344.85 1035.5L1341.72 379.579C1260.29 277.825 1144.42 271.563 1089.62 280.956C1034.81 290.349 975.311 248.081 972.179 223.034C972.179 59.0002 649.093 112.5 635.523 112.5C442.399 119 41.1201 105.6 -18.9999 0V514.207C-2.71509 603.124 82.78 694.233 123.492 728.673C185.082 774.593 333.941 852.343 436.661 795.987C539.38 739.631 612.035 793.378 635.523 827.296C733.232 990.102 882.926 955.663 945.56 918.092Z" fill="#EFFEEF"/>
+        </svg>
+      </div>
 
-      <div className="max-w-5xl mx-auto relative z-10">
+      <div className="relative z-10 max-w-5xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+        <div className="mb-16 text-center">
+          <h2 className="mb-4 text-3xl font-bold md:text-4xl text-slate-900">
             Our Journey
           </h2>
-          <p className="text-base md:text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
+          <p className="max-w-2xl mx-auto text-base leading-relaxed md:text-lg text-slate-500">
             Two decades of innovation, growth, and commitment to sustainable water solutions
           </p>
         </div>
@@ -93,47 +83,47 @@ const JourneySection = () => {
             {journeyEvents.map((event, index) => (
               <div key={index} className="relative">
                 {/* Desktop Layout */}
-                <div className="hidden md:flex items-center">
+                <div className="items-center hidden md:flex">
                   {/* Left side content */}
                   <div className={`w-1/2 ${event.side === 'left' ? 'pr-12' : ''}`}>
                     {event.side === 'left' && (
-                      <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-100 text-right">
+                      <div className="p-6 text-right bg-white border shadow-sm rounded-xl border-slate-100">
                         <span className="text-2xl font-bold text-blue-600">{event.year}</span>
-                        <h3 className="text-lg font-semibold text-slate-900 mt-1">{event.title}</h3>
-                        <p className="text-sm text-slate-500 mt-2 leading-relaxed">{event.description}</p>
+                        <h3 className="mt-1 text-lg font-semibold text-slate-900">{event.title}</h3>
+                        <p className="mt-2 text-sm leading-relaxed text-slate-500">{event.description}</p>
                       </div>
                     )}
                   </div>
 
                   {/* Center node */}
-                  <div className="absolute left-1/2 transform -translate-x-1/2 z-10">
-                    <div className="w-4 h-4 bg-blue-500 rounded-full border-4 border-white shadow-md" />
+                  <div className="absolute z-10 transform -translate-x-1/2 left-1/2">
+                    <div className="w-4 h-4 bg-blue-500 border-4 border-white rounded-full shadow-md" />
                   </div>
 
                   {/* Right side content */}
                   <div className={`w-1/2 ${event.side === 'right' ? 'pl-12' : ''}`}>
                     {event.side === 'right' && (
-                      <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-100 text-left">
+                      <div className="p-6 text-left bg-white border shadow-sm rounded-xl border-slate-100">
                         <span className="text-2xl font-bold text-blue-600">{event.year}</span>
-                        <h3 className="text-lg font-semibold text-slate-900 mt-1">{event.title}</h3>
-                        <p className="text-sm text-slate-500 mt-2 leading-relaxed">{event.description}</p>
+                        <h3 className="mt-1 text-lg font-semibold text-slate-900">{event.title}</h3>
+                        <p className="mt-2 text-sm leading-relaxed text-slate-500">{event.description}</p>
                       </div>
                     )}
                   </div>
                 </div>
 
                 {/* Mobile Layout */}
-                <div className="md:hidden flex items-start">
+                <div className="flex items-start md:hidden">
                   {/* Node */}
                   <div className="relative z-10 mr-6">
                     <div className="w-3 h-3 bg-blue-500 rounded-full border-[3px] border-white shadow-md ml-[6px]" />
                   </div>
 
                   {/* Card */}
-                  <div className="flex-1 bg-white rounded-xl p-5 shadow-sm border border-slate-100">
+                  <div className="flex-1 p-5 bg-white border shadow-sm rounded-xl border-slate-100">
                     <span className="text-xl font-bold text-blue-600">{event.year}</span>
-                    <h3 className="text-base font-semibold text-slate-900 mt-1">{event.title}</h3>
-                    <p className="text-sm text-slate-500 mt-2 leading-relaxed">{event.description}</p>
+                    <h3 className="mt-1 text-base font-semibold text-slate-900">{event.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-slate-500">{event.description}</p>
                   </div>
                 </div>
               </div>

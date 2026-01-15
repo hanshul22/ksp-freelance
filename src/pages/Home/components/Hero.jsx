@@ -5,7 +5,7 @@ import { waterDroplet } from '@/assets';
 
 const Hero = () => {
   return (
-    <section className="relative min-h-[95vh]">
+    <section className="relative min-h-[95vh]" >
       
       {/* Background Wave Decoration */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -20,15 +20,49 @@ const Hero = () => {
         </svg>
       </div>
 
+   
+
       {/* Main Content */}
-      <div className="relative pt-24 md:pt-48 mx-auto max-w-7xl px-4 md:px-8">
-        
-        {/* Mobile Layout: Stacked vertically */}
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-12">
+      <div className="relative px-4 pt-20 mx-auto md:pt-48 max-w-7xl md:px-8">
+        <div className="flex flex-col-reverse items-center justify-between gap-8 lg:flex-row lg:gap-12">
           
-          {/* Water Drop - Centered on mobile, right on desktop */}
-          <div className="relative flex items-center justify-center w-full lg:w-1/2 lg:order-last">
-            <div className="relative w-64 h-64 md:w-full md:max-w-md lg:max-w-2xl xl:max-w-[48rem]">
+
+          {/* Left Content - Text Block */}
+          <div className="w-full space-y-5 lg:w-1/2">
+            <h1 className="text-3xl md:text-5xl lg:text-[3.25rem] font-bold leading-[1.15] tracking-tight">
+              <span className="text-gray-900">Transform Wastewater Into</span>
+              <br />
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#155DFC] via-[#00B8DB] to-[#00C950]">Reusable & Potable Water</span>{' '}
+            </h1>
+
+            <p className="max-w-xl text-base leading-relaxed text-gray-600 md:text-lg">
+              Engineering excellence in water purification, wastewater treatment, and fire-fighting 
+              systems for industries, institutions, and communities.
+            </p>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col gap-3 pt-1 sm:flex-row">
+              <Link
+                to="/products"
+                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#155DFC] to-[#0092B8] text-white px-7 py-3.5 rounded-lg text-sm font-semibold hover:opacity-90 transition-all shadow-md hover:shadow-lg"
+              >
+                Explore Our Solutions
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              
+              <Link
+                to="/contact"
+                className="inline-flex items-center justify-center gap-2 bg-white text-blue-600 px-7 py-3.5 rounded-lg text-sm font-semibold border-2 border-blue-600 hover:bg-blue-50 transition-all"
+              >
+                Schedule a Consultation
+              </Link>
+            </div>
+          </div>
+
+          {/* Right Column - Water Drop Illustration */}
+          <div className="relative flex items-center justify-center order-first w-full lg:w-1/2 lg:order-last">
+            <div className="relative w-full max-w-sm md:max-w-md lg:max-w-2xl xl:max-w-[48rem]">
+
               {/* Soft Glow Behind Droplet */}
               <div 
                 className="absolute inset-0 rounded-full blur-3xl"
@@ -48,60 +82,24 @@ const Hero = () => {
               </div>
             </div>
           </div>
-
-          {/* Text Content - Center on mobile, left on desktop */}
-          <div className="space-y-5 w-full lg:w-1/2 text-center lg:text-left">
-            <h1 className="text-3xl md:text-5xl lg:text-[3.25rem] font-bold leading-[1.15] tracking-tight">
-              <span className="text-gray-900">Transform</span>
-              <br className="md:hidden" />
-              <span className="text-gray-900"> Wastewater Into</span>
-              <br />
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#155DFC] via-[#00B8DB] to-[#00C950]">Reusable & Potable</span>
-              <br className="md:hidden" />
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#155DFC] via-[#00B8DB] to-[#00C950]"> Water</span>
-            </h1>
-
-            <p className="text-base leading-relaxed text-gray-600 md:text-lg max-w-xl mx-auto lg:mx-0">
-              Engineering excellence in water purification, wastewater treatment, and fire-fighting 
-              systems for industries, institutions, and communities.
-            </p>
-
-            {/* CTA Buttons - Full width stacked on mobile */}
-            <div className="flex flex-col gap-3 pt-1 sm:flex-row sm:justify-center lg:justify-start">
-              <Link
-                to="/products"
-                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#155DFC] to-[#00A5C4] text-white px-7 py-3.5 rounded-xl text-sm font-semibold shadow-md w-full sm:w-auto"
-              >
-                Explore Our Solutions
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-              
-              <Link
-                to="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-white text-blue-600 px-7 py-3.5 rounded-xl text-sm font-semibold border-2 border-blue-500 w-full sm:w-auto"
-              >
-                Schedule a Consultation
-              </Link>
-            </div>
-          </div>
         </div>
 
-        {/* Trust Indicators Row - Bottom of hero */}
-        <div className="pt-10 mt-8 md:mt-12 lg:mt-16">
-          <div className="flex flex-wrap justify-center gap-4 sm:gap-6 lg:gap-16">
-            <div className="flex items-center gap-2">
-              <div className="w-2.5 h-2.5 bg-blue-500 rounded-full flex-shrink-0" />
-              <span className="text-xs md:text-sm font-medium text-gray-600">20+ Years Experience</span>
+        {/* Trust Indicators Row */}
+        <div className="pt-8 mt-8 md:mt-12 lg:mt-16">
+          <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:justify-center lg:gap-16">
+            <div className="flex items-center justify-center gap-3">
+              <div className="flex-shrink-0 w-3 h-3 bg-green-500 rounded-full shadow-sm" />
+              <span className="text-sm font-medium text-gray-600 md:text-lg">ISO Certified</span>
             </div>
             
-            <div className="flex items-center gap-2">
-              <div className="w-2.5 h-2.5 bg-green-500 rounded-full flex-shrink-0" />
-              <span className="text-xs md:text-sm font-medium text-gray-600">500+ Projects Delivered</span>
+            <div className="flex items-center justify-center gap-3">
+              <div className="flex-shrink-0 w-3 h-3 bg-blue-500 rounded-full shadow-sm" />
+              <span className="text-sm font-medium text-gray-600 md:text-lg">20+ Years Experience</span>
             </div>
             
-            <div className="flex items-center gap-2">
-              <div className="w-2.5 h-2.5 bg-green-500 rounded-full flex-shrink-0" />
-              <span className="text-xs md:text-sm font-medium text-gray-600">ISO Certified</span>
+            <div className="flex items-center justify-center gap-3">
+              <div className="flex-shrink-0 w-3 h-3 bg-green-500 rounded-full shadow-sm" />
+              <span className="text-sm font-medium text-gray-600 md:text-lg">500+ Projects Delivered</span>
             </div>
           </div>
         </div>
