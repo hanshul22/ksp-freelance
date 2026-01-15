@@ -56,7 +56,7 @@ const WhyChooseUs = () => {
             return (
               <div
                 key={feature.id}
-                className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all w-full min-h-80"
+                className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/20 hover:bg-white/15 transition-all"
               >
                 {/* Icon */}
                 <div className="mb-6">
