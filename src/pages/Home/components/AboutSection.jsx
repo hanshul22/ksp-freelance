@@ -10,17 +10,17 @@ const AboutSection = () => {
           {/* Content - Appears first on mobile */}
           <div className="space-y-5 order-1 lg:order-2 text-center lg:text-left">
             {/* Label */}
-            <div className="text-xs font-semibold tracking-wider text-blue-600 uppercase">
+            <div className="text-sm font-semibold tracking-wider text-blue-600 uppercase">
               About KSP Hydro Engineers
             </div>
 
             {/* Heading */}
-            <h2 className="text-3xl font-bold leading-tight text-gray-900 md:text-4xl lg:text-5xl">
+            <h2 className="text-4xl font-bold leading-tight text-gray-900 md:text-5xl lg:text-5xl">
               Transforming Water for a Sustainable Future
             </h2>
 
             {/* Description */}
-            <p className="text-base leading-relaxed text-slate-600">
+            <p className="text-lg leading-relaxed text-slate-600">
               KSP Hydro Engineers provides end-to-end water and wastewater solutions, 
               helping industries and communities transform raw and drainage water into 
               safe, reusable, and potable water.
