@@ -42,7 +42,7 @@ const AboutSection = () => {
             <div className="pt-2">
               <Link
                 to="/about"
-                className="inline-flex items-center gap-2 px-4 py-2 text-blue-600 transition-all bg-white border-2 border-blue-600 rounded-lg bfont-medium hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2"
+                className="inline-flex items-center gap-2 px-4 py-2 text-blue-600 transition-all bg-white border-2 border-blue-600 rounded-lg font-medium hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2"
               >
                 Know More About Us
                 <ArrowRight className="w-5 h-5" />
