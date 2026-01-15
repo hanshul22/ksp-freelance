@@ -50,12 +50,28 @@ const ClientsSection = () => {
           </p>
         </div>
 
-        {/* Infinite Scrolling Logos */}
-        <div className="relative mb-12 overflow-hidden md:mb-16">
+        {/* Mobile Grid Layout */}
+        <div className="grid grid-cols-2 gap-4 mb-12 md:hidden">
+          {clients.map((client) => (
+            <div
+              key={client.id}
+              className="flex items-center justify-center p-4 bg-white border border-gray-100 shadow-sm rounded-2xl h-28"
+            >
+              <img
+                src={client.logo}
+                alt={client.name}
+                className="object-contain w-full h-full"
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop Infinite Scrolling Logos */}
+        <div className="relative hidden mb-12 overflow-hidden md:block md:mb-16">
           <div className="flex animate-scroll">
             {duplicatedClients.map((client, index) => (
-              <div key={`${client.id}-${index}`} className="flex-shrink-0 mx-3 md:mx-4">
-                <div className="flex items-center justify-center w-40 h-24 sm:w-56 sm:h-32 md:w-64 md:h-36">
+              <div key={`${client.id}-${index}`} className="flex-shrink-0 mx-4">
+                <div className="flex items-center justify-center w-64 h-36">
                   <img
                     src={client.logo}
                     alt={client.name}
