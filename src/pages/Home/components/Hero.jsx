@@ -28,7 +28,7 @@ const Hero = () => {
           
           {/* Water Drop - Centered on mobile, right on desktop */}
           <div className="relative flex items-center justify-center w-full lg:w-1/2 lg:order-last">
-            <div className="relative w-48 h-48 md:w-full md:max-w-md lg:max-w-2xl xl:max-w-[48rem]">
+            <div className="relative w-64 h-64 md:w-full md:max-w-md lg:max-w-2xl xl:max-w-[48rem]">
               {/* Soft Glow Behind Droplet */}
               <div 
                 className="absolute inset-0 rounded-full blur-3xl"
