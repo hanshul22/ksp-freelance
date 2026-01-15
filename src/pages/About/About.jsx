@@ -1,6 +1,9 @@
+import Header from '@/components/layout/Header';
+
 const About = () => {
   return (
     <div className="min-h-screen">
+      <Header />
       {/* Hero Section */}
       <section 
         className="w-full min-h-[70vh] flex items-center justify-center px-6"
