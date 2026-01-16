@@ -1,4 +1,4 @@
-import { HeroSection, HowWeWorkSection, DesignEngineeringSection } from './components';
+import { HeroSection, HowWeWorkSection, DesignEngineeringSection, ErectionCommissioningSection } from './components';
 
 const Services = () => {
   return (
@@ -6,6 +6,7 @@ const Services = () => {
       <HeroSection />
       <HowWeWorkSection />
       <DesignEngineeringSection />
+      <ErectionCommissioningSection />
     </main>
   );
 };
