@@ -61,20 +61,8 @@ const secondaryCards = [
 
 const ErectionCommissioningSection = () => {
   return (
-    <section className="relative w-full bg-white py-12 lg:py-16 overflow-hidden">
-      {/* Decorative background shapes */}
-      <div className="absolute top-0 left-0 w-96 h-96 opacity-30">
-        <svg viewBox="0 0 300 300" className="w-full h-full">
-          <ellipse cx="50" cy="100" rx="200" ry="150" fill="#e6f5e6" />
-        </svg>
-      </div>
-      <div className="absolute top-20 right-0 w-64 h-64 opacity-30">
-        <svg viewBox="0 0 200 200" className="w-full h-full">
-          <ellipse cx="150" cy="50" rx="100" ry="80" fill="#e6f5e6" />
-        </svg>
-      </div>
-
-      <div className="container mx-auto px-4 relative z-10">
+    <section className="w-full bg-white py-12 lg:py-16">
+      <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center justify-center w-14 h-14 bg-[#f97316] rounded-xl mb-6">
