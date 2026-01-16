@@ -1,4 +1,4 @@
-import { HeroSection, HowWeWorkSection, DesignEngineeringSection, ErectionCommissioningSection, OperationMaintenanceSection, ServiceProcessSection } from './components';
+import { HeroSection, HowWeWorkSection, DesignEngineeringSection, ErectionCommissioningSection, OperationMaintenanceSection, ServiceProcessSection, WhyChooseUsSection } from './components';
 
 const Services = () => {
   return (
@@ -9,6 +9,7 @@ const Services = () => {
       <ErectionCommissioningSection />
       <OperationMaintenanceSection />
       <ServiceProcessSection />
+      <WhyChooseUsSection />
     </main>
   );
 };
