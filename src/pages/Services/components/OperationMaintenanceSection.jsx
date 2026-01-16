@@ -61,12 +61,8 @@ const OperationMaintenanceSection = () => {
   ];
 
   return (
-    <section className="w-full bg-white py-16 lg:py-24 relative overflow-hidden">
-      {/* Decorative shapes */}
-      <div className="absolute top-0 left-0 w-64 h-64 bg-cyan-50 rounded-full opacity-40 -translate-x-1/2 -translate-y-1/2" />
-      <div className="absolute bottom-0 right-0 w-80 h-80 bg-cyan-50 rounded-full opacity-40 translate-x-1/3 translate-y-1/3" />
-      
-      <div className="container mx-auto px-4 lg:px-8 relative z-10">
+    <section className="w-full bg-white py-16 lg:py-24">
+      <div className="container mx-auto px-4 lg:px-8">
         {/* Header */}
         <div className="flex flex-col items-center text-center mb-12">
           <div className="w-14 h-14 bg-emerald-500 rounded-xl flex items-center justify-center mb-6">
