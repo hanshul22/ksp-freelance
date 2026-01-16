@@ -1,6 +1,6 @@
 const HowWeWorkSection = () => {
   return (
-    <section className="w-full bg-white py-20 lg:py-28">
+    <section className="w-full bg-white py-12 lg:py-16">
       <div className="container mx-auto px-4 text-center">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1a1f36] mb-8">
