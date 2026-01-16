@@ -74,9 +74,7 @@ const ServiceProcessSection = () => {
                 </div>
               </div>
               
-              <div className="ml-14 w-8 h-8 rounded-full border-2 border-blue-600 flex items-center justify-center">
-                <step.icon className="w-4 h-4 text-blue-600" />
-              </div>
+              <step.icon className="w-6 h-6 text-blue-600 ml-14" />
             </div>
           ))}
         </div>
