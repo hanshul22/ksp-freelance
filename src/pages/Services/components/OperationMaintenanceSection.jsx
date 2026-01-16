@@ -41,26 +41,22 @@ const OperationMaintenanceSection = () => {
     {
       icon: Shield,
       title: "Extended Life",
-      description: "Prolong system lifespan",
-      gradient: "from-teal-400 to-cyan-500"
+      description: "Prolong system lifespan"
     },
     {
       icon: RefreshCw,
       title: "Peak Performance",
-      description: "Optimal efficiency always",
-      gradient: "from-cyan-500 to-blue-500"
+      description: "Optimal efficiency always"
     },
     {
       icon: Clock,
       title: "Reduced Downtime",
-      description: "Minimize interruptions",
-      gradient: "from-teal-500 to-emerald-500"
+      description: "Minimize interruptions"
     },
     {
       icon: Settings,
       title: "Cost Savings",
-      description: "Prevent major repairs",
-      gradient: "from-emerald-500 to-teal-600"
+      description: "Prevent major repairs"
     }
   ];
 
@@ -116,7 +112,7 @@ const OperationMaintenanceSection = () => {
         </div>
 
         {/* AMC Benefits Section */}
-        <div className="bg-white py-8 lg:py-12">
+        <div className="bg-gray-50 rounded-2xl shadow-sm p-8 lg:p-12">
           <h3 className="text-2xl font-bold text-slate-900 text-center mb-10">
             AMC Benefits
           </h3>
@@ -124,7 +120,7 @@ const OperationMaintenanceSection = () => {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {benefits.map((benefit, index) => (
               <div key={index} className="flex flex-col items-center text-center">
-                <div className={`w-12 h-12 bg-gradient-to-br ${benefit.gradient} rounded-xl flex items-center justify-center mb-4`}>
+                <div className="w-12 h-12 bg-teal-500 rounded-xl flex items-center justify-center mb-4">
                   <benefit.icon className="w-6 h-6 text-white" />
                 </div>
                 <h4 className="font-semibold text-slate-900 mb-1">
