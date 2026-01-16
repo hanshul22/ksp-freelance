@@ -46,17 +46,6 @@ const processSteps = [
 const DesignEngineeringSection = () => {
   return (
     <section className="relative w-full bg-white py-20 lg:py-28 overflow-hidden">
-      {/* Background curved shapes */}
-      <div className="absolute top-0 left-0 w-64 h-64 opacity-50">
-        <svg viewBox="0 0 200 200" className="w-full h-full">
-          <ellipse cx="50" cy="50" rx="150" ry="100" fill="#e8f4f8" />
-        </svg>
-      </div>
-      <div className="absolute bottom-0 right-0 w-80 h-80 opacity-50">
-        <svg viewBox="0 0 200 200" className="w-full h-full">
-          <ellipse cx="150" cy="150" rx="150" ry="100" fill="#e8f4f8" />
-        </svg>
-      </div>
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
@@ -104,7 +93,7 @@ const DesignEngineeringSection = () => {
         </div>
 
         {/* Our Consultancy Process */}
-        <div className="bg-[#f8fbfc] rounded-3xl p-8 md:p-12">
+        <div className="bg-white rounded-3xl p-8 md:p-12 shadow-lg">
           <h3 className="text-2xl md:text-3xl font-bold text-[#1a1f36] text-center mb-12">
             Our Consultancy Process
           </h3>
