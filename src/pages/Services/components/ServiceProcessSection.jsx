@@ -58,7 +58,7 @@ const ServiceProcessSection = () => {
           {processSteps.map((step) => (
             <div 
               key={step.number}
-              className="bg-cyan-50 rounded-2xl border border-cyan-100 p-6"
+              className="bg-sky-50/50 rounded-2xl border border-dashed border-sky-200 p-6"
             >
               <div className="flex items-start gap-4 mb-4">
                 <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
@@ -74,7 +74,9 @@ const ServiceProcessSection = () => {
                 </div>
               </div>
               
-              <step.icon className="w-6 h-6 text-blue-600 ml-14" />
+              <div className="ml-14 w-8 h-8 rounded-full border-2 border-blue-600 flex items-center justify-center">
+                <step.icon className="w-4 h-4 text-blue-600" />
+              </div>
             </div>
           ))}
         </div>
