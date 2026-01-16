@@ -1,4 +1,4 @@
-import { Wrench, HardHat, ClipboardCheck, GraduationCap, Shield, ListChecks, CheckCircle } from 'lucide-react';
+import { Settings, HardHat, ClipboardList, Rss, ShieldAlert, ClipboardCheck, CheckCircle } from 'lucide-react';
 
 const primaryCards = [
   {
@@ -13,7 +13,7 @@ const primaryCards = [
     ]
   },
   {
-    icon: ClipboardCheck,
+    icon: ClipboardList,
     title: "Testing & Validation",
     description: "Rigorous testing protocols to ensure the system meets all performance specifications and quality standards.",
     items: [
@@ -24,7 +24,7 @@ const primaryCards = [
     ]
   },
   {
-    icon: GraduationCap,
+    icon: Rss,
     title: "Handover & Training",
     description: "Comprehensive training for your staff and complete documentation handover for smooth operations.",
     items: [
@@ -38,7 +38,7 @@ const primaryCards = [
 
 const secondaryCards = [
   {
-    icon: Shield,
+    icon: ShieldAlert,
     title: "Safety First Approach",
     items: [
       "Certified installation teams",
@@ -48,7 +48,7 @@ const secondaryCards = [
     ]
   },
   {
-    icon: ListChecks,
+    icon: ClipboardCheck,
     title: "Commissioning Checklist",
     items: [
       "System functionality verification",
@@ -66,7 +66,7 @@ const ErectionCommissioningSection = () => {
         {/* Header */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center justify-center w-14 h-14 bg-[#f97316] rounded-xl mb-6">
-            <Wrench className="w-7 h-7 text-white" />
+            <Settings className="w-7 h-7 text-white" />
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1a1f36] mb-6">
             Erection & Commissioning
