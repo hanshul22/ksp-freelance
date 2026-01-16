@@ -3,3 +3,4 @@ export { default as HowWeWorkSection } from './HowWeWorkSection';
 export { default as DesignEngineeringSection } from './DesignEngineeringSection';
 export { default as ErectionCommissioningSection } from './ErectionCommissioningSection';
 export { default as OperationMaintenanceSection } from './OperationMaintenanceSection';
+export { default as ServiceProcessSection } from './ServiceProcessSection';
