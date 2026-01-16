@@ -5,3 +5,4 @@ export { default as ErectionCommissioningSection } from './ErectionCommissioning
 export { default as OperationMaintenanceSection } from './OperationMaintenanceSection';
 export { default as ServiceProcessSection } from './ServiceProcessSection';
 export { default as WhyChooseUsSection } from './WhyChooseUsSection';
+export { default as ServicesCTASection } from './ServicesCTASection';
