@@ -74,7 +74,7 @@ const InquirySection = () => {
           </p>
           <a
             href="tel:+918023456789"
-            className="inline-flex items-center gap-3 bg-white text-[#0B7DDA] px-8 py-3.5 rounded-full font-semibold text-base shadow-lg border border-[#E0E0E0]"
+            className="inline-flex items-center gap-3 bg-white text-[#155DFC] px-8 py-3.5 rounded-full font-semibold text-base border-2 border-[#155DFC]"
           >
             <Phone className="w-5 h-5" />
             +91 80 2345 6789
