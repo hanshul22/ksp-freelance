@@ -78,7 +78,7 @@ const PumpingSection = () => {
           {pumpCards.map((card, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl p-6 shadow-sm flex items-start gap-4"
+              className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-sm border border-gray-100 flex items-start gap-4"
             >
               {/* Icon */}
               <div className="flex-shrink-0 flex items-center justify-center w-12 h-12 bg-[#6366F1] rounded-xl">
