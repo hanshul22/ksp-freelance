@@ -69,7 +69,7 @@ const InquirySection = () => {
 
         {/* Bottom CTA */}
         <div className="text-center">
-          <p className="text-white/70 text-base mb-5">
+          <p className="text-white/70 text-lg mb-5">
             Or call our main helpline for general inquiries
           </p>
           <a
