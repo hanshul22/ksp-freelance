@@ -45,33 +45,8 @@ const processSteps = [
 
 const ReverseOsmosisSection = () => {
   return (
-    <section className="bg-[#F2F6FF] py-20 relative overflow-hidden">
-      {/* Background decorative curves */}
-      <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-        <svg
-          className="absolute top-0 left-0 w-full h-full"
-          viewBox="0 0 1440 800"
-          fill="none"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M-100 100 Q 200 50 400 100 T 800 80 T 1200 120 T 1600 80"
-            stroke="#DBEAFE"
-            strokeWidth="80"
-            fill="none"
-            opacity="0.5"
-          />
-          <path
-            d="M-100 600 Q 300 550 600 600 T 1100 580 T 1500 620"
-            stroke="#DBEAFE"
-            strokeWidth="60"
-            fill="none"
-            opacity="0.4"
-          />
-        </svg>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section className="bg-white py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12">
           {/* Icon */}
