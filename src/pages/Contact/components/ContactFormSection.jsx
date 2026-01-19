@@ -1,32 +1,28 @@
-import { User, Mail, Phone, Building2, FileText, MessageSquare, Clock, Send } from 'lucide-react';
+import { User, Mail, Phone, Building2, LayoutGrid, MessageSquare, Clock, Send } from 'lucide-react';
 
 const ContactFormSection = () => {
   return (
     <section className="relative bg-[#F4FAFD] py-16 overflow-hidden">
       {/* Decorative Background Shapes */}
       <div className="absolute inset-0 pointer-events-none">
+        {/* Top left curve */}
         <svg
-          className="absolute top-0 left-0 w-64 h-64 opacity-60"
-          viewBox="0 0 200 200"
+          className="absolute -top-20 -left-20 w-[400px] h-[400px]"
+          viewBox="0 0 400 400"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <path
-            d="M-50 100C-50 44.7715 -5.22847 0 50 0H200V200H50C-5.22847 200 -50 155.228 -50 100Z"
-            fill="white"
-          />
+          <circle cx="100" cy="100" r="300" fill="white" fillOpacity="0.5" />
         </svg>
+        
+        {/* Bottom right curve */}
         <svg
-          className="absolute bottom-0 right-0 w-80 h-48"
-          viewBox="0 0 320 192"
+          className="absolute -bottom-10 -right-10 w-[500px] h-[300px]"
+          viewBox="0 0 500 300"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <path
-            d="M320 192H0C0 85.9608 85.9608 0 192 0C298.039 0 320 85.9608 320 192Z"
-            fill="white"
-            fillOpacity="0.6"
-          />
+          <ellipse cx="400" cy="250" rx="350" ry="200" fill="white" fillOpacity="0.6" />
         </svg>
       </div>
 
@@ -41,7 +37,7 @@ const ContactFormSection = () => {
               Fill out the form below and our team will get back to you within 24 hours
             </p>
 
-            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 md:p-8">
+            <div className="bg-white rounded-2xl p-6 md:p-8">
               <form className="space-y-5">
                 {/* Full Name */}
                 <div>
@@ -53,7 +49,7 @@ const ContactFormSection = () => {
                     <input
                       type="text"
                       placeholder="Enter your full name"
-                      className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg text-gray-700 placeholder-gray-400 focus:outline-none focus:border-blue-500"
+                      className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg text-gray-700 placeholder-gray-400 focus:outline-none focus:border-blue-500 bg-white"
                     />
                   </div>
                 </div>
@@ -68,7 +64,7 @@ const ContactFormSection = () => {
                     <input
                       type="email"
                       placeholder="your.email@company.com"
-                      className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg text-gray-700 placeholder-gray-400 focus:outline-none focus:border-blue-500"
+                      className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg text-gray-700 placeholder-gray-400 focus:outline-none focus:border-blue-500 bg-white"
                     />
                   </div>
                 </div>
@@ -84,7 +80,7 @@ const ContactFormSection = () => {
                       <input
                         type="tel"
                         placeholder="+91 98765 43210"
-                        className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg text-gray-700 placeholder-gray-400 focus:outline-none focus:border-blue-500"
+                        className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg text-gray-700 placeholder-gray-400 focus:outline-none focus:border-blue-500 bg-white"
                       />
                     </div>
                   </div>
@@ -97,7 +93,7 @@ const ContactFormSection = () => {
                       <input
                         type="text"
                         placeholder="Your company"
-                        className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg text-gray-700 placeholder-gray-400 focus:outline-none focus:border-blue-500"
+                        className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg text-gray-700 placeholder-gray-400 focus:outline-none focus:border-blue-500 bg-white"
                       />
                     </div>
                   </div>
@@ -109,11 +105,11 @@ const ContactFormSection = () => {
                     Subject <span className="text-red-500">*</span>
                   </label>
                   <div className="relative">
-                    <FileText className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    <LayoutGrid className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                     <input
                       type="text"
                       placeholder="Subject of your inquiry"
-                      className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg text-gray-700 placeholder-gray-400 focus:outline-none focus:border-blue-500"
+                      className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg text-gray-700 placeholder-gray-400 focus:outline-none focus:border-blue-500 bg-white"
                     />
                   </div>
                 </div>
@@ -128,7 +124,7 @@ const ContactFormSection = () => {
                     <textarea
                       rows={5}
                       placeholder="Tell us about your requirements..."
-                      className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg text-gray-700 placeholder-gray-400 focus:outline-none focus:border-blue-500 resize-none"
+                      className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg text-gray-700 placeholder-gray-400 focus:outline-none focus:border-blue-500 resize-none bg-white"
                     />
                   </div>
                 </div>
@@ -160,13 +156,13 @@ const ContactFormSection = () => {
 
             <div className="space-y-4">
               {/* Phone Numbers Card */}
-              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-5 flex gap-4">
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+              <div className="bg-white rounded-xl p-5 flex gap-4">
+                <div className="w-12 h-12 bg-[#EBF5FF] rounded-xl flex items-center justify-center flex-shrink-0">
                   <Phone className="w-6 h-6 text-[#1E88E5]" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-[#0A1628] mb-2">Phone Numbers</h3>
-                  <div className="space-y-1 text-gray-600 text-sm">
+                  <div className="space-y-1 text-gray-500 text-sm">
                     <p>+91 80 2345 6789</p>
                     <p>+91 80 2345 6790</p>
                     <p>+91 98765 43210 (Mobile)</p>
@@ -175,13 +171,13 @@ const ContactFormSection = () => {
               </div>
 
               {/* Email Addresses Card */}
-              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-5 flex gap-4">
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+              <div className="bg-white rounded-xl p-5 flex gap-4">
+                <div className="w-12 h-12 bg-[#EBF5FF] rounded-xl flex items-center justify-center flex-shrink-0">
                   <Mail className="w-6 h-6 text-[#1E88E5]" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-[#0A1628] mb-2">Email Addresses</h3>
-                  <div className="space-y-1 text-gray-600 text-sm">
+                  <div className="space-y-1 text-gray-500 text-sm">
                     <p>info@ksphydro.com</p>
                     <p>sales@ksphydro.com</p>
                     <p>support@ksphydro.com</p>
@@ -190,13 +186,13 @@ const ContactFormSection = () => {
               </div>
 
               {/* Business Hours Card */}
-              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-5 flex gap-4">
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+              <div className="bg-white rounded-xl p-5 flex gap-4">
+                <div className="w-12 h-12 bg-[#EBF5FF] rounded-xl flex items-center justify-center flex-shrink-0">
                   <Clock className="w-6 h-6 text-[#1E88E5]" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-[#0A1628] mb-2">Business Hours</h3>
-                  <div className="space-y-1 text-gray-600 text-sm">
+                  <div className="space-y-1 text-gray-500 text-sm">
                     <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
                     <p>Saturday: 9:00 AM - 2:00 PM</p>
                     <p>Sunday: Closed</p>
@@ -205,7 +201,7 @@ const ContactFormSection = () => {
               </div>
 
               {/* Follow Us Card */}
-              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-5">
+              <div className="bg-white rounded-xl p-5">
                 <h3 className="font-semibold text-[#0A1628] mb-4">Follow Us</h3>
                 <div className="flex gap-3">
                   <div className="w-10 h-10 border border-gray-200 rounded-lg flex items-center justify-center">
