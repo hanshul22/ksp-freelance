@@ -7,8 +7,8 @@ const Hero = () => {
   return (
     <section className="relative min-h-[95vh]" >
       
-      {/* Background Wave Decoration */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
+      {/* Background Wave Decoration - Desktop */}
+      <div className="absolute inset-0 z-0 pointer-events-none hidden md:block">
         <svg 
           className="w-full h-full"
           preserveAspectRatio="none"
@@ -17,6 +17,19 @@ const Hero = () => {
           xmlns="http://www.w3.org/2000/svg"
         >
           <path d="M386.29 779.592C163.314 675.646 27.19 814.553 -13 897L-9.86831 241.078C71.5556 139.325 187.428 133.063 242.233 142.455C297.037 151.848 356.539 109.581 359.671 84.534C373.45 16.9068 404.036 0 417.607 0H1350.85C1358.37 269.256 1353.98 362.661 1350.85 375.707C1334.57 464.624 1249.07 555.733 1208.36 590.172C1146.77 636.092 997.909 713.843 895.189 657.487C792.47 601.131 719.815 654.878 696.327 688.796C598.619 851.602 448.924 817.162 386.29 779.592Z" fill="#EFFAFE"/>
+        </svg>
+      </div>
+
+      {/* Background Wave Decoration - Mobile */}
+      <div className="absolute inset-0 z-0 pointer-events-none block md:hidden">
+        <svg 
+          className="w-full h-auto"
+          viewBox="0 0 375 363" 
+          fill="none" 
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="xMidYMin slice"
+        >
+          <path d="M109.455 330.925C48.3317 302.527 11.017 340.476 0 363L0.857977 65.8611C23.1781 38.0626 54.9414 36.3519 69.9646 38.9179C84.9877 41.4839 101.299 29.9369 102.157 23.0942C105.934 4.61883 114.319 0 118.039 0H373.862C375.923 73.5592 374.721 217.022 373.862 220.586C369.398 244.878 345.962 269.768 334.802 279.177C317.919 291.722 277.113 312.963 248.955 297.566C220.798 282.17 200.881 296.854 194.443 306.12C167.659 350.598 126.624 341.189 109.455 330.925Z" fill="#EFFAFE"/>
         </svg>
       </div>
 
