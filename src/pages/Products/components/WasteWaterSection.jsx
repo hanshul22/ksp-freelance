@@ -1,4 +1,4 @@
-import { Recycle, ChevronDown, ChevronUp, Factory, Settings, Shield } from 'lucide-react';
+import { Recycle, ChevronDown, ChevronUp, Factory, Settings, Shield, Filter, Box, Wind, Layers, Droplets, Zap, Grid3X3, Package, Radio } from 'lucide-react';
 
 const etpCards = [
   {
@@ -16,6 +16,18 @@ const etpCards = [
     title: 'Compliance-Driven',
     description: 'Designed to meet stringent environmental regulations and discharge standards set by pollution control boards.',
   },
+];
+
+const sparesCategories = [
+  { icon: Filter, label: 'Automatic Fine Screen' },
+  { icon: Box, label: 'MBBR Media' },
+  { icon: Wind, label: 'Stormix Aerator' },
+  { icon: Layers, label: 'Ultra Filtration' },
+  { icon: Droplets, label: 'Tertiary Treatment' },
+  { icon: Zap, label: 'Ozonization System' },
+  { icon: Grid3X3, label: 'MS-FRP Tube Settlers' },
+  { icon: Package, label: 'General Consumables' },
+  { icon: Radio, label: 'Remote Monitoring Tools' },
 ];
 
 const WasteWaterSection = () => {
@@ -48,7 +60,7 @@ const WasteWaterSection = () => {
         </div>
 
         {/* ETP Section (Expanded State) */}
-        <div className="bg-[#E8F4F8] rounded-xl p-6 shadow-md">
+        <div className="bg-[#E8F4F8] rounded-xl p-6 shadow-md mb-4">
           {/* ETP Header */}
           <div className="flex items-center justify-between mb-6">
             <h3 className="text-lg font-semibold text-[#0A1628]">
@@ -78,6 +90,37 @@ const WasteWaterSection = () => {
                 <p className="text-gray-500 text-sm leading-relaxed">
                   {card.description}
                 </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Spares & Components Section */}
+        <div className="bg-[#F6FAFD] rounded-xl p-6 shadow-md border border-gray-100">
+          {/* Header */}
+          <div className="flex items-center justify-between mb-6">
+            <h3 className="text-lg font-semibold text-[#0A1628]">
+              Spares & Components – 9 Categories
+            </h3>
+            <ChevronUp className="w-5 h-5 text-gray-400" />
+          </div>
+
+          {/* Categories Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {sparesCategories.map((category, index) => (
+              <div
+                key={index}
+                className="flex items-center gap-3 bg-white rounded-xl p-4 shadow-sm"
+              >
+                {/* Icon */}
+                <div className="flex items-center justify-center w-10 h-10 bg-[#155DFC] rounded-lg flex-shrink-0">
+                  <category.icon className="w-5 h-5 text-white" />
+                </div>
+
+                {/* Label */}
+                <span className="text-sm font-medium text-[#0A1628]">
+                  {category.label}
+                </span>
               </div>
             ))}
           </div>
