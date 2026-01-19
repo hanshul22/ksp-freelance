@@ -56,7 +56,7 @@ const bottomFeatures = [
 
 const PumpingSection = () => {
   return (
-    <section className="bg-[#F5F3FF] py-20 relative overflow-hidden">
+    <section className="bg-white py-20 relative overflow-hidden">
       {/* Background decorative curves */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
         <svg
