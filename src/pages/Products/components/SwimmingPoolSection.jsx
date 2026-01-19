@@ -50,7 +50,7 @@ const SwimmingPoolSection = () => {
         {/* Top Information Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           {/* Card 1 - What It Is */}
-          <div className="bg-white rounded-xl p-6 shadow-sm">
+          <div className="bg-white/80 backdrop-blur-md rounded-xl p-6 shadow-md border border-gray-100">
             <h3 className="text-lg font-semibold text-[#0A1628] mb-3">What It Is</h3>
             <p className="text-gray-500 text-sm leading-relaxed">
               Comprehensive water circulation, filtration, and chemical treatment systems designed to maintain optimal water quality for swimming pools, decorative lakes, and water features.
@@ -58,7 +58,7 @@ const SwimmingPoolSection = () => {
           </div>
 
           {/* Card 2 - Where It's Used */}
-          <div className="bg-white rounded-xl p-6 shadow-sm">
+          <div className="bg-white/80 backdrop-blur-md rounded-xl p-6 shadow-md border border-gray-100">
             <h3 className="text-lg font-semibold text-[#0A1628] mb-3">Where It's Used</h3>
             <ul className="space-y-2">
               {whereUsed.map((item, index) => (
@@ -71,7 +71,7 @@ const SwimmingPoolSection = () => {
           </div>
 
           {/* Card 3 - Advantages */}
-          <div className="bg-white rounded-xl p-6 shadow-sm">
+          <div className="bg-white/80 backdrop-blur-md rounded-xl p-6 shadow-md border border-gray-100">
             <h3 className="text-lg font-semibold text-[#0A1628] mb-3">Advantages</h3>
             <ul className="space-y-2">
               {advantages.map((item, index) => (
@@ -85,7 +85,7 @@ const SwimmingPoolSection = () => {
         </div>
 
         {/* Process Overview Section */}
-        <div className="bg-white rounded-xl p-8 shadow-sm">
+        <div className="bg-white/80 backdrop-blur-md rounded-xl p-8 shadow-md border border-gray-100">
           <h3 className="text-xl font-bold text-[#0A1628] mb-6">
             Process Overview & Benefits
           </h3>
