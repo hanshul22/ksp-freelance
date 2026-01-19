@@ -1,4 +1,4 @@
-import { HeroSection, SwimmingPoolSection, WasteWaterSection } from './components';
+import { HeroSection, SwimmingPoolSection, WasteWaterSection, WaterTreatmentSection } from './components';
 
 const Products = () => {
   return (
@@ -6,6 +6,7 @@ const Products = () => {
       <HeroSection />
       <SwimmingPoolSection />
       <WasteWaterSection />
+      <WaterTreatmentSection />
     </div>
   );
 };
