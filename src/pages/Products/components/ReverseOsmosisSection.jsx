@@ -1,4 +1,4 @@
-import { Waves, ArrowRight } from 'lucide-react';
+import { Waves, ArrowRight, CheckCircle } from 'lucide-react';
 
 const featureCards = [
   {
@@ -95,7 +95,7 @@ const ReverseOsmosisSection = () => {
         </div>
 
         {/* Process Steps Container */}
-        <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-sm border border-blue-100">
+        <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-sm border border-blue-100 mb-12">
           <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
             {processSteps.map((step, index) => (
               <div key={index} className="flex flex-col items-center text-center">
@@ -120,6 +120,145 @@ const ReverseOsmosisSection = () => {
                 )}
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* Applications & Available Models Section */}
+        <div className="mb-6">
+          <h3 className="text-xl font-semibold text-[#0A1628] mb-6">
+            Applications & Available Models
+          </h3>
+        </div>
+
+        {/* RO Models Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          {/* Residential RO */}
+          <div className="bg-[#F0F7FF] rounded-2xl p-6 border border-blue-100">
+            <Waves className="w-8 h-8 text-[#3B82F6] mb-4" />
+            <h4 className="text-lg font-semibold text-[#0A1628] mb-2">Residential RO</h4>
+            <p className="text-sm font-medium text-[#3B82F6] mb-4">50-200 LPH</p>
+            <div className="space-y-2">
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-emerald-500" />
+                <span className="text-sm text-gray-600">Homes</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-emerald-500" />
+                <span className="text-sm text-gray-600">Apartments</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-emerald-500" />
+                <span className="text-sm text-gray-600">Villas</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Commercial RO */}
+          <div className="bg-[#F0F7FF] rounded-2xl p-6 border border-blue-100">
+            <Waves className="w-8 h-8 text-[#3B82F6] mb-4" />
+            <h4 className="text-lg font-semibold text-[#0A1628] mb-2">Commercial RO</h4>
+            <p className="text-sm font-medium text-[#3B82F6] mb-4">250-1000 LPH</p>
+            <div className="space-y-2">
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-emerald-500" />
+                <span className="text-sm text-gray-600">Offices</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-emerald-500" />
+                <span className="text-sm text-gray-600">Restaurants</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-emerald-500" />
+                <span className="text-sm text-gray-600">Schools</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Industrial RO */}
+          <div className="bg-[#F0F7FF] rounded-2xl p-6 border border-blue-100">
+            <Waves className="w-8 h-8 text-[#3B82F6] mb-4" />
+            <h4 className="text-lg font-semibold text-[#0A1628] mb-2">Industrial RO</h4>
+            <p className="text-sm font-medium text-[#3B82F6] mb-4">1000-50000 LPH</p>
+            <div className="space-y-2">
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-emerald-500" />
+                <span className="text-sm text-gray-600">Manufacturing</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-emerald-500" />
+                <span className="text-sm text-gray-600">Pharma</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-emerald-500" />
+                <span className="text-sm text-gray-600">Food & Beverage</span>
+              </div>
+            </div>
+          </div>
+
+          {/* High-Capacity RO */}
+          <div className="bg-[#F0F7FF] rounded-2xl p-6 border border-blue-100">
+            <Waves className="w-8 h-8 text-[#3B82F6] mb-4" />
+            <h4 className="text-lg font-semibold text-[#0A1628] mb-2">High-Capacity RO</h4>
+            <p className="text-sm font-medium text-[#3B82F6] mb-4">50000+ LPH</p>
+            <div className="space-y-2">
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-emerald-500" />
+                <span className="text-sm text-gray-600">Large Industries</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-emerald-500" />
+                <span className="text-sm text-gray-600">Municipal Supply</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-emerald-500" />
+                <span className="text-sm text-gray-600">Bottling Plants</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Why Choose Our RO Systems Banner */}
+        <div className="bg-gradient-to-r from-[#1E3A8A] to-[#0EA5E9] rounded-2xl p-10">
+          <h3 className="text-xl md:text-2xl font-semibold text-white text-center mb-10">
+            Why Choose Our RO Systems?
+          </h3>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {/* Premium Membranes */}
+            <div className="flex flex-col items-center text-center">
+              <div className="w-12 h-12 rounded-full border-2 border-white flex items-center justify-center mb-4">
+                <CheckCircle className="w-6 h-6 text-white" />
+              </div>
+              <h4 className="text-base font-semibold text-white mb-2">Premium Membranes</h4>
+              <p className="text-sm text-white/70">High-quality imported membranes</p>
+            </div>
+
+            {/* Low Maintenance */}
+            <div className="flex flex-col items-center text-center">
+              <div className="w-12 h-12 rounded-full border-2 border-white flex items-center justify-center mb-4">
+                <CheckCircle className="w-6 h-6 text-white" />
+              </div>
+              <h4 className="text-base font-semibold text-white mb-2">Low Maintenance</h4>
+              <p className="text-sm text-white/70">Easy filter replacement</p>
+            </div>
+
+            {/* Energy Saving */}
+            <div className="flex flex-col items-center text-center">
+              <div className="w-12 h-12 rounded-full border-2 border-white flex items-center justify-center mb-4">
+                <CheckCircle className="w-6 h-6 text-white" />
+              </div>
+              <h4 className="text-base font-semibold text-white mb-2">Energy Saving</h4>
+              <p className="text-sm text-white/70">Efficient power consumption</p>
+            </div>
+
+            {/* 24/7 Support */}
+            <div className="flex flex-col items-center text-center">
+              <div className="w-12 h-12 rounded-full border-2 border-white flex items-center justify-center mb-4">
+                <CheckCircle className="w-6 h-6 text-white" />
+              </div>
+              <h4 className="text-base font-semibold text-white mb-2">24/7 Support</h4>
+              <p className="text-sm text-white/70">Technical assistance available</p>
+            </div>
           </div>
         </div>
       </div>
