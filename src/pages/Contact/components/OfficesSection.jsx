@@ -23,7 +23,7 @@ const offices = [
 
 const OfficesSection = () => {
   return (
-    <section className="relative bg-[#F3FBF5] py-16 overflow-hidden">
+    <section className="relative bg-white py-16 overflow-hidden">
       {/* Decorative Background Shapes */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Left curve */}
