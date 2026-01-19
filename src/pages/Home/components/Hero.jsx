@@ -37,43 +37,11 @@ const Hero = () => {
 
       {/* Main Content */}
       <div className="relative pt-20 md:pt-48 mx-auto max-w-7xl px-4 md:px-8">
-        <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-8 lg:gap-12">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-8 lg:gap-12">
           
-          {/* Left Content - Text Block */}
-          <div className="space-y-5 w-full lg:w-1/2">
-            <h1 className="text-3xl md:text-5xl lg:text-[3.25rem] font-bold leading-[1.15] tracking-tight">
-              <span className="text-gray-900">Transform Wastewater Into</span>
-              <br />
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#155DFC] via-[#00B8DB] to-[#00C950]">Reusable & Potable Water</span>{' '}
-            </h1>
-
-            <p className="text-base leading-relaxed text-gray-600 md:text-lg max-w-xl">
-              Engineering excellence in water purification, wastewater treatment, and fire-fighting 
-              systems for industries, institutions, and communities.
-            </p>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col gap-3 pt-1 sm:flex-row">
-              <Link
-                to="/products"
-                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#155DFC] to-[#0092B8] text-white px-7 py-3.5 rounded-lg text-sm font-semibold hover:opacity-90 transition-all shadow-md hover:shadow-lg"
-              >
-                Explore Our Solutions
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-              
-              <Link
-                to="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-white text-blue-600 px-7 py-3.5 rounded-lg text-sm font-semibold border-2 border-blue-600 hover:bg-blue-50 transition-all"
-              >
-                Schedule a Consultation
-              </Link>
-            </div>
-          </div>
-
-          {/* Right Column - Water Drop Illustration */}
-          <div className="relative flex items-center justify-center w-full lg:w-1/2 order-first lg:order-last">
-            <div className="relative w-full max-w-sm md:max-w-md lg:max-w-2xl xl:max-w-[48rem]">
+          {/* Water Drop Illustration - Mobile Only (appears first on mobile) */}
+          <div className="relative flex items-center justify-center w-full md:hidden">
+            <div className="relative w-full max-w-[200px]">
               {/* Soft Glow Behind Droplet */}
               <div 
                 className="absolute inset-0 rounded-full blur-3xl"
@@ -84,7 +52,62 @@ const Hero = () => {
               />
               
               {/* Water Droplet Image */}
-              <div className="relative flex items-center justify-center w-full p-4 md:p-8 aspect-square">
+              <div className="relative flex items-center justify-center w-full p-4 aspect-square">
+                <img 
+                  src={waterDroplet} 
+                  alt="Water Droplet" 
+                  className="object-contain w-full h-full drop-shadow-2xl"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Left Content - Text Block */}
+          <div className="space-y-5 w-full md:w-1/2 text-center md:text-left">
+            <h1 className="text-3xl md:text-5xl lg:text-[3.25rem] font-bold leading-[1.15] tracking-tight">
+              <span className="text-gray-900">Transform Wastewater Into</span>
+              <br />
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#155DFC] via-[#00B8DB] to-[#00C950]">Reusable & Potable Water</span>{' '}
+            </h1>
+
+            <p className="text-base leading-relaxed text-gray-600 md:text-lg max-w-xl mx-auto md:mx-0">
+              Engineering excellence in water purification, wastewater treatment, and fire-fighting 
+              systems for industries, institutions, and communities.
+            </p>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col gap-3 pt-1 md:flex-row">
+              <Link
+                to="/products"
+                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#155DFC] to-[#0092B8] text-white px-7 py-3.5 rounded-lg text-sm font-semibold hover:opacity-90 transition-all shadow-md hover:shadow-lg w-full md:w-auto"
+              >
+                Explore Our Solutions
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              
+              <Link
+                to="/contact"
+                className="inline-flex items-center justify-center gap-2 bg-white text-blue-600 px-7 py-3.5 rounded-lg text-sm font-semibold border-2 border-blue-600 hover:bg-blue-50 transition-all w-full md:w-auto"
+              >
+                Schedule a Consultation
+              </Link>
+            </div>
+          </div>
+
+          {/* Right Column - Water Drop Illustration - Desktop Only */}
+          <div className="relative hidden md:flex items-center justify-center w-full md:w-1/2">
+            <div className="relative w-full max-w-md lg:max-w-2xl xl:max-w-[48rem]">
+              {/* Soft Glow Behind Droplet */}
+              <div 
+                className="absolute inset-0 rounded-full blur-3xl"
+                style={{
+                  background: 'radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, rgba(14, 165, 233, 0.08) 50%, transparent 70%)',
+                  transform: 'scale(1.2)',
+                }}
+              />
+              
+              {/* Water Droplet Image */}
+              <div className="relative flex items-center justify-center w-full p-8 aspect-square">
                 <img 
                   src={waterDroplet} 
                   alt="Water Droplet" 
