@@ -1,4 +1,4 @@
-import { HeroSection, ContactFormSection, OfficesSection, MapSection, InquirySection } from './components';
+import { HeroSection, ContactFormSection, OfficesSection, MapSection, InquirySection, ResponseGuaranteeSection } from './components';
 
 const Contact = () => {
   return (
@@ -8,6 +8,7 @@ const Contact = () => {
       <OfficesSection />
       <MapSection />
       <InquirySection />
+      <ResponseGuaranteeSection />
     </div>
   );
 };
