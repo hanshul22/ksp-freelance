@@ -23,43 +23,43 @@ const inquiries = [
 
 const InquirySection = () => {
   return (
-    <section className="bg-gradient-to-r from-[#0D6EFD] to-[#2196F3] py-16">
+    <section className="bg-gradient-to-r from-[#0B7DDA] to-[#29B6F6] py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-10">
+        <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Have a Specific Inquiry?
           </h2>
-          <p className="text-white/70 text-base md:text-lg">
+          <p className="text-white/80 text-base md:text-lg">
             Our specialized teams are ready to assist you with detailed information
           </p>
         </div>
 
         {/* Inquiry Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-14">
           {inquiries.map((inquiry, index) => (
             <div
               key={index}
-              className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20"
+              className="bg-[#3AAFFF]/25 backdrop-blur-sm rounded-2xl p-6 border border-[#5AC8FF]/30"
             >
               {/* Title */}
-              <h3 className="text-lg font-semibold text-white mb-2">
+              <h3 className="text-lg font-bold text-white mb-2">
                 {inquiry.title}
               </h3>
 
               {/* Description */}
-              <p className="text-white/70 text-sm mb-4">
+              <p className="text-white/70 text-sm mb-5 leading-relaxed">
                 {inquiry.description}
               </p>
 
               {/* Contact Details */}
-              <div className="space-y-2">
+              <div className="space-y-3">
                 <div className="flex items-center gap-2">
-                  <Mail className="w-4 h-4 text-white/80" />
+                  <Mail className="w-4 h-4 text-white/70" />
                   <span className="text-white text-sm">{inquiry.email}</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Phone className="w-4 h-4 text-white/80" />
+                  <Phone className="w-4 h-4 text-white/70" />
                   <span className="text-white text-sm">{inquiry.phone}</span>
                 </div>
               </div>
@@ -69,14 +69,14 @@ const InquirySection = () => {
 
         {/* Bottom CTA */}
         <div className="text-center">
-          <p className="text-white/70 text-sm mb-4">
+          <p className="text-white/70 text-sm mb-5">
             Or call our main helpline for general inquiries
           </p>
           <a
             href="tel:+918023456789"
-            className="inline-flex items-center gap-2 bg-white text-[#0D6EFD] px-6 py-3 rounded-full font-medium text-sm shadow-lg"
+            className="inline-flex items-center gap-3 bg-white text-[#0B7DDA] px-8 py-3.5 rounded-full font-semibold text-base shadow-lg border border-[#E0E0E0]"
           >
-            <Phone className="w-4 h-4" />
+            <Phone className="w-5 h-5" />
             +91 80 2345 6789
           </a>
         </div>
