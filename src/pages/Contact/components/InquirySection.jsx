@@ -23,7 +23,7 @@ const inquiries = [
 
 const InquirySection = () => {
   return (
-    <section className="bg-gradient-to-r from-[#0B7DDA] to-[#29B6F6] py-20">
+    <section className="bg-gradient-to-r from-[#155DFC] via-[#0092B8] to-[#155DFC] py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12">
