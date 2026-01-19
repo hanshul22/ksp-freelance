@@ -12,7 +12,7 @@ const categories = [
 
 const HeroSection = () => {
   return (
-    <section className="relative bg-white pt-32 pb-20 overflow-hidden min-h-[70vh] flex items-center">
+    <section className="relative bg-white pt-40 pb-28 overflow-hidden min-h-[80vh] flex items-center">
       {/* Background wave image */}
       <div className="absolute inset-0 z-0">
         <img
