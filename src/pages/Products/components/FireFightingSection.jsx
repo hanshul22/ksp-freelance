@@ -1,4 +1,4 @@
-import { Flame, Shield, Settings, Wrench } from 'lucide-react';
+import { Flame, Shield, Settings, Wrench, Check } from 'lucide-react';
 
 const systemCards = [
   {
@@ -79,7 +79,7 @@ const FireFightingSection = () => {
                   {card.keyFeatures.map((feature, i) => (
                     <li key={i} className="flex items-center gap-2">
                       <span className="w-5 h-5 rounded-full bg-[#FEE2E2] flex items-center justify-center flex-shrink-0">
-                        <Flame className="w-3 h-3 text-[#EF4444]" />
+                        <Check className="w-3 h-3 text-[#EF4444]" />
                       </span>
                       <span className="text-sm text-gray-500">{feature}</span>
                     </li>
