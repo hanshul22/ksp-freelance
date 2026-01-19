@@ -35,49 +35,46 @@ const OfficesSection = () => {
           </p>
         </div>
 
-        {/* Backdrop Container */}
-        <div className="bg-[#F3FBF5] rounded-2xl p-6 md:p-10">
-          {/* Office Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {offices.map((office, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-xl p-6 shadow-sm"
-              >
-                {/* Icon */}
-                <div className="w-12 h-12 bg-[#1E88E5] rounded-xl flex items-center justify-center mb-4">
-                  <MapPin className="w-6 h-6 text-white" />
-                </div>
-
-                {/* Title */}
-                <h3 className="text-lg font-bold text-[#0A1628] mb-3">
-                  {office.title}
-                </h3>
-
-                {/* Address */}
-                <div className="space-y-1 text-gray-500 text-sm mb-1">
-                  {office.company && <p>{office.company}</p>}
-                  {office.address.map((line, i) => (
-                    <p key={i}>{line}</p>
-                  ))}
-                </div>
-                
-                {/* Country */}
-                <p className="font-semibold text-[#0A1628] text-sm mb-4">
-                  {office.country}
-                </p>
-
-                {/* Get Directions Link */}
-                <a
-                  href="#"
-                  className="inline-flex items-center gap-1 text-[#1E88E5] text-sm font-medium"
-                >
-                  Get Directions
-                  <ArrowRight className="w-4 h-4" />
-                </a>
+        {/* Office Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {offices.map((office, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-xl p-6 shadow-sm"
+            >
+              {/* Icon */}
+              <div className="w-12 h-12 bg-[#1E88E5] rounded-xl flex items-center justify-center mb-4">
+                <MapPin className="w-6 h-6 text-white" />
               </div>
-            ))}
-          </div>
+
+              {/* Title */}
+              <h3 className="text-lg font-bold text-[#0A1628] mb-3">
+                {office.title}
+              </h3>
+
+              {/* Address */}
+              <div className="space-y-1 text-gray-500 text-sm mb-1">
+                {office.company && <p>{office.company}</p>}
+                {office.address.map((line, i) => (
+                  <p key={i}>{line}</p>
+                ))}
+              </div>
+              
+              {/* Country */}
+              <p className="font-semibold text-[#0A1628] text-sm mb-4">
+                {office.country}
+              </p>
+
+              {/* Get Directions Link */}
+              <a
+                href="#"
+                className="inline-flex items-center gap-1 text-[#1E88E5] text-sm font-medium"
+              >
+                Get Directions
+                <ArrowRight className="w-4 h-4" />
+              </a>
+            </div>
+          ))}
         </div>
       </div>
     </section>
