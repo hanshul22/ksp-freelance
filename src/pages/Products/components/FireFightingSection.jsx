@@ -48,7 +48,7 @@ const FireFightingSection = () => {
           {systemCards.map((card, index) => (
             <div
               key={index}
-              className="bg-[#FDF5F5] rounded-xl p-6 shadow-sm border border-red-100"
+              className="bg-gradient-to-b from-[#FEF2F2] to-[#FFF7ED] rounded-xl p-6 shadow-sm border border-red-100"
             >
               {/* Icon */}
               <div className="flex items-center justify-center w-12 h-12 bg-[#FEE2E2] rounded-2xl mb-4">
