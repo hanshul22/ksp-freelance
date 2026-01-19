@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import { ROUTES } from '@/routes/routeConstants';
 
 const ProductsCTASection = () => {
   return (
@@ -17,7 +16,7 @@ const ProductsCTASection = () => {
 
         {/* CTA Button */}
         <Link
-          to={ROUTES.CONTACT}
+          to="/contact"
           className="inline-block bg-white text-[#3B82F6] font-medium px-8 py-3 rounded-lg shadow-md border border-gray-100"
         >
           Request a Consultation
