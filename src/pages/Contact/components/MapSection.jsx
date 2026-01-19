@@ -2,14 +2,8 @@ import { MapPin } from 'lucide-react';
 
 const MapSection = () => {
   return (
-    <section className="relative bg-[#F3FBF5] py-16 overflow-hidden">
-      {/* Decorative curved shapes */}
-      <div className="absolute top-0 left-0 w-48 h-48 bg-[#D4EED9] rounded-full -translate-x-1/2 -translate-y-1/2 opacity-60" />
-      <div className="absolute top-0 right-0 w-64 h-64 bg-[#D4EED9] rounded-full translate-x-1/3 -translate-y-1/3 opacity-60" />
-      <div className="absolute bottom-0 left-0 w-56 h-56 bg-[#D4EED9] rounded-full -translate-x-1/3 translate-y-1/3 opacity-60" />
-      <div className="absolute bottom-0 right-0 w-48 h-48 bg-[#D4EED9] rounded-full translate-x-1/4 translate-y-1/4 opacity-60" />
-
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="bg-white py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-bold text-[#0A1628] mb-4">
