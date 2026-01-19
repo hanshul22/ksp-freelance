@@ -1,4 +1,4 @@
-import { Waves, ArrowRight, CheckCircle } from 'lucide-react';
+import { Waves, ArrowRight, CheckCircle, Check } from 'lucide-react';
 
 const featureCards = [
   {
@@ -218,7 +218,7 @@ const ReverseOsmosisSection = () => {
         </div>
 
         {/* Why Choose Our RO Systems Banner */}
-        <div className="bg-gradient-to-r from-[#1E3A8A] to-[#0EA5E9] rounded-2xl p-10">
+        <div className="bg-gradient-to-r from-[#2563EB] to-[#0D9488] rounded-3xl py-10 px-8">
           <h3 className="text-xl md:text-2xl font-semibold text-white text-center mb-10">
             Why Choose Our RO Systems?
           </h3>
@@ -226,38 +226,38 @@ const ReverseOsmosisSection = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {/* Premium Membranes */}
             <div className="flex flex-col items-center text-center">
-              <div className="w-12 h-12 rounded-full border-2 border-white flex items-center justify-center mb-4">
-                <CheckCircle className="w-6 h-6 text-white" />
+              <div className="w-12 h-12 rounded-full border-2 border-white/80 flex items-center justify-center mb-4">
+                <Check className="w-5 h-5 text-white" strokeWidth={2.5} />
               </div>
-              <h4 className="text-base font-semibold text-white mb-2">Premium Membranes</h4>
-              <p className="text-sm text-white/70">High-quality imported membranes</p>
+              <h4 className="text-sm font-medium text-white mb-1">Premium Membranes</h4>
+              <p className="text-xs text-white/70">High-quality imported membranes</p>
             </div>
 
             {/* Low Maintenance */}
             <div className="flex flex-col items-center text-center">
-              <div className="w-12 h-12 rounded-full border-2 border-white flex items-center justify-center mb-4">
-                <CheckCircle className="w-6 h-6 text-white" />
+              <div className="w-12 h-12 rounded-full border-2 border-white/80 flex items-center justify-center mb-4">
+                <Check className="w-5 h-5 text-white" strokeWidth={2.5} />
               </div>
-              <h4 className="text-base font-semibold text-white mb-2">Low Maintenance</h4>
-              <p className="text-sm text-white/70">Easy filter replacement</p>
+              <h4 className="text-sm font-medium text-white mb-1">Low Maintenance</h4>
+              <p className="text-xs text-white/70">Easy filter replacement</p>
             </div>
 
             {/* Energy Saving */}
             <div className="flex flex-col items-center text-center">
-              <div className="w-12 h-12 rounded-full border-2 border-white flex items-center justify-center mb-4">
-                <CheckCircle className="w-6 h-6 text-white" />
+              <div className="w-12 h-12 rounded-full border-2 border-white/80 flex items-center justify-center mb-4">
+                <Check className="w-5 h-5 text-white" strokeWidth={2.5} />
               </div>
-              <h4 className="text-base font-semibold text-white mb-2">Energy Saving</h4>
-              <p className="text-sm text-white/70">Efficient power consumption</p>
+              <h4 className="text-sm font-medium text-white mb-1">Energy Saving</h4>
+              <p className="text-xs text-white/70">Efficient power consumption</p>
             </div>
 
             {/* 24/7 Support */}
             <div className="flex flex-col items-center text-center">
-              <div className="w-12 h-12 rounded-full border-2 border-white flex items-center justify-center mb-4">
-                <CheckCircle className="w-6 h-6 text-white" />
+              <div className="w-12 h-12 rounded-full border-2 border-white/80 flex items-center justify-center mb-4">
+                <Check className="w-5 h-5 text-white" strokeWidth={2.5} />
               </div>
-              <h4 className="text-base font-semibold text-white mb-2">24/7 Support</h4>
-              <p className="text-sm text-white/70">Technical assistance available</p>
+              <h4 className="text-sm font-medium text-white mb-1">24/7 Support</h4>
+              <p className="text-xs text-white/70">Technical assistance available</p>
             </div>
           </div>
         </div>
