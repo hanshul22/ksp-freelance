@@ -2,7 +2,7 @@ import { User, Mail, Phone, Building2, LayoutGrid, MessageSquare, Clock, Send } 
 
 const ContactFormSection = () => {
   return (
-    <section className="relative bg-[#F4FAFD] py-16 overflow-hidden">
+    <section className="relative bg-white py-16 overflow-hidden">
       {/* Decorative Background Shapes */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Top left curve */}
