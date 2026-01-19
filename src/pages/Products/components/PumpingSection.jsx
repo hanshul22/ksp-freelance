@@ -56,33 +56,8 @@ const bottomFeatures = [
 
 const PumpingSection = () => {
   return (
-    <section className="bg-white py-20 relative overflow-hidden">
-      {/* Background decorative curves */}
-      <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-        <svg
-          className="absolute top-0 left-0 w-full h-full"
-          viewBox="0 0 1440 600"
-          fill="none"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M-100 100 Q 200 50 400 100 T 800 80 T 1200 120 T 1600 80"
-            stroke="#E9E5FF"
-            strokeWidth="80"
-            fill="none"
-            opacity="0.5"
-          />
-          <path
-            d="M-100 400 Q 300 350 600 400 T 1100 380 T 1500 420"
-            stroke="#E9E5FF"
-            strokeWidth="60"
-            fill="none"
-            opacity="0.4"
-          />
-        </svg>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section className="bg-white py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12">
           {/* Icon */}
