@@ -60,7 +60,7 @@ const WasteWaterSection = () => {
         </div>
 
         {/* ETP Section (Expanded State) */}
-        <div className="bg-[#E8F4F8] rounded-xl p-6 shadow-md mb-8">
+        <div className="bg-[#E8F4F8] rounded-xl p-6 shadow-md mb-12">
           {/* ETP Header */}
           <div className="flex items-center justify-between mb-6">
             <h3 className="text-lg font-semibold text-[#0A1628]">
