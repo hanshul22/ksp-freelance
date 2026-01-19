@@ -1,4 +1,4 @@
-import { HeroSection, SwimmingPoolSection, WasteWaterSection, WaterTreatmentSection, FireFightingSection, PumpingSection, ReverseOsmosisSection } from './components';
+import { HeroSection, SwimmingPoolSection, WasteWaterSection, WaterTreatmentSection, FireFightingSection, PumpingSection, ReverseOsmosisSection, ProductsCTASection } from './components';
 
 const Products = () => {
   return (
@@ -10,6 +10,7 @@ const Products = () => {
       <FireFightingSection />
       <PumpingSection />
       <ReverseOsmosisSection />
+      <ProductsCTASection />
     </div>
   );
 };
