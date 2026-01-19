@@ -99,7 +99,7 @@ const WasteWaterSection = () => {
         <div className="bg-[#F6FAFD] rounded-2xl p-8 shadow-md border border-gray-100">
           {/* Header */}
           <div className="flex items-center justify-between mb-8">
-            <h3 className="text-xl font-semibold text-[#0A1628]">
+            <h3 className="text-xl font-bold text-[#0A1628]">
               Spares & Components – 9 Categories
             </h3>
             <ChevronUp className="w-5 h-5 text-gray-400" />
