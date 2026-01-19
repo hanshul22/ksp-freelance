@@ -1,6 +1,6 @@
 const HeroSection = () => {
   return (
-    <section className="relative bg-[#EBF7FA] pt-32 pb-20 overflow-hidden">
+    <section className="relative bg-white pt-32 pb-20 overflow-hidden">
       {/* Decorative Background Shapes */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Top left curve */}
