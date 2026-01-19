@@ -20,12 +20,8 @@ const etpCards = [
 
 const WasteWaterSection = () => {
   return (
-    <section className="relative bg-[#F1FDF3] py-20 overflow-hidden">
-      {/* Decorative shapes */}
-      <div className="absolute top-0 left-0 w-72 h-72 bg-[#D9F5DD] rounded-full -translate-x-1/2 -translate-y-1/2 opacity-60" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#D9F5DD] rounded-full translate-x-1/3 translate-y-1/3 opacity-60" />
-
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="bg-white py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12">
           {/* Icon */}
