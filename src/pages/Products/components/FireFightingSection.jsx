@@ -48,7 +48,7 @@ const FireFightingSection = () => {
           {systemCards.map((card, index) => (
             <div
               key={index}
-              className="bg-white/80 backdrop-blur-md rounded-xl p-6 shadow-md border border-red-100"
+              className="bg-[#FDF5F5] rounded-xl p-6 shadow-sm border border-red-100"
             >
               {/* Icon */}
               <div className="flex items-center justify-center w-12 h-12 bg-[#FEE2E2] rounded-2xl mb-4">
@@ -75,11 +75,11 @@ const FireFightingSection = () => {
                 <p className="text-sm font-semibold text-[#0A1628] mb-2">
                   Key Features:
                 </p>
-                <ul className="space-y-1.5">
+                <ul className="space-y-2">
                   {card.keyFeatures.map((feature, i) => (
                     <li key={i} className="flex items-center gap-2">
-                      <span className="w-5 h-5 rounded-full border-2 border-[#EF4444] flex items-center justify-center flex-shrink-0">
-                        <Flame className="w-2.5 h-2.5 text-[#EF4444]" />
+                      <span className="w-5 h-5 rounded-full bg-[#FEE2E2] flex items-center justify-center flex-shrink-0">
+                        <Flame className="w-3 h-3 text-[#EF4444]" />
                       </span>
                       <span className="text-sm text-gray-500">{feature}</span>
                     </li>
