@@ -40,7 +40,7 @@ const OfficesSection = () => {
           {offices.map((office, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl p-6 shadow-sm"
+              className="relative bg-white/80 backdrop-blur-md rounded-xl p-6 shadow-sm border border-white/20"
             >
               {/* Icon */}
               <div className="w-12 h-12 bg-[#1E88E5] rounded-xl flex items-center justify-center mb-4">
