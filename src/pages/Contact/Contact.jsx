@@ -1,4 +1,4 @@
-import { HeroSection, ContactFormSection, OfficesSection } from './components';
+import { HeroSection, ContactFormSection, OfficesSection, MapSection } from './components';
 
 const Contact = () => {
   return (
@@ -6,6 +6,7 @@ const Contact = () => {
       <HeroSection />
       <ContactFormSection />
       <OfficesSection />
+      <MapSection />
     </div>
   );
 };
