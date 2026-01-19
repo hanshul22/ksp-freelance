@@ -50,7 +50,7 @@ const WasteWaterSection = () => {
         </div>
 
         {/* STP Accordion (Collapsed State) */}
-        <div className="bg-white/80 backdrop-blur-md rounded-xl p-6 shadow-md border border-gray-100 mb-4">
+        <div className="bg-white/80 backdrop-blur-md rounded-xl p-6 shadow-md border border-gray-100 mb-8">
           <div className="flex items-center justify-between">
             <h3 className="text-lg font-semibold text-[#0A1628]">
               Sewage Treatment Plant (STP) – 6 Technologies
