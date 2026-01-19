@@ -1,10 +1,9 @@
+import { HeroSection } from './components';
+
 const Products = () => {
   return (
-    <div className="min-h-screen pt-32 px-8">
-      <div className="max-w-7xl mx-auto">
-        <h1 className="text-4xl font-bold text-gray-900">Our Products</h1>
-        <p className="mt-4 text-gray-600">Products page content coming soon...</p>
-      </div>
+    <div className="bg-white">
+      <HeroSection />
     </div>
   );
 };
