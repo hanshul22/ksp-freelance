@@ -92,7 +92,7 @@ const FireFightingSection = () => {
 
         {/* Bottom Highlight Section */}
         <div className="bg-gradient-to-r from-[#DC2626] to-[#EA580C] rounded-2xl px-8 py-10 text-center">
-          <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 italic">
+          <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
             Comprehensive Fire Safety
           </h3>
           <p className="text-white/90 text-sm md:text-base max-w-3xl mx-auto mb-10 leading-relaxed">
