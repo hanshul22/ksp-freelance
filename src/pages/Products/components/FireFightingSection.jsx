@@ -91,20 +91,20 @@ const FireFightingSection = () => {
         </div>
 
         {/* Bottom Highlight Section */}
-        <div className="bg-gradient-to-r from-[#DC2626] to-[#EA580C] rounded-2xl p-10 text-center">
-          <h3 className="text-xl md:text-2xl font-bold text-white mb-3 italic">
+        <div className="bg-gradient-to-r from-[#DC2626] to-[#EA580C] rounded-2xl px-8 py-10 text-center">
+          <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 italic">
             Comprehensive Fire Safety
           </h3>
-          <p className="text-white/80 text-sm md:text-base max-w-3xl mx-auto mb-8">
+          <p className="text-white/90 text-sm md:text-base max-w-3xl mx-auto mb-10 leading-relaxed">
             Our fire fighting systems are designed, installed, and maintained in compliance with national and international fire safety codes including NFPA, NBC, and local regulations.
           </p>
 
           {/* Bottom Features */}
-          <div className="flex flex-wrap justify-center gap-16">
+          <div className="flex flex-wrap justify-center gap-20">
             {bottomFeatures.map((feature, index) => (
-              <div key={index} className="flex flex-col items-center gap-2">
-                <feature.icon className="w-8 h-8 text-white" strokeWidth={1.5} />
-                <span className="text-white text-sm">{feature.label}</span>
+              <div key={index} className="flex flex-col items-center gap-3">
+                <feature.icon className="w-10 h-10 text-white" strokeWidth={1.5} />
+                <span className="text-white text-sm font-medium">{feature.label}</span>
               </div>
             ))}
           </div>
