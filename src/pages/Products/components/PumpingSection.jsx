@@ -104,7 +104,7 @@ const PumpingSection = () => {
         </div>
 
         {/* Bottom Feature Section */}
-        <div className="bg-white rounded-2xl p-8 shadow-sm">
+        <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-sm border border-gray-100">
           <h3 className="text-xl md:text-2xl font-semibold text-[#0A1628] text-center mb-8">
             Why Choose Our Pumping Solutions?
           </h3>
