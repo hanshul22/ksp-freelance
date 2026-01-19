@@ -2,9 +2,9 @@ import { Clock } from 'lucide-react';
 
 const ResponseGuaranteeSection = () => {
   return (
-    <section className="bg-white py-10">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-[#F7F9FC] rounded-2xl px-8 py-6 shadow-sm">
+    <section className="bg-white py-12">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-[#F7F9FC] rounded-2xl px-12 py-10 shadow-sm">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-center sm:text-left">
             {/* Icon and Title */}
             <div className="flex items-center gap-3">
