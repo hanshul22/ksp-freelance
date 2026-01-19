@@ -63,7 +63,7 @@ const ReverseOsmosisSection = () => {
         </div>
 
         {/* What is Reverse Osmosis Container */}
-        <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-sm border border-blue-100 mb-10">
+        <div className="bg-[#F8FAFF] rounded-2xl p-8 border-l-4 border-l-[#3B82F6] mb-10">
           <h3 className="text-xl font-semibold text-[#0A1628] mb-4">
             What is Reverse Osmosis?
           </h3>
