@@ -96,25 +96,25 @@ const WasteWaterSection = () => {
         </div>
 
         {/* Spares & Components Section */}
-        <div className="bg-[#F6FAFD] rounded-xl p-6 shadow-md border border-gray-100">
+        <div className="bg-[#F6FAFD] rounded-2xl p-8 shadow-md border border-gray-100">
           {/* Header */}
-          <div className="flex items-center justify-between mb-6">
-            <h3 className="text-lg font-semibold text-[#0A1628]">
+          <div className="flex items-center justify-between mb-8">
+            <h3 className="text-xl font-semibold text-[#0A1628]">
               Spares & Components – 9 Categories
             </h3>
             <ChevronUp className="w-5 h-5 text-gray-400" />
           </div>
 
           {/* Categories Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {sparesCategories.map((category, index) => (
               <div
                 key={index}
-                className="flex items-center gap-3 bg-white rounded-xl p-4 shadow-sm"
+                className="flex items-center gap-4 bg-white rounded-xl px-5 py-4 shadow-sm border border-gray-50"
               >
                 {/* Icon */}
-                <div className="flex items-center justify-center w-10 h-10 bg-[#155DFC] rounded-lg flex-shrink-0">
-                  <category.icon className="w-5 h-5 text-white" />
+                <div className="flex items-center justify-center w-9 h-9 bg-[#155DFC] rounded-lg flex-shrink-0">
+                  <category.icon className="w-4 h-4 text-white" />
                 </div>
 
                 {/* Label */}
