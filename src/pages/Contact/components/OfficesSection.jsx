@@ -23,31 +23,8 @@ const offices = [
 
 const OfficesSection = () => {
   return (
-    <section className="relative bg-white py-16 overflow-hidden">
-      {/* Decorative Background Shapes */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Left curve */}
-        <svg
-          className="absolute top-0 left-0 w-[300px] h-[400px]"
-          viewBox="0 0 300 400"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <ellipse cx="0" cy="200" rx="200" ry="250" fill="#E0F5E6" fillOpacity="0.6" />
-        </svg>
-        
-        {/* Right curve */}
-        <svg
-          className="absolute bottom-0 right-0 w-[250px] h-[300px]"
-          viewBox="0 0 250 300"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <ellipse cx="200" cy="250" rx="180" ry="200" fill="#E0F5E6" fillOpacity="0.5" />
-        </svg>
-      </div>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="bg-white py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-[#0A1628] mb-4">
