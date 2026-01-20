@@ -14,7 +14,7 @@ const AboutSection = () => {
               viewBox="0 0 375 462" 
               fill="none" 
               xmlns="http://www.w3.org/2000/svg"
-              className="w-full h-auto max-h-[500px] -translate-y-8"
+              className="w-full h-full min-h-[400px] object-cover"
               preserveAspectRatio="xMidYMid slice"
             >
               <path 

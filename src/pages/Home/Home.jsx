@@ -17,7 +17,7 @@ const Home = () => {
       <Hero />
 
       <div className="relative">
-        <div className="absolute inset-0 z-0 mt-24 pointer-events-none">
+        <div className="absolute inset-0 z-0 mt-24 pointer-events-none hidden md:block">
           <svg
             className="w-full h-full"
             preserveAspectRatio="none"
