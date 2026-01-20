@@ -1,7 +1,7 @@
 // Images
 export { default as heroVector } from './images/Hero-vector.png';
 export { default as logo } from './images/logo.png';
-export { default as waterDrop } from './images/waterDrop.png';
+export { default as waterDrop } from './images/waterdrop.png';
 
 
 // Icons
