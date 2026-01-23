@@ -9,15 +9,15 @@ const ContactCTA = () => {
         background: 'linear-gradient(to right, #155DFC, #00C950)'
       }}
     >
-      <div className="max-w-7xl mx-auto px-4 md:px-8 text-center">
+      <div className="px-4 mx-auto text-center max-w-7xl md:px-8">
         <div className="max-w-3xl mx-auto space-y-5">
           {/* Heading */}
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white">
+          <h2 className="text-2xl font-bold text-white md:text-3xl lg:text-4xl">
             Let&apos;s discuss your water solution
           </h2>
 
           {/* Description */}
-          <p className="text-sm md:text-base text-white/90 leading-relaxed max-w-2xl mx-auto">
+          <p className="max-w-2xl mx-auto text-sm leading-relaxed md:text-base text-white/90">
             Ready to transform your water management? Our team is here to help you find the perfect solution.
           </p>
 
