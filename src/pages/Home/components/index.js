@@ -5,4 +5,4 @@ export { default as ProductsSection } from './ProductsSection';
 export { default as ServicesSection } from './ServicesSection';
 export { default as WhyChooseUs } from './WhyChooseUs';
 export { default as ClientsSection } from './ClientsSection';
-export { default as ContactCTA } from './ContactCTA';
+export { default as ContactCTA } from '../../../components/common/ContactCTA';

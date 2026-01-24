@@ -31,7 +31,7 @@ const WhyChooseUsSection = () => {
   ];
 
   return (
-    <section className="w-full bg-white py-16 lg:py-24">
+    <section className="w-full py-16 lg:py-24">
       <div className="container mx-auto px-4 lg:px-8">
         {/* Header */}
         <div className="flex flex-col items-center text-center mb-12">

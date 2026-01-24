@@ -1,7 +1,7 @@
 export { default as HeroSection } from './HeroSection';
 export { default as WhoWeAreSection } from './WhoWeAreSection';
 export { default as JourneySection } from './JourneySection';
-export { default as DirectorMessageSection } from './DirectorMessageSection';
+export { default as QuoteSection } from './QuoteSection';
 export { default as CultureValuesSection } from './CultureValuesSection';
 export { default as QualityComplianceSection } from './QualityComplianceSection';
 export { default as ClientsSection } from './ClientsSection';

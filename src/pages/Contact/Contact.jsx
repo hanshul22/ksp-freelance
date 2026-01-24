@@ -1,4 +1,5 @@
 import { HeroSection, ContactFormSection, OfficesSection, MapSection, InquirySection, ResponseGuaranteeSection } from './components';
+import { ContactCTA } from '@/components';
 
 const Contact = () => {
   return (
@@ -9,6 +10,7 @@ const Contact = () => {
       <MapSection />
       <InquirySection />
       <ResponseGuaranteeSection />
+      <ContactCTA />
     </div>
   );
 };

@@ -2,8 +2,7 @@ import { CircleDot, Shield, Leaf, Users, TrendingUp, Award } from 'lucide-react'
 
 const CultureValuesSection = () => {
   return (
-    <section className="relative w-full px-6 py-20 overflow-hidden" >
-      {/* Soft abstract curved shapes */}
+    <section className="relative w-full px-4 py-16 overflow-hidden md:px-8 md:py-20">
 
       <div className="relative z-10 max-w-6xl mx-auto">
         {/* Section Header */}

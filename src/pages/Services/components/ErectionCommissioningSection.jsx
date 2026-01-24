@@ -61,7 +61,7 @@ const secondaryCards = [
 
 const ErectionCommissioningSection = () => {
   return (
-    <section className="w-full bg-white py-12 lg:py-16">
+    <section className="w-full py-12 lg:py-16">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">

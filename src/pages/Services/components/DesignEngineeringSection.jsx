@@ -45,7 +45,7 @@ const processSteps = [
 
 const DesignEngineeringSection = () => {
   return (
-    <section className="relative w-full bg-white py-12 lg:py-16 overflow-hidden">
+    <section className="relative w-full py-12 lg:py-16 overflow-hidden">
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
