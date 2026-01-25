@@ -13,20 +13,20 @@ const Hero = () => {
         <svg
           className="w-full h-full"
           preserveAspectRatio="none"
-          viewBox="0 0 1341 897"
+          viewBox="0 0 1351 897"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <path d="M386.29 779.592C163.314 675.646 27.19 814.553 -13 897L-9.86831 241.078C71.5556 139.325 187.428 133.063 242.233 142.455C297.037 151.848 356.539 109.581 359.671 84.534C373.45 16.9068 404.036 0 417.607 0H1350.85C1358.37 269.256 1353.98 362.661 1350.85 375.707C1334.57 464.624 1249.07 555.733 1208.36 590.172C1146.77 636.092 997.909 713.843 895.189 657.487C792.47 601.131 719.815 654.878 696.327 688.796C598.619 851.602 448.924 817.162 386.29 779.592Z" fill="#EFFAFE"/>
+          <path d="M0 0V241.078C71.5556 139.325 187.428 133.063 242.233 142.455C297.037 151.848 356.539 109.581 359.671 84.534C373.45 16.9068 404.036 0 417.607 0H1350.85C1358.37 269.256 1353.98 362.661 1350.85 375.707C1334.57 464.624 1249.07 555.733 1208.36 590.172C1146.77 636.092 997.909 713.843 895.189 657.487C792.47 601.131 719.815 654.878 696.327 688.796C598.619 851.602 448.924 817.162 386.29 779.592C163.314 675.646 27.19 814.553 0 897V0Z" fill="#EFFAFE"/>
         </svg>
       </div>
 
       {/* Background Wave Decoration - Mobile */}
-      <div className="absolute inset-0 z-0 block pointer-events-none mt-14 md:hidden">
+      <div className="absolute inset-0 z-0 block pointer-events-none md:hidden">
         <svg 
           className="w-full h-auto"
-          viewBox="0 0 375 363" 
-          fill="none" 
+          viewBox="0 0 375 363"
+          fill="none"
           xmlns="http://www.w3.org/2000/svg"
           preserveAspectRatio="xMidYMin slice"
         >
@@ -37,12 +37,12 @@ const Hero = () => {
    
 
       {/* Main Content */}
-      <div className="relative px-4 pt-20 mx-auto md:pt-48 max-w-7xl md:px-8">
+      <div className="relative px-4 pt-4 mx-auto md:pt-48 max-w-7xl md:px-8">
         <div className="flex flex-col items-center justify-between gap-4 md:flex-row md:gap-8 lg:gap-12">
           
           {/* Water Drop Illustration - Mobile Only (appears first on mobile) */}
-          <div className="relative flex items-center justify-center w-full md:hidden">
-            <div className="relative w-full max-w-[200px]">
+          <div className="relative flex items-center justify-center w-full pt-2 pb-4 md:hidden">
+            <div className="relative w-full max-w-[180px]">
               {/* Soft Glow Behind Droplet */}
               <div 
                 className="absolute inset-0 rounded-full blur-3xl"
@@ -65,15 +65,14 @@ const Hero = () => {
 
           {/* Left Content - Text Block */}
           <div className="w-full space-y-5 text-center md:w-1/2 md:text-left">
-            <h1 className="text-3xl md:text-5xl lg:text-[3.25rem] font-bold leading-[1.15] tracking-tight">
-              <span className="text-gray-900">Transform Wastewater Into</span>
-              <br />
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#155DFC] via-[#00B8DB] to-[#00C950]">Reusable & Potable Water</span>{' '}
+            <h1 className="text-3xl md:text-5xl lg:text-[3.25rem] font-bold leading-[1.15] flex flex-col  tracking-tight">
+              <span className="text-gray-900">Transforming Water</span>
+              
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#155DFC] via-[#00B8DB] to-[#00C950] pt-4 pb-4">Enhancing Lives</span>{' '}
             </h1>
 
             <p className="max-w-xl mx-auto text-base leading-relaxed text-gray-600 md:text-lg md:mx-0">
-              Engineering excellence in water purification, wastewater treatment, and fire-fighting 
-              systems for industries, institutions, and communities.
+              We design and deliver reliable, cost-effective, and sustainable water and wastewater solutions for governments, industries, institutions, and organization.
             </p>
 
             {/* CTA Buttons */}
@@ -120,8 +119,8 @@ const Hero = () => {
         </div>
 
         {/* Trust Indicators Row */}
-        <div className="pt-8 mt-8 md:mt-12 lg:mt-16 " >
-          <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:justify-center lg:gap-16 ">
+        <div className="pt-6 mt-4 md:pt-8 md:mt-12 lg:mt-16">
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 sm:flex-row sm:flex-wrap sm:justify-center lg:gap-16">
             <div className="flex items-center justify-center gap-3">
               <div className="flex-shrink-0 w-3 h-3 bg-green-500 rounded-full shadow-sm" />
               <span className="text-sm font-medium text-gray-600 md:text-lg">ISO Certified</span>

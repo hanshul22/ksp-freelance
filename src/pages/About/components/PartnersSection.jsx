@@ -1,4 +1,20 @@
+import {
+  OtherClient1,
+  OtherClient2,
+  OtherClient3,
+  OtherClient4,
+  OtherClient5,
+} from '@/assets';
+
 const PartnersSection = () => {
+  const partners = [
+    { src: OtherClient1, alt: 'Grundfos' },
+    { src: OtherClient2, alt: 'Dow' },
+    { src: OtherClient3, alt: 'GE' },
+    { src: OtherClient4, alt: 'Siemens' },
+    { src: OtherClient5, alt: 'Pentair' },
+  ];
+
   return (
     <section className="relative w-full px-4 py-16 mt-20 overflow-hidden md:px-8 md:py-20">
 
@@ -13,13 +29,19 @@ const PartnersSection = () => {
           </p>
         </div>
 
-        {/* Partner Logo Placeholder Grid */}
-        <div className="flex flex-wrap justify-center gap-4">
-          {[1, 2, 3, 4, 5, 6].map((item) => (
+        {/* Partner Logo Row */}
+        <div className="flex flex-wrap justify-center gap-4 md:gap-6">
+          {partners.map((partner, index) => (
             <div 
-              key={item}
-              className="bg-white rounded-xl w-[130px] h-[100px] border border-slate-200"
-            />
+              key={index}
+              className="bg-white rounded-xl p-5 shadow-sm w-[140px] h-[110px] md:w-[160px] md:h-[120px] flex items-center justify-center border border-slate-100"
+            >
+              <img
+                src={partner.src}
+                alt={partner.alt}
+                className="object-contain w-full h-full max-w-[120px] max-h-[80px]"
+              />
+            </div>
           ))}
         </div>
       </div>

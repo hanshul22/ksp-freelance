@@ -10,8 +10,8 @@ const CultureValuesSection = () => {
           <h2 className="mb-4 text-3xl font-bold md:text-4xl text-slate-900">
             Our Culture & Values
           </h2>
-          <p className="max-w-2xl mx-auto text-base leading-relaxed md:text-lg text-slate-500">
-            Built on principles of excellence, safety, and sustainability
+          <p className="max-w-3xl mx-auto text-base leading-relaxed md:text-lg text-slate-500">
+            At KSP, our culture is shaped by how we think, work, and take responsibility towards our people, and the environment. We believe strong execution, processes, and committed teams are what deliver reliable water infrastructure over decades.
           </p>
         </div>
 
@@ -19,45 +19,45 @@ const CultureValuesSection = () => {
         <div className="grid grid-cols-1 gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
           {/* Excellence Card */}
           <article className="p-6 text-center bg-white shadow-sm rounded-xl">
-            <div className="flex items-center justify-center mx-auto mb-4 bg-blue-500 w-14 h-14 rounded-xl">
+            <div className="flex items-center justify-center mx-auto mb-4 bg-gradient-to-br from-[#155DFC] to-[#0092B8] w-14 h-14 rounded-xl">
               <CircleDot className="text-white w-7 h-7" />
             </div>
             <h3 className="mb-2 text-lg font-semibold text-slate-900">Excellence</h3>
             <p className="text-sm leading-relaxed text-slate-500">
-              Committed to delivering superior quality in every project
+              Delivering high-quality engineering through precision & expertise
             </p>
           </article>
 
           {/* Safety First Card */}
           <article className="p-6 text-center bg-white shadow-sm rounded-xl">
-            <div className="flex items-center justify-center mx-auto mb-4 bg-blue-500 w-14 h-14 rounded-xl">
+            <div className="flex items-center justify-center mx-auto mb-4 bg-gradient-to-br from-[#155DFC] to-[#0092B8] w-14 h-14 rounded-xl">
               <Shield className="text-white w-7 h-7" />
             </div>
             <h3 className="mb-2 text-lg font-semibold text-slate-900">Safety First</h3>
             <p className="text-sm leading-relaxed text-slate-500">
-              Uncompromising safety standards for people and environment
+              Prioritizing the health, safety, and well-being of people and environment
             </p>
           </article>
 
           {/* Sustainability Card */}
           <article className="p-6 text-center bg-white shadow-sm rounded-xl">
-            <div className="flex items-center justify-center mx-auto mb-4 bg-blue-500 w-14 h-14 rounded-xl">
+            <div className="flex items-center justify-center mx-auto mb-4 bg-gradient-to-br from-[#155DFC] to-[#0092B8] w-14 h-14 rounded-xl">
               <Leaf className="text-white w-7 h-7" />
             </div>
             <h3 className="mb-2 text-lg font-semibold text-slate-900">Sustainability</h3>
             <p className="text-sm leading-relaxed text-slate-500">
-              Eco-friendly solutions for a greener tomorrow
+              Designing responsible water solutions that conserve resources
             </p>
           </article>
 
           {/* Team Spirit Card */}
           <article className="p-6 text-center bg-white shadow-sm rounded-xl">
-            <div className="flex items-center justify-center mx-auto mb-4 bg-blue-500 w-14 h-14 rounded-xl">
+            <div className="flex items-center justify-center mx-auto mb-4 bg-gradient-to-br from-[#155DFC] to-[#0092B8] w-14 h-14 rounded-xl">
               <Users className="text-white w-7 h-7" />
             </div>
             <h3 className="mb-2 text-lg font-semibold text-slate-900">Team Spirit</h3>
             <p className="text-sm leading-relaxed text-slate-500">
-              Collaborative culture fostering innovation and growth
+              Working collaboratively to drive innovation and long-term success.
             </p>
           </article>
         </div>

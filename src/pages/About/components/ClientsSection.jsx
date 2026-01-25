@@ -1,15 +1,78 @@
-import clientlogo1 from '@/assets/images/clientlogo1.png';
-import clientlogo2 from '@/assets/images/clientlogo2.png';
-import clientlogo3 from '@/assets/images/clientlogo3.png';
-import clientlogo4 from '@/assets/images/clientlogo4.png';
-import clientlogo5 from '@/assets/images/clientlogo5.png';
-import clientlogo6 from '@/assets/images/clientlogo6.png';
+import {
+  Client1,
+  Client2,
+  Client3,
+  Client4,
+  Client5,
+  Client6,
+  Client7,
+  Client8,
+  Client9,
+  Client10,
+  Client11,
+  Client12,
+  Client13,
+} from '@/assets';
 
 const ClientsSection = () => {
+  // Row 1 logos (moving right to left)
+  const row1Logos = [
+    { src: Client1, alt: 'Tata Realty' },
+    { src: Client2, alt: 'Mankind' },
+    { src: Client3, alt: 'NIMS University' },
+    { src: Client4, alt: 'Harvest Gold' },
+    { src: Client5, alt: 'Avery Dennison' },
+    { src: Client6, alt: 'Oji JK Packaging' },
+    { src: Client7, alt: 'Tata Communications' },
+  ];
+
+  // Row 2 logos (moving left to right)
+  const row2Logos = [
+    { src: Client8, alt: 'Impact Kerala' },
+    { src: Client9, alt: 'RUIDP' },
+    { src: Client10, alt: 'Assam Cancer Care Foundation' },
+    { src: Client11, alt: 'DCSEM' },
+    { src: Client12, alt: 'CPWD' },
+    { src: Client13, alt: 'Marriott' },
+  ];
+
   return (
     <section className="relative w-full px-4 py-16 overflow-hidden md:px-8 md:py-20">
+      {/* CSS Animations */}
+      <style>{`
+        @keyframes scrollLeft {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        
+        @keyframes scrollRight {
+          0% {
+            transform: translateX(-50%);
+          }
+          100% {
+            transform: translateX(0);
+          }
+        }
+        
+        .animate-scroll-left {
+          animation: scrollLeft 30s linear infinite;
+        }
+        
+        .animate-scroll-right {
+          animation: scrollRight 30s linear infinite;
+        }
+        
+        .logo-row:hover .animate-scroll-left,
+        .logo-row:hover .animate-scroll-right {
+          animation-play-state: paused;
+        }
+      `}</style>
 
-      <div className="relative z-10 max-w-6xl mx-auto">
+      <div className="relative z-10 mx-auto max-w-7xl">
         {/* Section Header */}
         <div className="mb-12 text-center">
           <h2 className="mb-4 text-3xl font-bold md:text-4xl text-slate-900">
@@ -20,46 +83,77 @@ const ClientsSection = () => {
           </p>
         </div>
 
-        {/* Client Logo Grid - Row 1 */}
-        <div className="flex flex-wrap justify-center gap-4 mb-4">
-          <div className="bg-white rounded-xl p-4 shadow-sm w-[130px] h-[100px] flex items-center justify-center">
-            <img src={clientlogo1} alt="ITC Limited" className="object-contain max-w-full max-h-full" />
+        {/* Logo Rows Container */}
+        <div className="space-y-6">
+          {/* Row 1 - Scrolling Right to Left */}
+          <div className="overflow-hidden logo-row">
+            <div className="flex animate-scroll-left w-max">
+              {/* Original logos */}
+              {row1Logos.map((logo, index) => (
+                <div
+                  key={`row1-${index}`}
+                  className="bg-white rounded-xl p-5 shadow-sm w-[160px] h-[120px] md:w-[180px] md:h-[130px] flex items-center justify-center flex-shrink-0 mx-3"
+                >
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    className="object-contain w-full h-full max-w-[140px] max-h-[90px]"
+                  />
+                </div>
+              ))}
+              {/* Duplicated logos for seamless loop */}
+              {row1Logos.map((logo, index) => (
+                <div
+                  key={`row1-dup-${index}`}
+                  className="bg-white rounded-xl p-5 shadow-sm w-[160px] h-[120px] md:w-[180px] md:h-[130px] flex items-center justify-center flex-shrink-0 mx-3"
+                >
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    className="object-contain w-full h-full max-w-[140px] max-h-[90px]"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="bg-white rounded-xl p-4 shadow-sm w-[130px] h-[100px] flex items-center justify-center">
-            <img src={clientlogo2} alt="Tata Realty" className="object-contain max-w-full max-h-full" />
-          </div>
-          <div className="bg-white rounded-xl p-4 shadow-sm w-[130px] h-[100px] flex items-center justify-center">
-            <img src={clientlogo3} alt="Mankind" className="object-contain max-w-full max-h-full" />
-          </div>
-          <div className="bg-white rounded-xl p-4 shadow-sm w-[130px] h-[100px] flex items-center justify-center">
-            <img src={clientlogo4} alt="NIMS University" className="object-contain max-w-full max-h-full" />
-          </div>
-          <div className="bg-white rounded-xl p-4 shadow-sm w-[130px] h-[100px] flex items-center justify-center">
-            <img src={clientlogo5} alt="Marriott" className="object-contain max-w-full max-h-full" />
-          </div>
-          <div className="bg-white rounded-xl p-4 shadow-sm w-[130px] h-[100px] flex items-center justify-center">
-            <img src={clientlogo6} alt="The Lalit" className="object-contain max-w-full max-h-full" />
+
+          {/* Row 2 - Scrolling Left to Right */}
+          <div className="overflow-hidden logo-row">
+            <div className="flex animate-scroll-right w-max">
+              {/* Original logos */}
+              {row2Logos.map((logo, index) => (
+                <div
+                  key={`row2-${index}`}
+                  className="bg-white rounded-xl p-5 shadow-sm w-[160px] h-[120px] md:w-[180px] md:h-[130px] flex items-center justify-center flex-shrink-0 mx-3"
+                >
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    className="object-contain w-full h-full max-w-[140px] max-h-[90px]"
+                  />
+                </div>
+              ))}
+              {/* Duplicated logos for seamless loop */}
+              {row2Logos.map((logo, index) => (
+                <div
+                  key={`row2-dup-${index}`}
+                  className="bg-white rounded-xl p-5 shadow-sm w-[160px] h-[120px] md:w-[180px] md:h-[130px] flex items-center justify-center flex-shrink-0 mx-3"
+                >
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    className="object-contain w-full h-full max-w-[140px] max-h-[90px]"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* Client Logo Grid - Row 2 */}
-        <div className="flex flex-wrap justify-center gap-4">
-          <div className="bg-white rounded-xl p-4 shadow-sm w-[130px] h-[100px] flex items-center justify-center">
-            <img src={clientlogo6} alt="The Lalit" className="object-contain max-w-full max-h-full" />
-          </div>
-          <div className="bg-white rounded-xl p-4 shadow-sm w-[130px] h-[100px] flex items-center justify-center">
-            <img src={clientlogo5} alt="Marriott" className="object-contain max-w-full max-h-full" />
-          </div>
-          <div className="bg-white rounded-xl p-4 shadow-sm w-[130px] h-[100px] flex items-center justify-center">
-            <img src={clientlogo4} alt="NIMS University" className="object-contain max-w-full max-h-full" />
-          </div>
-          <div className="bg-white rounded-xl p-4 shadow-sm w-[130px] h-[100px] flex items-center justify-center">
-            <img src={clientlogo2} alt="Tata Realty" className="object-contain max-w-full max-h-full" />
-          </div>
-          <div className="bg-white rounded-xl p-4 shadow-sm w-[130px] h-[100px] flex items-center justify-center">
-            <img src={clientlogo1} alt="ITC Limited" className="object-contain max-w-full max-h-full" />
-          </div>
-        </div>
+        {/* Footer Text */}
+        <p className="mt-10 text-sm text-center text-slate-500">
+          And many more across the world...
+        </p>
       </div>
     </section>
   );

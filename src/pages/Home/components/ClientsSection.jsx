@@ -1,29 +1,39 @@
-import clientLogo1 from '@/assets/images/clientlogo1.png';
-import clientLogo2 from '@/assets/images/clientlogo2.png';
-import clientLogo3 from '@/assets/images/clientlogo3.png';
-import clientLogo4 from '@/assets/images/clientlogo4.png';
-import clientLogo5 from '@/assets/images/clientlogo5.png';
-import clientLogo6 from '@/assets/images/clientlogo6.png';
+
+import {Client1, Client2, Client3, Client4, Client5, Client6, Client7, Client8, Client9, Client10, Client11} from '@/assets';
+
+
 
 const ClientsSection = () => {
-  const clients = [
-    { id: 1, logo: clientLogo1, name: 'Client 1' },
-    { id: 2, logo: clientLogo2, name: 'Client 2' },
-    { id: 3, logo: clientLogo3, name: 'Client 3' },
-    { id: 4, logo: clientLogo4, name: 'Client 4' },
-    { id: 5, logo: clientLogo5, name: 'Client 5' },
-    { id: 6, logo: clientLogo6, name: 'Client 6' },
+  // Row 1 clients - scrolls left
+  const clientsRow1 = [
+    { id: 1, logo: Client1, name: 'Impact Kerala' },
+    { id: 2, logo: Client2, name: 'RUIDP' },
+    { id: 3, logo: Client3, name: 'Assam Cancer Care Foundation' },
+    { id: 4, logo: Client4, name: 'DCSEM' },
+    { id: 5, logo: Client5, name: 'CPWD' },
+    { id: 6, logo: Client6, name: 'Marriott' },
   ];
 
-  // Duplicate the clients array for seamless loop
-  const duplicatedClients = [...clients, ...clients];
+  // Row 2 clients - scrolls right
+  const clientsRow2 = [
+    { id: 7, logo: Client7, name: 'Harvest Gold' },
+    { id: 8, logo: Client8, name: 'Avery Dennison' },
+    { id: 9, logo: Client9, name: 'OJI JK Packaging' },
+    { id: 10, logo: Client10, name: 'Tata Communications' },
+    { id: 11, logo: Client11, name: 'The Lalit' },
+  ];
+
+  // Duplicate arrays for seamless infinite scroll
+  const duplicatedRow1 = [...clientsRow1, ...clientsRow1, ...clientsRow1];
+  const duplicatedRow2 = [...clientsRow2, ...clientsRow2, ...clientsRow2];
 
   return (
     <section className="relative py-16 overflow-hidden md:py-24">
       {/* Background SVG */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <svg
-         className="w-full h-full"
+         className="w-full"
+          height="950"
             preserveAspectRatio="none"
             viewBox="0 0 1341 1036"
           fill="none"
@@ -45,17 +55,17 @@ const ClientsSection = () => {
           <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">
             Our Clients
           </h2>
-          <p className="max-w-2xl mx-auto text-base text-gray-600">
-            Proud to serve leading organizations across industries
+          <p className="max-w-3xl mx-auto text-base text-gray-600">
+            Proud to work with leading organizations across hospitality, government, healthcare, industry, and institutions
           </p>
         </div>
 
-        {/* Infinite Scrolling Logos */}
-        <div className="relative mb-12 overflow-hidden md:mb-16">
-          <div className="flex animate-scroll">
-            {duplicatedClients.map((client, index) => (
-              <div key={`${client.id}-${index}`} className="flex-shrink-0 mx-3 md:mx-4">
-                <div className="flex items-center justify-center w-40 h-24 sm:w-56 sm:h-32 md:w-64 md:h-36">
+        {/* Client Logos - Row 1 (Scrolls Left) */}
+        <div className="relative mb-6 overflow-hidden">
+          <div className="flex animate-scroll-left hover:pause-animation">
+            {duplicatedRow1.map((client, index) => (
+              <div key={`row1-${client.id}-${index}`} className="flex-shrink-0 mx-3">
+                <div className="flex items-center justify-center h-24 p-4 bg-white border border-gray-100 shadow-sm w-36 sm:w-40 sm:h-28 md:w-44 md:h-28 rounded-xl">
                   <img
                     src={client.logo}
                     alt={client.name}
@@ -67,14 +77,36 @@ const ClientsSection = () => {
           </div>
         </div>
 
+        {/* Client Logos - Row 2 (Scrolls Right) */}
+        <div className="relative mb-8 overflow-hidden">
+          <div className="flex animate-scroll-right hover:pause-animation">
+            {duplicatedRow2.map((client, index) => (
+              <div key={`row2-${client.id}-${index}`} className="flex-shrink-0 mx-3">
+                <div className="flex items-center justify-center h-24 p-4 bg-white border border-gray-100 shadow-sm w-36 sm:w-40 sm:h-28 md:w-44 md:h-28 rounded-xl">
+                  <img
+                    src={client.logo}
+                    alt={client.name}
+                    className="object-contain w-full h-full"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* "And many more" text */}
+        <p  className="mb-12 text-sm text-center text-gray-500 md:mb-10">
+          <strong> And many more across the world...</strong>
+        </p>
+
         {/* Testimonial Card */}
-        <div className="max-w-5xl mx-auto">
-          <div className="p-10 bg-white shadow-lg rounded-2xl md:p-12">
+        <div className="max-w-4xl mx-auto">
+          <div className="p-6 bg-white shadow-lg rounded-2xl md:pr-16 md:pl-10 md:py-10">
             <div className="flex items-start gap-4 md:gap-6">
               {/* Quote Icon */}
               <div className="flex-shrink-0">
                 <svg
-                  className="w-10 h-10 text-blue-400 md:w-12 md:h-12"
+                  className="w-10 h-10 text-teal-400 md:w-12 md:h-12"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -83,18 +115,17 @@ const ClientsSection = () => {
               </div>
 
               {/* Testimonial Content */}
-              <div className="flex-1">
-                <p className="mb-6 text-base italic leading-relaxed text-gray-600 md:text-lg">
-                  &quot;KSP Hydro Engineers transformed our industrial wastewater
-                  management system. Their expertise and commitment to sustainable
-                  solutions exceeded our expectations. The team&apos;s professionalism and
-                  ongoing support have been invaluable.&quot;
+              <div className="flex-1 text-xl md:text-2xl">
+                <p className="mb-6 italic leading-relaxed text-gray-600 md:text-base">
+                  &quot;This refers to services provided by M/s KSP Hydro Engineers Pvt. Ltd. for our facilities. They are currently managing our sewage treatment plant and have consistently met our expectations with their expertise, dedicated workforce, quality assurance, compliance, safety measures, reliability, and 24/7 commitment. We highly recommend M/s KSP Hydro as specialists in water treatment services and as an excellent provider of O&M services.&quot;
                 </p>
                 <div>
                   <p className="text-sm font-semibold text-gray-900 md:text-base">
-                    Client
+                    S C Agarwal
                   </p>
-                  <p className="text-xs text-gray-500 md:text-sm">HR Manager</p>
+                  <p className="text-xs text-gray-500 md:text-sm">
+                    Director, Ready Roti India Pvt Ltd
+                  </p>
                 </div>
               </div>
             </div>
@@ -103,20 +134,34 @@ const ClientsSection = () => {
       </div>
 
       <style jsx>{`
-        @keyframes scroll {
+        @keyframes scroll-left {
           0% {
             transform: translateX(0);
           }
           100% {
-            transform: translateX(-50%);
+            transform: translateX(-33.333%);
           }
         }
 
-        .animate-scroll {
-          animation: scroll 20s linear infinite;
+        @keyframes scroll-right {
+          0% {
+            transform: translateX(-33.333%);
+          }
+          100% {
+            transform: translateX(0);
+          }
         }
 
-        .animate-scroll:hover {
+        .animate-scroll-left {
+          animation: scroll-left 25s linear infinite;
+        }
+
+        .animate-scroll-right {
+          animation: scroll-right 25s linear infinite;
+        }
+
+        .animate-scroll-left:hover,
+        .animate-scroll-right:hover {
           animation-play-state: paused;
         }
       `}</style>
