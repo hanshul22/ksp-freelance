@@ -64,8 +64,8 @@ const AboutSection = () => {
             <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
           </Link>
 
-          {/* Image - Desktop Only */}
-          <div className="hidden md:block mt-10 lg:mt-14 w-full max-w-2xl lg:max-w-3xl">
+          {/* Image - Visible on both mobile and desktop */}
+          <div className="mt-8 md:mt-10 lg:mt-14 w-full max-w-sm md:max-w-2xl lg:max-w-3xl px-4 md:px-0">
             <div className="relative overflow-hidden rounded-2xl lg:rounded-3xl shadow-lg">
               <img 
                 src={aboutImage} 
