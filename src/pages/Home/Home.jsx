@@ -17,9 +17,10 @@ const Home = () => {
       <Hero />
 
       <div className="relative">
-        <div className="absolute inset-0 z-0 mt-24 pointer-events-none hidden md:block">
+        <div className="absolute inset-0 z-0 hidden pointer-events-none mt-52 md:block">
           <svg
-            className="w-full h-full"
+            className="w-full"
+            height="1036"
             preserveAspectRatio="none"
             viewBox="0 0 1341 1036"
             fill="none"
@@ -37,10 +38,11 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="relative">
-        <div className="absolute inset-0 z-0 pointer-events-none mt-40 md:mt-80 lg:mt-[500px] xl:mt-[650px] 2xl:mt-[800px]">
+      <div className="relative ">
+        <div className="absolute  inset-0 z-0 pointer-events-none mt-40 md:mt-80 lg:mt-[500px] xl:mt-[650px] 2xl:mt-[1450px]">
           <svg
-            className="w-full h-full"
+            className="w-full"
+            height="1036"
             preserveAspectRatio="none"
             viewBox="0 0 1341 897"
             fill="none"

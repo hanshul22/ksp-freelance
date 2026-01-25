@@ -7,9 +7,9 @@ const AboutSection = () => {
     <section className="py-16 md:py-24">
       <div className="px-4 mx-auto max-w-7xl md:px-8">
         {/* Mobile Layout */}
-        <div className="block md:hidden relative">
+        <div className="relative block md:hidden">
           {/* Mobile Background Shape */}
-          <div className="absolute inset-0 -z-10 flex items-center justify-center overflow-hidden">
+          <div className="absolute inset-0 flex items-center justify-center overflow-hidden -z-10">
             <svg 
               viewBox="0 0 375 462" 
               fill="none" 
@@ -25,25 +25,23 @@ const AboutSection = () => {
           </div>
 
           {/* Mobile Content - Centered */}
-          <div className="flex flex-col items-center text-center px-4 py-8 relative z-10">
+          <div className="relative z-10 flex flex-col items-center px-4 py-8 text-center">
             {/* Label */}
-            <span className="text-xs font-semibold tracking-widest text-blue-600 uppercase mb-5">
+            <span className="mb-5 text-xs font-semibold tracking-widest text-blue-600 uppercase">
               About KSP Hydro Engineers
             </span>
 
             {/* Heading - Stacked for mobile */}
             <h2 className="text-[32px] font-bold leading-[1.15] text-gray-900 mb-5">
-              Transforming<br />
-              Water for a<br />
-              Sustainable<br />
-              Future
+              Practical Water<br />
+              Solutions for<br />
+              Real-World<br />
+              Needs
             </h2>
 
             {/* Description */}
             <p className="text-sm leading-relaxed text-slate-600 max-w-[300px] mb-6">
-              KSP Hydro Engineers provides end-to-end water and wastewater solutions, 
-              helping industries and communities transform raw and drainage water into 
-              safe, reusable, and potable water.
+              KSP Hydro Engineers provides complete water and wastewater solutions from design and execution to long-term operation. We help governments, industries, and institutions convert wastewater into safe, reusable water through reliable, cost-effective systems built for real-world conditions.
             </p>
 
             {/* CTA Button */}
@@ -58,7 +56,7 @@ const AboutSection = () => {
         </div>
 
         {/* Desktop Layout - Unchanged */}
-        <div className="hidden md:grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
+        <div className="items-center hidden gap-8 md:grid lg:grid-cols-2 lg:gap-12">
           {/* Left Side - Image */}
           <div className="relative">
             <div className="relative overflow-hidden shadow-lg rounded-2xl">
@@ -79,22 +77,19 @@ const AboutSection = () => {
 
             {/* Heading */}
             <h2 className="text-3xl font-bold leading-tight text-gray-900 md:text-4xl lg:text-5xl">
-              Transforming Water for a Sustainable Future
+              Practical Water Solutions for Real-World Needs
             </h2>
 
             {/* Description */}
             <p className="text-base leading-relaxed md:text-lg text-slate-600">
-              KSP Hydro Engineers provides end-to-end water and wastewater solutions, 
-              helping industries and communities transform raw and drainage water into 
-              safe, reusable, and potable water. With proven technologies and sustainable 
-              practices, we deliver reliable systems from design to maintenance.
+              KSP Hydro Engineers provides complete water and wastewater solutions from design and execution to long-term operation. We help governments, industries, and institutions convert wastewater into safe, reusable water through reliable, cost-effective systems built for real-world conditions.
             </p>
 
             {/* CTA Button */}
             <div className="pt-2">
               <Link
                 to="/about"
-                className="inline-flex items-center gap-2 px-4 py-2 text-blue-600 transition-all bg-white border-2 border-blue-600 rounded-lg font-medium hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2"
+                className="inline-flex items-center gap-2 px-4 py-2 font-medium text-blue-600 transition-all bg-white border-2 border-blue-600 rounded-lg hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2"
               >
                 Know More About Us
                 <ArrowRight className="w-5 h-5" />

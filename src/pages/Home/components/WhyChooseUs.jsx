@@ -6,25 +6,25 @@ const WhyChooseUs = () => {
       id: 1,
       icon: Award,
       title: 'Proven Technologies',
-      description: 'Cutting-edge water treatment systems backed by years of industry expertise and successful implementations.',
+      description: 'Field-tested water and wastewater treatment technologies successfully implemented across STPs, ETPs, WTPs, RO systems, and lake revival projects.',
     },
     {
       id: 2,
       icon: Shield,
       title: 'Quality & Compliance',
-      description: 'All solutions meet international standards and regulatory requirements for water quality and safety.',
+      description: 'All systems are designed and executed in line with regulatory norms, safety standards, and performance benchmarks to ensure long-term reliability.',
     },
     {
       id: 3,
       icon: Settings,
       title: 'End-to-End Solutions',
-      description: 'Complete lifecycle management from design and installation to ongoing operation and maintenance.',
+      description: 'Complete lifecycle support from design engineering and commissioning to operation, maintenance, and system optimization.',
     },
     {
       id: 4,
       icon: Headphones,
       title: 'Reliable Support',
-      description: '24/7 technical support and rapid response teams to ensure your systems operate at peak performance.',
+      description: 'Dedicated technical teams, quick response, and ongoing AMC support to keep your systems running efficiently, year after year.',
     },
   ];
 
@@ -35,43 +35,43 @@ const WhyChooseUs = () => {
         background: 'linear-gradient(to right, #155DFC, #00C950)'
       }}
     >
-      <div className="max-w-7xl mx-auto px-4 md:px-8">
+      <div className="px-4 mx-auto max-w-7xl md:px-8">
         {/* Section Header */}
-        <div className="text-center mb-12 md:mb-16">
-          <p className="text-sm font-semibold text-white/90 uppercase tracking-wide mb-3">
+        <div className="mb-12 text-center md:mb-16">
+          <p className="mb-3 text-sm font-semibold tracking-wide uppercase text-white/90">
             Trust & Expertise
           </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+          <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl lg:text-5xl">
             Why Choose KSP Hydro
           </h2>
-          <p className="text-base md:text-lg text-white/90 max-w-2xl mx-auto">
-            Your trusted partner for sustainable water solutions
+          <p className="max-w-2xl mx-auto text-base md:text-lg text-white/90">
+            A trusted partner delivering practical, reliable, and compliant water solutions across industries and public infrastructure.
           </p>
         </div>
 
         {/* Feature Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4 md:gap-8">
           {features.map((feature) => {
             const Icon = feature.icon;
             return (
               <div
                 key={feature.id}
-                className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/20 hover:bg-white/15 transition-all"
+                className="p-6 transition-all border bg-white/10 backdrop-blur-sm rounded-2xl md:p-8 border-white/20 hover:bg-white/15"
               >
                 {/* Icon */}
                 <div className="mb-6">
-                  <div className="w-14 h-14 rounded-lg bg-white/20 flex items-center justify-center">
-                    <Icon className="w-7 h-7 text-white" strokeWidth={1.5} />
+                  <div className="flex items-center justify-center rounded-lg w-14 h-14 bg-white/20">
+                    <Icon className="text-white w-7 h-7" strokeWidth={1.5} />
                   </div>
                 </div>
 
                 {/* Title */}
-                <h3 className="text-lg font-bold text-white mb-3 leading-tight">
+                <h3 className="mb-3 text-lg font-bold leading-tight text-white">
                   {feature.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-sm text-white/80 leading-relaxed">
+                <p className="text-sm leading-relaxed text-white/80">
                   {feature.description}
                 </p>
               </div>

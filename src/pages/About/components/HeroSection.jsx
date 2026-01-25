@@ -1,17 +1,12 @@
 const HeroSection = () => {
   return (
-    <section 
-      className="w-full min-h-[70vh] flex items-center justify-center px-6"
-      style={{
-        background: 'linear-gradient(135deg, #0891b2 0%, #0ea5a9 25%, #0284c7 60%, #1d4ed8 100%)'
-      }}
-    >
-      <div className="max-w-[1100px] w-full text-center pt-24">
-        <h1 className="text-4xl md:text-5xl lg:text-[56px] font-bold text-white leading-tight mb-6">
+    <section className="w-full py-20 md:py-28 flex items-center justify-center px-6">
+      <div className="max-w-[1100px] w-full text-center pt-16 md:pt-20">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-4 md:mb-6">
           About KSP Hydro Engineers
         </h1>
-        <p className="text-lg md:text-xl text-white/85 font-normal leading-relaxed max-w-2xl mx-auto">
-          Building trust, credibility, and sustainable water solutions for over two decades
+        <p className="text-base md:text-lg text-gray-600 font-normal leading-relaxed max-w-xl mx-auto">
+          Trusted partners in water and wastewater infrastructure for over two decades.
         </p>
       </div>
     </section>

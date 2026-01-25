@@ -1,55 +1,84 @@
 const JourneySection = () => {
-  const journeyEvents = [
-    {
-      year: '2003',
-      title: 'Company Founded',
-      description: 'KSP Hydro Engineers established with a vision to revolutionize water treatment',
-      side: 'left'
-    },
-    {
-      year: '2008',
-      title: 'First Major Project',
-      description: 'Completed 5 MLD wastewater treatment plant for leading industrial client',
-      side: 'right'
-    },
-    {
-      year: '2012',
-      title: 'ISO Certification',
-      description: 'Achieved ISO 9001:2015 certification for quality management',
-      side: 'left'
-    },
-    {
-      year: '2015',
-      title: 'Expansion',
-      description: 'Expanded operations across 5 states with 100+ projects completed',
-      side: 'right'
-    },
-    {
-      year: '2018',
-      title: 'Innovation Award',
-      description: 'Recognized for sustainable water recycling technology',
-      side: 'left'
-    },
-    {
-      year: '2020',
-      title: 'Major Milestone',
-      description: 'Successfully commissioned 500+ water treatment systems',
-      side: 'right'
-    },
-    {
-      year: '2024',
-      title: 'Industry Leader',
-      description: 'Established as a trusted partner across multiple sectors nationwide',
-      side: 'left'
-    }
-  ];
+ const journeyEvents = [
+  {
+    year: '2003',
+    title: 'Company Founded',
+    description:
+      'KSP Hydro Engineers was established to deliver reliable water and wastewater treatment solutions.',
+    side: 'left'
+  },
+  {
+    year: '2007',
+    title: 'Entry into Water & Wastewater Projects',
+    description:
+      'KSP Hydro Engineers Pvt. Ltd. dedicatedly incorporated for Projects Division under Water.',
+    side: 'right'
+  },
+  {
+    year: '2011',
+    title: 'Infrastructure & Capability Expansion',
+    description:
+      'Start of new manufacturing facility in Jaipur (RIICO).',
+    side: 'left'
+  },
+  {
+    year: '2015',
+    title: 'Administrative & Geographic Growth',
+    description:
+      'Established new administrative offices and expanded presence across key regions in India.',
+    side: 'right'
+  },
+  {
+    year: '2018',
+    title: 'Innovation Award',
+    description:
+      'Recognized for sustainable water recycling technology.',
+    side: 'left'
+  },
+  {
+    year: '2020',
+    title: 'Major Milestone',
+    description:
+      'Successfully commissioned 500+ water treatment systems.',
+    side: 'right'
+  },
+  {
+    year: '2024',
+    title: 'Industry Leader',
+    description:
+      'Established as a trusted partner across multiple sectors nationwide.',
+    side: 'left'
+  }
+];
+
+
+  // Card component for consistent styling
+  const MilestoneCard = ({ year, title, description, side }) => (
+    <div className={`bg-white rounded-2xl p-5 w-full ${side === 'left' ? 'text-right' : 'text-left'} shadow-[0_4px_6px_-4px_rgba(0,0,0,0.1),0_10px_15px_-3px_rgba(0,0,0,0.1)]`}>
+      {/* Year */}
+      <div className="mb-2">
+        <span className="text-2xl font-bold text-blue-600 md:text-2xl">{year}</span>
+      </div>
+      
+      {/* Title */}
+      <h3 className="text-sm font-semibold md:text-xl text-slate-900">
+        {title}
+      </h3>
+      
+      {/* Description */}
+      <p className="mt-2 text-sm leading-relaxed md:text-base text-slate-500">
+        {description}
+      </p>
+    </div>
+  );
 
   return (
     <section className="relative w-full px-6 py-20 overflow-hidden">
       {/* Background SVG */}
-      <div className="absolute inset-0 z-0 w-full h-full mt-40 pointer-events-none">
+      <div className="absolute inset-0 z-0 w-full h-full pointer-events-none mt-60">
         <svg
-          // className="w-full h-full"
+          className="w-full"
+          height="1036"
           preserveAspectRatio="none"
           viewBox="0 0 1340 1036"
           fill="none"
@@ -87,11 +116,12 @@ const JourneySection = () => {
                   {/* Left side content */}
                   <div className={`w-1/2 ${event.side === 'left' ? 'pr-12' : ''}`}>
                     {event.side === 'left' && (
-                      <div className="p-6 text-right bg-white border shadow-sm rounded-xl border-slate-100">
-                        <span className="text-2xl font-bold text-blue-600">{event.year}</span>
-                        <h3 className="mt-1 text-lg font-semibold text-slate-900">{event.title}</h3>
-                        <p className="mt-2 text-sm leading-relaxed text-slate-500">{event.description}</p>
-                      </div>
+                      <MilestoneCard 
+                        year={event.year} 
+                        title={event.title} 
+                        description={event.description}
+                        side={event.side}
+                      />
                     )}
                   </div>
 
@@ -103,11 +133,12 @@ const JourneySection = () => {
                   {/* Right side content */}
                   <div className={`w-1/2 ${event.side === 'right' ? 'pl-12' : ''}`}>
                     {event.side === 'right' && (
-                      <div className="p-6 text-left bg-white border shadow-sm rounded-xl border-slate-100">
-                        <span className="text-2xl font-bold text-blue-600">{event.year}</span>
-                        <h3 className="mt-1 text-lg font-semibold text-slate-900">{event.title}</h3>
-                        <p className="mt-2 text-sm leading-relaxed text-slate-500">{event.description}</p>
-                      </div>
+                      <MilestoneCard 
+                        year={event.year} 
+                        title={event.title} 
+                        description={event.description}
+                        side={event.side}
+                      />
                     )}
                   </div>
                 </div>
@@ -120,10 +151,13 @@ const JourneySection = () => {
                   </div>
 
                   {/* Card */}
-                  <div className="flex-1 p-5 bg-white border shadow-sm rounded-xl border-slate-100">
-                    <span className="text-xl font-bold text-blue-600">{event.year}</span>
-                    <h3 className="mt-1 text-base font-semibold text-slate-900">{event.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-slate-500">{event.description}</p>
+                  <div className="flex-1">
+                    <MilestoneCard 
+                      year={event.year} 
+                      title={event.title} 
+                      description={event.description}
+                      side={event.side}
+                    />
                   </div>
                 </div>
               </div>
