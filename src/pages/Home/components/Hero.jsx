@@ -1,12 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-// import { waterDrop } from '@/assets';
-import{waterDrop} from '@/assets';
+import { waterDrop } from '@/assets';
 
 const Hero = () => {
   return (
-    <section className="relative min-h-[95vh] mt-10" >
+    <section className="relative min-h-screen pt-28 pb-8 md:pt-40 md:pb-16 overflow-hidden">
       
       {/* Background Wave Decoration - Desktop */}
       <div className="absolute inset-0 z-0 hidden pointer-events-none md:block">
@@ -24,8 +23,8 @@ const Hero = () => {
       {/* Background Wave Decoration - Mobile */}
       <div className="absolute inset-0 z-0 block pointer-events-none md:hidden">
         <svg 
-          className="w-full h-auto"
-          viewBox="0 0 375 363"
+          className="w-full h-full"
+          viewBox="0 0 375 500"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           preserveAspectRatio="xMidYMin slice"
@@ -34,106 +33,79 @@ const Hero = () => {
         </svg>
       </div>
 
-   
-
-      {/* Main Content */}
-      <div className="relative px-4 pt-4 mx-auto md:pt-48 max-w-7xl md:px-8">
-        <div className="flex flex-col items-center justify-between gap-4 md:flex-row md:gap-8 lg:gap-12">
-          
-          {/* Water Drop Illustration - Mobile Only (appears first on mobile) */}
-          <div className="relative flex items-center justify-center w-full pt-2 pb-4 md:hidden">
-            <div className="relative w-full max-w-[180px]">
-              {/* Soft Glow Behind Droplet */}
-              <div 
-                className="absolute inset-0 rounded-full blur-3xl"
-                style={{
-                  background: 'radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, rgba(14, 165, 233, 0.08) 50%, transparent 70%)',
-                  transform: 'scale(1)',
-                }}
-              />
-              
-              {/* Water Droplet Image */}
-              <div className="relative flex items-center justify-center w-full p-4 aspect-square">
-                <img
-                  src={waterDrop}
-                  alt="Water Droplet"
-                  className="object-contain w-full h-full drop-shadow-2xl"
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* Left Content - Text Block */}
-          <div className="w-full space-y-5 text-center md:w-1/2 md:text-left">
-            <h1 className="text-3xl md:text-5xl lg:text-[3.25rem] font-bold leading-[1.15] flex flex-col  tracking-tight">
-              <span className="text-gray-900">Transforming Water</span>
-              
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#155DFC] via-[#00B8DB] to-[#00C950] pt-4 pb-4">Enhancing Lives</span>{' '}
-            </h1>
-
-            <p className="max-w-xl mx-auto text-base leading-relaxed text-gray-600 md:text-lg md:mx-0">
-              We design and deliver reliable, cost-effective, and sustainable water and wastewater solutions for governments, industries, institutions, and organization.
-            </p>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col gap-3 pt-1 md:flex-row ">
-              <Link
-                to="/products"
-                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#155DFC] to-[#0092B8] text-white px-7 py-3.5 rounded-lg text-sm font-semibold hover:opacity-90 transition-all shadow-md hover:shadow-lg w-full md:w-auto"
-              >
-                Explore Our Solutions
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-              
-              <Link
-                to="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-white text-blue-600 px-7 py-3.5 rounded-lg text-sm font-semibold border-2 border-blue-600 hover:bg-blue-50 transition-all w-full md:w-auto"
-              >
-                Schedule a Consultation
-              </Link>
-            </div>
-          </div>
-
-          {/* Right Column - Water Drop Illustration - Desktop Only */}
-          <div className="relative items-center justify-center hidden w-full md:flex md:w-1/2">
-            <div className="relative w-full max-w-sm lg:max-w-lg xl:max-w-xs">
-              {/* Soft Glow Behind Droplet */}
-              <div 
-                className="absolute inset-0 rounded-full blur-3xl"
-                style={{
-                  background: 'radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, rgba(14, 165, 233, 0.08) 50%, transparent 70%)',
-                  transform: 'scale(1.2)',
-                }}
-              />
-              
-              {/* Water Droplet Image */}
-              <div className="relative flex items-center justify-center w-full p-8 aspect-square">
-                <img 
-                  src={waterDrop} 
-                  alt="Water Droplet" 
-                  className="object-contain w-full h-full drop-shadow-2xl"
-                />
-              </div>
-            </div>
+      {/* Main Content Container */}
+      <div className="relative z-10 flex flex-col items-center justify-center px-6 mx-auto max-w-xl md:max-w-4xl lg:max-w-5xl">
+        
+        {/* Water Drop Illustration */}
+        <div className="relative flex items-center justify-center w-full mb-6 md:mb-10">
+          <div className="relative w-28 h-28 md:w-40 md:h-40 lg:w-48 lg:h-48">
+            {/* Soft Glow Behind Droplet */}
+            <div 
+              className="absolute inset-0 rounded-full blur-2xl md:blur-3xl"
+              style={{
+                background: 'radial-gradient(circle, rgba(59, 130, 246, 0.12) 0%, rgba(14, 165, 233, 0.06) 50%, transparent 70%)',
+                transform: 'scale(1.5)',
+              }}
+            />
+            
+            {/* Water Droplet Image */}
+            <img
+              src={waterDrop}
+              alt="Water Droplet"
+              className="relative w-full h-full object-contain drop-shadow-lg"
+            />
           </div>
         </div>
 
-        {/* Trust Indicators Row */}
-        <div className="pt-6 mt-4 md:pt-8 md:mt-12 lg:mt-16">
-          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 sm:flex-row sm:flex-wrap sm:justify-center lg:gap-16">
-            <div className="flex items-center justify-center gap-3">
-              <div className="flex-shrink-0 w-3 h-3 bg-green-500 rounded-full shadow-sm" />
-              <span className="text-sm font-medium text-gray-600 md:text-lg">ISO Certified</span>
+        {/* Headline Text */}
+        <div className="text-center mb-5 md:mb-6">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight tracking-tight">
+            <span className="block text-gray-900">Transforming Water</span>
+            <span className="block bg-clip-text text-transparent bg-gradient-to-r from-[#155DFC] via-[#00B8DB] to-[#00C950] mt-1">
+              Enhancing Lives
+            </span>
+          </h1>
+        </div>
+
+        {/* Description Text */}
+        <p className="text-center text-gray-600 text-sm md:text-base lg:text-lg leading-relaxed max-w-sm md:max-w-lg mb-6 md:mb-8">
+          We design and deliver reliable, cost-effective, and sustainable water and wastewater solutions for governments, industries, institutions, and organization.
+        </p>
+
+        {/* CTA Buttons */}
+        <div className="flex flex-col gap-3 w-full max-w-xs md:max-w-sm">
+          <Link
+            to="/products"
+            className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#155DFC] to-[#0092B8] text-white px-6 py-3.5 rounded-xl text-sm font-semibold shadow-md w-full"
+          >
+            Explore Our Solutions
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+          
+          <Link
+            to="/contact"
+            className="inline-flex items-center justify-center gap-2 bg-white text-blue-600 px-6 py-3.5 rounded-xl text-sm font-semibold border-2 border-blue-600 w-full"
+          >
+            Schedule a Consultation
+          </Link>
+        </div>
+
+        {/* Trust Indicators */}
+        <div className="mt-8 md:mt-12 w-full">
+          <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-3 md:gap-x-8 lg:gap-x-12">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 md:w-2.5 md:h-2.5 bg-blue-500 rounded-full flex-shrink-0" />
+              <span className="text-xs md:text-sm font-medium text-gray-600">20+ Years Experience</span>
             </div>
             
-            <div className="flex items-center justify-center gap-3">
-              <div className="flex-shrink-0 w-3 h-3 bg-blue-500 rounded-full shadow-sm" />
-              <span className="text-sm font-medium text-gray-600 md:text-lg">20+ Years Experience</span>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 md:w-2.5 md:h-2.5 bg-green-500 rounded-full flex-shrink-0" />
+              <span className="text-xs md:text-sm font-medium text-gray-600">500+ Projects Delivered</span>
             </div>
             
-            <div className="flex items-center justify-center gap-3">
-              <div className="flex-shrink-0 w-3 h-3 bg-green-500 rounded-full shadow-sm" />
-              <span className="text-sm font-medium text-gray-600 md:text-lg">500+ Projects Delivered</span>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 md:w-2.5 md:h-2.5 bg-blue-500 rounded-full flex-shrink-0" />
+              <span className="text-xs md:text-sm font-medium text-gray-600">ISO Certified</span>
             </div>
           </div>
         </div>
