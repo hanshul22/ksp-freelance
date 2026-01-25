@@ -4,7 +4,23 @@ import aboutImage from '@/assets/images/about.png';
 
 const AboutSection = () => {
   return (
-    <section className="py-16 md:py-24">
+    <section className="relative py-16 md:py-24 overflow-hidden">
+      {/* Desktop Background Vector - Right side organic shape */}
+      <div className="absolute inset-0 hidden md:block -z-10 overflow-hidden">
+        <svg 
+          viewBox="0 0 1340 1036" 
+          fill="none" 
+          xmlns="http://www.w3.org/2000/svg"
+          className="absolute -right-20 top-1/2 -translate-y-1/2 w-[70%] h-auto"
+          preserveAspectRatio="xMidYMid meet"
+        >
+          <path 
+            d="M945.56 918.092C1168.54 814.147 1304.66 953.054 1344.85 1035.5L1341.72 379.579C1260.29 277.825 1144.42 271.563 1089.62 280.956C1034.81 290.349 975.311 248.081 972.179 223.034C972.179 59.0002 649.093 112.5 635.523 112.5C442.399 119 41.1201 105.6 -18.9999 0V514.207C-2.71509 603.124 82.78 694.233 123.492 728.673C185.082 774.593 333.941 852.343 436.661 795.987C539.38 739.631 612.035 793.378 635.523 827.296C733.232 990.102 882.926 955.663 945.56 918.092Z" 
+            fill="#EFFEEF"
+          />
+        </svg>
+      </div>
+
       <div className="px-4 mx-auto max-w-7xl md:px-8">
         {/* Mobile Layout */}
         <div className="relative block md:hidden">
@@ -14,7 +30,7 @@ const AboutSection = () => {
               viewBox="0 0 375 462" 
               fill="none" 
               xmlns="http://www.w3.org/2000/svg"
-              className="w-full h-full min-h-[400px] object-cover"
+              className="w-full h-full min-h-[500px] object-cover"
               preserveAspectRatio="xMidYMid slice"
             >
               <path 
@@ -27,43 +43,53 @@ const AboutSection = () => {
           {/* Mobile Content - Centered */}
           <div className="relative z-10 flex flex-col items-center px-4 py-8 text-center">
             {/* Label */}
-            <span className="mb-5 text-xs font-semibold tracking-widest text-blue-600 uppercase">
+            <span className="mb-4 text-xs font-semibold tracking-widest text-blue-600 uppercase">
               About KSP Hydro Engineers
             </span>
 
             {/* Heading - Stacked for mobile */}
-            <h2 className="text-[32px] font-bold leading-[1.15] text-gray-900 mb-5">
+            <h2 className="text-[28px] font-bold leading-[1.2] text-gray-900 mb-4">
               Practical Water<br />
               Solutions for<br />
-              Real-World<br />
-              Needs
+              Real-World Needs
             </h2>
 
             {/* Description */}
-            <p className="text-sm leading-relaxed text-slate-600 max-w-[300px] mb-6">
-              KSP Hydro Engineers provides complete water and wastewater solutions from design and execution to long-term operation. We help governments, industries, and institutions convert wastewater into safe, reusable water through reliable, cost-effective systems built for real-world conditions.
+            <p className="text-sm leading-relaxed text-slate-600 max-w-[320px] mb-6">
+              KSP Hydro Engineers provides end-to-end water and wastewater solutions, helping industries and communities transform raw and drainage water into safe, reusable, and potable water.
             </p>
 
             {/* CTA Button */}
             <Link
               to="/about"
-              className="inline-flex items-center gap-2 px-5 py-2.5 text-blue-600 transition-all bg-white border-2 border-blue-600 rounded-lg font-medium hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2"
+              className="inline-flex items-center gap-2 px-5 py-2.5 text-blue-600 bg-white border-2 border-blue-600 rounded-full font-medium hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2"
             >
               Know More About Us
               <ArrowRight className="w-4 h-4" />
             </Link>
+
+            {/* Mobile Image */}
+            <div className="mt-10 w-full px-2">
+              <div className="relative overflow-hidden rounded-3xl shadow-xl">
+                <img 
+                  src={aboutImage} 
+                  alt="Aerial view of wastewater treatment tanks at KSP Hydro Engineers facility" 
+                  className="object-cover w-full h-auto aspect-[4/3]"
+                />
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Desktop Layout - Unchanged */}
-        <div className="items-center hidden gap-8 md:grid lg:grid-cols-2 lg:gap-12">
+        {/* Desktop Layout */}
+        <div className="items-center hidden gap-12 md:grid lg:grid-cols-2 lg:gap-16">
           {/* Left Side - Image */}
           <div className="relative">
-            <div className="relative overflow-hidden shadow-lg rounded-2xl">
+            <div className="relative overflow-hidden shadow-xl rounded-3xl">
               <img 
                 src={aboutImage} 
                 alt="Aerial view of wastewater treatment tanks at KSP Hydro Engineers facility" 
-                className="object-cover w-full h-full"
+                className="object-cover w-full h-full aspect-[4/3]"
               />
             </div>
           </div>
@@ -71,25 +97,25 @@ const AboutSection = () => {
           {/* Right Side - Content */}
           <div className="space-y-6">
             {/* Label */}
-            <div className="text-sm font-semibold tracking-wide text-blue-600 uppercase">
+            <div className="text-sm font-semibold tracking-widest text-blue-600 uppercase">
               About KSP Hydro Engineers
             </div>
 
             {/* Heading */}
-            <h2 className="text-3xl font-bold leading-tight text-gray-900 md:text-4xl lg:text-5xl">
+            <h2 className="text-3xl font-bold leading-tight text-gray-900 md:text-4xl lg:text-[44px] lg:leading-[1.15]">
               Practical Water Solutions for Real-World Needs
             </h2>
 
             {/* Description */}
             <p className="text-base leading-relaxed md:text-lg text-slate-600">
-              KSP Hydro Engineers provides complete water and wastewater solutions from design and execution to long-term operation. We help governments, industries, and institutions convert wastewater into safe, reusable water through reliable, cost-effective systems built for real-world conditions.
+              KSP Hydro Engineers provides end-to-end water and wastewater solutions, helping industries and communities transform raw and drainage water into safe, reusable, and potable water.
             </p>
 
             {/* CTA Button */}
             <div className="pt-2">
               <Link
                 to="/about"
-                className="inline-flex items-center gap-2 px-4 py-2 font-medium text-blue-600 transition-all bg-white border-2 border-blue-600 rounded-lg hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2"
+                className="inline-flex items-center gap-2 px-6 py-3 font-medium text-blue-600 bg-white border-2 border-blue-600 rounded-full hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2"
               >
                 Know More About Us
                 <ArrowRight className="w-5 h-5" />
