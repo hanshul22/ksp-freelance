@@ -4,107 +4,69 @@ import aboutImage from '@/assets/images/about.png';
 
 const AboutSection = () => {
   return (
-    <section className="relative py-12 md:py-24 overflow-hidden">
-      {/* Left Organic Shape */}
-      <div className="absolute left-0 top-1/2 -translate-y-1/4 -z-10 pointer-events-none">
+    <section className="relative py-16 md:py-24 overflow-hidden">
+      {/* Background Shape - Mobile */}
+      <div className="absolute inset-0 -z-10 block md:hidden">
         <svg 
-          width="120" 
-          height="300" 
-          viewBox="0 0 120 300" 
+          viewBox="0 0 375 462" 
           fill="none" 
           xmlns="http://www.w3.org/2000/svg"
-          className="w-20 h-auto md:w-28 lg:w-32"
+          className="w-full h-full object-cover"
+          preserveAspectRatio="xMidYMid slice"
         >
           <path 
-            d="M-60 0C20 30 80 80 90 150C100 220 60 270 -60 300V0Z" 
+            d="M328.685 445.968C346.5 433.12 365.5 435 374.5 458V142.5C352.359 147.063 340.705 120.507 339.44 108.34C339.44 28.6596 208.912 54.6477 203.429 54.6477C125.407 57.805 23.2887 51.2958 -1 0V249.779C5.5791 292.971 16.5 338.5 30.5 358.5C36.1 366.5 81.5895 414.03 123.088 386.655C164.587 359.28 193.94 385.388 203.429 401.864C242.904 480.948 303.381 464.218 328.685 445.968Z" 
             fill="#EFFEEF"
           />
         </svg>
       </div>
 
-      {/* Right Organic Shape - Top */}
-      <div className="absolute right-0 top-0 -z-10 pointer-events-none">
+      {/* Background Shape - Desktop */}
+      <div className="absolute inset-0 -z-10 hidden md:block">
         <svg 
-          width="100" 
-          height="200" 
-          viewBox="0 0 100 200" 
+          viewBox="0 0 1400 800" 
           fill="none" 
           xmlns="http://www.w3.org/2000/svg"
-          className="w-16 h-auto md:w-24 lg:w-28"
+          className="w-full h-full object-cover"
+          preserveAspectRatio="xMidYMid slice"
         >
           <path 
-            d="M100 0C40 20 20 60 30 100C40 140 80 170 100 200V0Z" 
+            d="M1200 750C1350 700 1400 720 1400 800V200C1350 210 1320 170 1315 150C1315 40 900 80 890 80C750 85 500 75 450 0H0V400C20 480 60 560 100 600C120 620 220 700 320 650C420 600 480 640 500 670C580 800 720 770 800 740C950 680 1100 720 1200 750Z" 
             fill="#EFFEEF"
           />
         </svg>
       </div>
 
-      {/* Right Organic Shape - Bottom (near image) */}
-      <div className="absolute right-0 bottom-20 md:bottom-32 -z-10 pointer-events-none">
-        <svg 
-          width="80" 
-          height="180" 
-          viewBox="0 0 80 180" 
-          fill="none" 
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-12 h-auto md:w-20 lg:w-24"
-        >
-          <path 
-            d="M80 0C30 20 10 50 20 90C30 130 60 160 80 180V0Z" 
-            fill="#EFFEEF"
-          />
-        </svg>
-      </div>
-
-      {/* Left Organic Shape - Bottom (near image) */}
-      <div className="absolute left-0 bottom-10 md:bottom-20 -z-10 pointer-events-none">
-        <svg 
-          width="100" 
-          height="220" 
-          viewBox="0 0 100 220" 
-          fill="none" 
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-16 h-auto md:w-24 lg:w-28"
-        >
-          <path 
-            d="M-20 0C50 30 70 80 60 120C50 160 20 190 -20 220V0Z" 
-            fill="#EFFEEF"
-          />
-        </svg>
-      </div>
-
-      <div className="relative z-10 px-6 mx-auto max-w-md md:max-w-4xl lg:max-w-5xl">
+      <div className="relative z-10 px-6 mx-auto max-w-3xl md:max-w-4xl lg:max-w-5xl">
         {/* Content Container - Center aligned */}
         <div className="flex flex-col items-center text-center">
           {/* Label */}
-          <span className="text-xs md:text-sm font-semibold tracking-[0.15em] text-blue-600 uppercase mb-4 md:mb-5">
+          <span className="text-xs md:text-sm font-semibold tracking-widest text-blue-600 uppercase mb-4 md:mb-6">
             About KSP Hydro Engineers
           </span>
 
-          {/* Heading - Mobile specific line breaks */}
-          <h2 className="text-[28px] sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.2] text-gray-900 mb-5 md:mb-6">
-            <span className="block md:inline">Practical Water</span>{' '}
-            <span className="block md:inline">Solutions for</span>{' '}
-            <span className="block md:inline">Real-World Needs</span>
+          {/* Heading */}
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-gray-900 mb-4 md:mb-6 max-w-lg md:max-w-2xl">
+            Practical Water Solutions for Real-World Needs
           </h2>
 
           {/* Description */}
-          <p className="text-sm md:text-base lg:text-lg leading-[1.7] text-gray-600 max-w-[280px] sm:max-w-sm md:max-w-lg lg:max-w-2xl mb-6 md:mb-8">
+          <p className="text-sm md:text-base lg:text-lg leading-relaxed text-slate-600 max-w-xs sm:max-w-sm md:max-w-lg lg:max-w-2xl mb-6 md:mb-8">
             KSP Hydro Engineers provides end-to-end water and wastewater solutions, helping industries and communities transform raw and drainage water into safe, reusable, and potable water.
           </p>
 
           {/* CTA Button */}
           <Link
             to="/about"
-            className="inline-flex items-center gap-2 px-6 py-3 text-sm md:text-base text-blue-600 bg-white border-2 border-blue-600 rounded-full font-medium"
+            className="inline-flex items-center gap-2 px-5 py-2.5 md:px-6 md:py-3 text-sm md:text-base text-blue-600 bg-white border-2 border-blue-600 rounded-full font-medium"
           >
             Know More About Us
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
           </Link>
 
-          {/* Image */}
-          <div className="mt-8 md:mt-12 w-full max-w-xs sm:max-w-sm md:max-w-2xl lg:max-w-3xl">
-            <div className="relative overflow-hidden rounded-2xl md:rounded-3xl shadow-xl">
+          {/* Image - Visible on both mobile and desktop */}
+          <div className="mt-8 md:mt-10 lg:mt-14 w-full max-w-sm md:max-w-2xl lg:max-w-3xl px-4 md:px-0">
+            <div className="relative overflow-hidden rounded-2xl lg:rounded-3xl shadow-lg">
               <img 
                 src={aboutImage} 
                 alt="Aerial view of wastewater treatment tanks at KSP Hydro Engineers facility" 
