@@ -1,6 +1,17 @@
+import { useRef } from 'react';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Target, Lightbulb, Users, TrendingUp } from 'lucide-react';
 
+gsap.registerPlugin(ScrollTrigger);
+
 const WhyWorkWithUsSection = () => {
+  const sectionRef = useRef(null);
+  const headingRef = useRef(null);
+  const cardsContainerRef = useRef(null);
+  const cardRefs = useRef([]);
+
   const benefits = [
     {
       icon: Target,
@@ -32,8 +43,61 @@ const WhyWorkWithUsSection = () => {
     }
   ];
 
+  useGSAP(() => {
+    // Respect prefers-reduced-motion
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+
+    const ctx = gsap.context(() => {
+      // Set initial states
+      gsap.set(headingRef.current, { opacity: 0, y: 20 });
+      gsap.set(cardsContainerRef.current, { opacity: 0 });
+      gsap.set(cardRefs.current, { opacity: 0, y: 24, scale: 0.98 });
+
+      // Create timeline with ScrollTrigger
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top 80%',
+          once: true,
+        },
+        defaults: { ease: 'power3.out' },
+      });
+
+      // Heading animation
+      tl.to(headingRef.current, {
+        opacity: 1,
+        y: 0,
+        duration: 0.7,
+      })
+      // Cards container fade
+      .to(cardsContainerRef.current, {
+        opacity: 1,
+        duration: 0.4,
+        ease: 'power2.out',
+      }, '-=0.3')
+      // Individual cards staggered
+      .to(cardRefs.current, {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.6,
+        stagger: {
+          each: 0.15,
+          from: 'start',
+        },
+      }, '-=0.2');
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="relative w-full py-16 md:py-20 overflow-hidden" style={{ backgroundColor: '#EFFAFE' }}>
+    <section 
+      ref={sectionRef}
+      className="relative w-full py-16 md:py-20 overflow-hidden" 
+      style={{ backgroundColor: '#EFFAFE' }}
+    >
       {/* Background Curved Shape - Desktop */}
       <div className="absolute inset-0 hidden md:block pointer-events-none">
         <svg
@@ -70,15 +134,22 @@ const WhyWorkWithUsSection = () => {
 
       <div className="container relative z-10 px-4 mx-auto lg:px-8">
         {/* Section Heading */}
-        <h2 className="mb-10 text-2xl font-bold text-center md:text-3xl lg:text-4xl text-slate-900 md:mb-12">
+        <h2 
+          ref={headingRef}
+          className="mb-10 text-2xl font-bold text-center md:text-3xl lg:text-4xl text-slate-900 md:mb-12"
+        >
           Why Work With KSP Hydro
         </h2>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:gap-8 max-w-5xl mx-auto">
+        <div 
+          ref={cardsContainerRef}
+          className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:gap-8 max-w-5xl mx-auto"
+        >
           {benefits.map((benefit, index) => (
             <div
               key={index}
+              ref={(el) => (cardRefs.current[index] = el)}
               className="bg-white rounded-2xl p-6 md:p-8 shadow-sm"
             >
               {/* Icon Container */}
