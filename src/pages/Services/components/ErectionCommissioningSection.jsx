@@ -1,4 +1,4 @@
-import { Wrench, HardHat, ClipboardCheck, GraduationCap, Shield, ListChecks, CheckCircle } from 'lucide-react';
+import { Wrench, HardHat, ClipboardCheck, GraduationCap, Shield, ListChecks, CheckCircle, MonitorPlay, Headphones, FileText, Settings } from 'lucide-react';
 
 const primaryCards = [
   {
@@ -36,60 +36,44 @@ const primaryCards = [
   }
 ];
 
-const secondaryCards = [
-  {
-    icon: Shield,
-    title: "Safety First Approach",
-    items: [
-      "Certified installation teams",
-      "Strict adherence to safety protocols",
-      "PPE and site safety measures",
-      "Quality assurance at every step"
-    ]
-  },
-  {
-    icon: ListChecks,
-    title: "Commissioning Checklist",
-    items: [
-      "System functionality verification",
-      "Performance parameters testing",
-      "Documentation and certification",
-      "Operator training completion"
-    ]
-  }
-];
 
 const ErectionCommissioningSection = () => {
   return (
     <section className="w-full py-12 lg:py-16">
-      <div className="container mx-auto px-4">
+      <div className="container px-4 mx-auto">
         {/* Header */}
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center justify-center w-14 h-14 bg-[#f97316] rounded-xl mb-6">
-            <Wrench className="w-7 h-7 text-white" />
+        <div className="mb-12 text-center">
+          <div 
+            className="inline-flex items-center justify-center mb-6 w-14 h-14 rounded-xl"
+            style={{ background: 'linear-gradient(180deg, #F54900 0%, #E7000B 100%)' }}
+          >
+            <Wrench className="text-white w-7 h-7" />
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1a1f36] mb-6">
             Erection & Commissioning
           </h2>
-          <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="max-w-2xl mx-auto text-base leading-relaxed text-gray-600 md:text-lg">
             Professional installation and commissioning services ensuring your system operates at peak performance
           </p>
         </div>
 
         {/* Primary Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+        <div className="grid grid-cols-1 gap-6 mb-8 md:grid-cols-2 lg:grid-cols-3">
           {primaryCards.map((card, index) => (
             <div 
               key={index}
               className="bg-[#fef7f0] rounded-2xl p-6 shadow-sm"
             >
-              <div className="inline-flex items-center justify-center w-12 h-12 bg-[#f97316] rounded-xl mb-5">
+              <div 
+                className="inline-flex items-center justify-center w-12 h-12 mb-5 rounded-xl"
+                style={{ background: 'linear-gradient(180deg, #F54900 0%, #E7000B 100%)' }}
+              >
                 <card.icon className="w-6 h-6 text-white" />
               </div>
               <h3 className="text-lg font-bold text-[#1a1f36] mb-3">
                 {card.title}
               </h3>
-              <p className="text-sm text-gray-600 mb-4 leading-relaxed">
+              <p className="mb-4 text-sm leading-relaxed text-gray-600">
                 {card.description}
               </p>
               <div>
@@ -107,30 +91,51 @@ const ErectionCommissioningSection = () => {
           ))}
         </div>
 
-        {/* Secondary Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {secondaryCards.map((card, index) => (
-            <div 
-              key={index}
-              className="bg-[#fef7f0] rounded-2xl p-6 shadow-sm"
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <card.icon className="w-6 h-6 text-[#f97316]" />
-                <h3 className="text-lg font-bold text-[#1a1f36]">
-                  {card.title}
-                </h3>
+        {/* Secondary Cards Grid - Handover & Training */}
+        <div className="bg-[#fef7f0] rounded-3xl p-8 md:p-12">
+          <h3 className="text-xl md:text-2xl font-bold text-[#1a1f36] text-center mb-10">
+            Handover & Training
+          </h3>
+          <div className="grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-8">
+            <div className="flex flex-col items-center text-center">
+              <div 
+                className="inline-flex items-center justify-center w-12 h-12 mb-4 rounded-xl"
+                style={{ background: 'linear-gradient(180deg, #F54900 0%, #E7000B 100%)' }}
+              >
+                <MonitorPlay className="w-6 h-6 text-white" />
               </div>
-              <ul className="space-y-2">
-                {card.items.map((item, itemIndex) => (
-                  <li key={itemIndex} className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
-                    <span className="text-sm text-gray-600">{item}</span>
-                  </li>
-                ))}
-              </ul>
+              <span className="text-sm text-gray-600">Operator training sessions</span>
             </div>
-          ))}
+            <div className="flex flex-col items-center text-center">
+              <div 
+                className="inline-flex items-center justify-center w-12 h-12 mb-4 rounded-xl"
+                style={{ background: 'linear-gradient(180deg, #F54900 0%, #E7000B 100%)' }}
+              >
+                <Headphones className="w-6 h-6 text-white" />
+              </div>
+              <span className="text-sm text-gray-600">Initial troubleshooting support</span>
+            </div>
+            <div className="flex flex-col items-center text-center">
+              <div 
+                className="inline-flex items-center justify-center w-12 h-12 mb-4 rounded-xl"
+                style={{ background: 'linear-gradient(180deg, #F54900 0%, #E7000B 100%)' }}
+              >
+                <FileText className="w-6 h-6 text-white" />
+              </div>
+              <span className="text-sm text-gray-600">Documentation and manuals</span>
+            </div>
+            <div className="flex flex-col items-center text-center">
+              <div 
+                className="inline-flex items-center justify-center w-12 h-12 mb-4 rounded-xl"
+                style={{ background: 'linear-gradient(180deg, #F54900 0%, #E7000B 100%)' }}
+              >
+                <Settings className="w-6 h-6 text-white" />
+              </div>
+              <span className="text-sm text-gray-600">System walkthroughs</span>
+            </div>
+          </div>
         </div>
+
       </div>
     </section>
   );

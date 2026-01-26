@@ -13,9 +13,10 @@ const ProductsSection = () => {
   return (
     <section className="relative py-16 mt-28">
       {/* Light Blue Wave Layer */}
-      <div className=" absolute top-3 left-0 w-full h-[20px] -translate-y-6 md:-translate-y-8 z-0 pointer-events-none ">
+      <div className="absolute top-3 left-0 w-full h-[20px] -translate-y-6 md:-translate-y-8 z-0 pointer-events-none">
+        {/* Desktop SVG */}
         <svg
-          className="w-full"
+          className="w-full hidden md:block"
           height="120"
           preserveAspectRatio="none"
           viewBox="0 0 1340 126"
@@ -27,10 +28,13 @@ const ProductsSection = () => {
             fill="#D7F1F8"
           />
         </svg>
+
+        {/* Mobile SVG */}
+        
       </div>
 
       {/* Main Blue Background */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
+      <div className="absolute inset-0 z-0 hidden pointer-events-none md:block">
         <svg
           className="w-full"
           height="725"
@@ -62,13 +66,13 @@ const ProductsSection = () => {
       <div className="relative z-10 px-4 mx-auto max-w-7xl md:px-8">
         {/* Section Header */}
         <div className="mb-12 text-center md:mb-16">
-          <p className="mb-3 text-sm font-semibold tracking-wide uppercase text-white/90">
+          <p className="mb-3 text-sm font-semibold tracking-wide uppercase text-blue-500 md:text-white/90">
             Our Solutions
           </p>
-          <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl lg:text-5xl">
+          <h2 className="mb-4 text-4xl font-bold text-black md:text-white md:text-4xl lg:text-5xl">
             Our Products
           </h2>
-          <p className="max-w-3xl mx-auto text-base md:text-lg text-white/90">
+          <p className="max-w-3xl mx-auto text-lg text-black md:text-lg md:text-white/90">
             Comprehensive water treatment solutions engineered for reliability and
             sustainability
           </p>

@@ -12,9 +12,9 @@ const ProductsData = [
     homeSubtitle: "Advanced filtration and purification systems",
     subtitle:
       "Advanced filtration and purification solutions for restoring pools and natural water bodies.",
-    theme: "green",
+    svg: "left",
     headerIcon: {
-      type: "water-drop",
+      type: "droplets",
       bgColor: "#16A34A",
       iconColor: "#FFFFFF",
     },
@@ -71,7 +71,7 @@ const ProductsData = [
     homeSubtitle: "Industrial-grade water purification",
     subtitle:
       "Reliable water treatment systems designed to deliver safe, potable water for diverse applications.",
-    theme: "blue",
+    svg: "right",
     headerIcon: {
       type: "filter",
       bgColor: "#2563EB",
@@ -131,9 +131,9 @@ const ProductsData = [
 
     subtitle:
       "Efficient sewage treatment solutions for safe discharge or reuse of treated wastewater.",
-    theme: "green",
+    svg: "left",
     headerIcon: {
-      type: "water-drop",
+      type: "recycle",
       bgColor: "#16A34A",
       iconColor: "#FFFFFF",
     },
@@ -193,9 +193,9 @@ const ProductsData = [
 
     subtitle:
       "Industrial effluent treatment systems designed to handle complex wastewater streams.",
-    theme: "blue",
+    svg: "right",
     headerIcon: {
-      type: "filter",
+      type: "flask",
       bgColor: "#2563EB",
       iconColor: "#FFFFFF",
     },
@@ -254,9 +254,9 @@ const ProductsData = [
 
     subtitle:
       "High-efficiency RO systems for producing purified water in industrial applications.",
-    theme: "green",
+    svg: "left",
     headerIcon: {
-      type: "water-drop",
+      type: "layers",
       bgColor: "#16A34A",
       iconColor: "#FFFFFF",
     },
@@ -313,9 +313,9 @@ const ProductsData = [
     homeSubtitle: "Efficient water pumping solutions",
 
     subtitle: "Compact RO systems for safe and reliable drinking water.",
-    theme: "blue",
+    svg: "right",
     headerIcon: {
-      type: "filter",
+      type: "glass-water",
       bgColor: "#2563EB",
       iconColor: "#FFFFFF",
     },
@@ -372,9 +372,9 @@ const ProductsData = [
 
     subtitle:
       "UF systems using membrane filtration to remove bacteria, turbidity, and suspended particles.",
-    theme: "green",
+    svg: "left",
     headerIcon: {
-      type: "water-drop",
+      type: "sliders",
       bgColor: "#16A34A",
       iconColor: "#FFFFFF",
     },
@@ -431,9 +431,9 @@ const ProductsData = [
 
     subtitle:
       "Advanced sewage treatment with superior effluent quality and minimal footprint.",
-    theme: "blue",
+    svg: "right",
     headerIcon: {
-      type: "filter",
+      type: "cpu",
       bgColor: "#2563EB",
       iconColor: "#FFFFFF",
     },
@@ -487,9 +487,9 @@ const ProductsData = [
     homeSubtitle: "Advanced RO membrane technology",
 
     subtitle: "Robust biological treatment for varying wastewater loads.",
-    theme: "green",
+    svg: "left",
     headerIcon: {
-      type: "water-drop",
+      type: "refresh",
       bgColor: "#16A34A",
       iconColor: "#FFFFFF",
     },
@@ -544,9 +544,9 @@ const ProductsData = [
 
     subtitle:
       "Efficient treatment technology combining compact design with reliable performance.",
-    theme: "blue",
+    svg: "right",
     headerIcon: {
-      type: "filter",
+      type: "activity",
       bgColor: "#2563EB",
       iconColor: "#FFFFFF",
     },
@@ -599,9 +599,9 @@ const ProductsData = [
     homeSubtitle: "Advanced RO membrane technology",
     subtitle:
       "Supporting systems essential for efficient water and wastewater operations.",
-    theme: "green",
+    svg: "left",
     headerIcon: {
-      type: "water-drop",
+      type: "settings",
       bgColor: "#16A34A",
       iconColor: "#FFFFFF",
     },

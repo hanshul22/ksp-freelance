@@ -22,5 +22,21 @@ body {
 /* For Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: #14b8a6 #f3f4f6; /* teal-500 gray-100 */
+  scrollbar-color: #14b8a6 #f3f4f6;
+  /* teal-500 gray-100 */
+}
+
+@media screen and (max-width: 767px) {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  * {
+    scrollbar-width: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
 }

@@ -45,36 +45,42 @@ const processSteps = [
 
 const DesignEngineeringSection = () => {
   return (
-    <section className="relative w-full py-12 lg:py-16 overflow-hidden">
+    <section className="relative w-full py-12 overflow-hidden lg:py-16">
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container relative z-10 px-4 mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center justify-center w-14 h-14 bg-[#0066cc] rounded-xl mb-6">
-            <Ban className="w-7 h-7 text-white" />
+        <div className="mb-16 text-center">
+          <div 
+            className="inline-flex items-center justify-center mb-6 w-14 h-14 rounded-xl"
+            style={{ background: 'linear-gradient(180deg, #155DFC 0%, #0092B8 100%)' }}
+          >
+            <Ban className="text-white w-7 h-7" />
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1a1f36] mb-6">
             Design Engineering & Consultancy
           </h2>
-          <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="max-w-2xl mx-auto text-base leading-relaxed text-gray-600 md:text-lg">
             Expert consulting and engineering services to create the optimal water treatment solution for your needs
           </p>
         </div>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 gap-8 mb-16 md:grid-cols-2 lg:grid-cols-3">
           {cards.map((card, index) => (
             <div 
               key={index}
-              className="bg-white rounded-2xl p-8 shadow-lg"
+              className="p-8 bg-white shadow-lg rounded-2xl"
             >
-              <div className="inline-flex items-center justify-center w-12 h-12 bg-[#0066cc] rounded-xl mb-6">
+              <div 
+                className="inline-flex items-center justify-center w-12 h-12 mb-6 rounded-xl"
+                style={{ background: 'linear-gradient(180deg, #155DFC 0%, #0092B8 100%)' }}
+              >
                 <card.icon className="w-6 h-6 text-white" />
               </div>
               <h3 className="text-xl font-bold text-[#1a1f36] mb-4">
                 {card.title}
               </h3>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="mb-6 leading-relaxed text-gray-600">
                 {card.description}
               </p>
               <div>
@@ -93,11 +99,11 @@ const DesignEngineeringSection = () => {
         </div>
 
         {/* Our Consultancy Process */}
-        <div className="bg-white rounded-3xl p-8 md:p-12 shadow-lg">
+        <div className="p-8 bg-white shadow-lg rounded-3xl md:p-12">
           <h3 className="text-2xl md:text-3xl font-bold text-[#1a1f36] text-center mb-12">
             Our Consultancy Process
           </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {processSteps.map((step, index) => (
               <div key={index} className="text-center">
                 <p className="text-4xl md:text-5xl font-bold text-[#0066cc] mb-3">

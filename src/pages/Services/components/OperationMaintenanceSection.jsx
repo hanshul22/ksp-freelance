@@ -62,40 +62,43 @@ const OperationMaintenanceSection = () => {
 
   return (
     <section className="w-full py-16 lg:py-24">
-      <div className="container mx-auto px-4 lg:px-8">
+      <div className="container px-4 mx-auto lg:px-8">
         {/* Header */}
-        <div className="flex flex-col items-center text-center mb-12">
-          <div className="w-14 h-14 bg-emerald-500 rounded-xl flex items-center justify-center mb-6">
-            <Settings className="w-7 h-7 text-white" />
+        <div className="flex flex-col items-center mb-12 text-center">
+          <div className="flex items-center justify-center mb-6 w-14 h-14 bg-emerald-500 rounded-xl">
+            <Settings className="text-white w-7 h-7" />
           </div>
-          <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4">
+          <h2 className="mb-4 text-3xl font-bold lg:text-4xl text-slate-900">
             Operation & Maintenance
           </h2>
-          <p className="text-gray-500 text-lg max-w-2xl leading-relaxed">
+          <p className="max-w-2xl text-lg leading-relaxed text-gray-500">
             Comprehensive support services to keep your systems running efficiently for years to come
           </p>
         </div>
 
         {/* Primary Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <div className="grid grid-cols-1 gap-6 mb-12 md:grid-cols-2 lg:grid-cols-3">
           {primaryCards.map((card, index) => (
             <div 
               key={index}
-              className="bg-white rounded-2xl shadow-lg p-6 lg:p-8"
+              className="p-6 bg-white shadow-lg rounded-2xl lg:p-8"
             >
-              <div className="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center mb-5">
+              <div 
+                className="flex items-center justify-center w-12 h-12 mb-5 rounded-xl"
+                style={{ background: 'linear-gradient(180deg, #00A63E 0%, #155DFC 100%)' }}
+              >
                 <card.icon className="w-6 h-6 text-white" />
               </div>
               
-              <h3 className="text-xl font-bold text-slate-900 mb-3">
+              <h3 className="mb-3 text-xl font-bold text-slate-900">
                 {card.title}
               </h3>
               
-              <p className="text-gray-500 mb-5 leading-relaxed">
+              <p className="mb-5 leading-relaxed text-gray-500">
                 {card.description}
               </p>
               
-              <p className="text-sm font-semibold text-slate-900 mb-3">
+              <p className="mb-3 text-sm font-semibold text-slate-900">
                 Includes:
               </p>
               
@@ -112,18 +115,21 @@ const OperationMaintenanceSection = () => {
         </div>
 
         {/* AMC Benefits Section */}
-        <div className="bg-gray-50 rounded-2xl shadow-sm p-8 lg:p-12">
-          <h3 className="text-2xl font-bold text-slate-900 text-center mb-10">
+        <div className="p-8 shadow-sm bg-gray-50 rounded-2xl lg:p-12">
+          <h3 className="mb-10 text-2xl font-bold text-center text-slate-900">
             AMC Benefits
           </h3>
           
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
             {benefits.map((benefit, index) => (
               <div key={index} className="flex flex-col items-center text-center">
-                <div className="w-12 h-12 bg-teal-500 rounded-xl flex items-center justify-center mb-4">
+                <div 
+                  className="flex items-center justify-center w-12 h-12 mb-4 rounded-xl"
+                  style={{ background: 'linear-gradient(180deg, #00A63E 0%, #155DFC 100%)' }}
+                >
                   <benefit.icon className="w-6 h-6 text-white" />
                 </div>
-                <h4 className="font-semibold text-slate-900 mb-1">
+                <h4 className="mb-1 font-semibold text-slate-900">
                   {benefit.title}
                 </h4>
                 <p className="text-sm text-gray-500">

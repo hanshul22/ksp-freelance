@@ -29,7 +29,7 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <section 
+    <section
       className="py-16 md:py-24"
       style={{
         background: 'linear-gradient(to right, #155DFC, #00C950)'
@@ -44,7 +44,7 @@ const WhyChooseUs = () => {
           <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl lg:text-5xl">
             Why Choose KSP Hydro
           </h2>
-          <p className="max-w-2xl mx-auto text-base md:text-lg text-white/90">
+          <p className="max-w-2xl mx-auto text-xl md:text-lg text-white/90">
             A trusted partner delivering practical, reliable, and compliant water solutions across industries and public infrastructure.
           </p>
         </div>
@@ -56,7 +56,7 @@ const WhyChooseUs = () => {
             return (
               <div
                 key={feature.id}
-                className="p-6 transition-all border bg-white/10 backdrop-blur-sm rounded-2xl md:p-8 border-white/20 hover:bg-white/15"
+                className="flex flex-col items-center p-6 text-center transition-all border md:items-start md:text-left bg-white/10 backdrop-blur-sm rounded-2xl md:p-8 border-white/20 hover:bg-white/15"
               >
                 {/* Icon */}
                 <div className="mb-6">

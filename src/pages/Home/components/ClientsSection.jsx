@@ -1,5 +1,5 @@
 
-import {Client1, Client2, Client3, Client4, Client5, Client6, Client7, Client8, Client9, Client10, Client11} from '@/assets';
+import { Client1, Client2, Client3, Client4, Client5, Client6, Client7, Client8, Client9, Client10, Client11 } from '@/assets';
 
 
 
@@ -31,25 +31,43 @@ const ClientsSection = () => {
     <section className="relative py-16 overflow-hidden md:py-24">
       {/* Background SVG */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <svg
-         className="w-full"
-          height="950"
+        {/* Mobile SVG */}
+        <div className="absolute top-0 left-0 w-full md:hidden">
+          <svg
+            className="w-full h-auto min-h-[462px] object-cover"
+            viewBox="0 0 375 462"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M329.685 445.968C347.5 433.12 366.5 435 375.5 458V142.5C353.359 147.063 341.705 120.507 340.44 108.34C340.44 28.6596 209.912 54.6477 204.429 54.6477C126.407 57.805 24.2887 51.2958 0 0V249.779C6.5791 292.971 17.5 338.5 31.5 358.5C37.1 366.5 82.5895 414.03 124.088 386.655C165.587 359.28 194.94 385.388 204.429 401.864C243.904 480.948 304.381 464.218 329.685 445.968Z"
+              fill="#EFFEEF"
+            />
+          </svg>
+        </div>
+
+        {/* Desktop SVG */}
+        <div className="hidden md:block">
+          <svg
+            className="w-full"
+            height="950"
             preserveAspectRatio="none"
             viewBox="0 0 1341 1036"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M968.71 779.592C1191.69 675.646 1327.81 814.553 1368 897L1364.87 241.078C1283.44 139.325 1167.57 133.063 1112.77 142.455C1057.96 151.848 998.461 109.581 995.329 84.534C981.55 16.9068 950.964 0 937.393 0H4.14998C-3.36601 269.256 1.01827 362.661 4.14998 375.707C20.4348 464.624 105.93 555.733 146.642 590.172C208.232 636.092 357.091 713.843 459.811 657.487C562.53 601.131 635.185 654.878 658.673 688.796C756.381 851.602 906.076 817.162 968.71 779.592Z"
-            fill="#EFFEEF"
-          />
-        </svg>
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M968.71 779.592C1191.69 675.646 1327.81 814.553 1368 897L1364.87 241.078C1283.44 139.325 1167.57 133.063 1112.77 142.455C1057.96 151.848 998.461 109.581 995.329 84.534C981.55 16.9068 950.964 0 937.393 0H4.14998C-3.36601 269.256 1.01827 362.661 4.14998 375.707C20.4348 464.624 105.93 555.733 146.642 590.172C208.232 636.092 357.091 713.843 459.811 657.487C562.53 601.131 635.185 654.878 658.673 688.796C756.381 851.602 906.076 817.162 968.71 779.592Z"
+              fill="#EFFEEF"
+            />
+          </svg>
+        </div>
       </div>
 
       <div className="relative z-10 px-4 mx-auto max-w-7xl md:px-8">
         {/* Section Header */}
         <div className="mb-12 text-center md:mb-16">
-          <p className="mb-3 text-sm font-semibold tracking-wide text-blue-600 uppercase">
+          <p className="mb-3 hidden text-sm font-semibold tracking-wide text-blue-600 uppercase md:block">
             Trusted Partnerships
           </p>
           <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">
@@ -95,18 +113,18 @@ const ClientsSection = () => {
         </div>
 
         {/* "And many more" text */}
-        <p  className="mb-12 text-sm text-center text-gray-500 md:mb-10">
+        <p className="mb-12 text-sm text-center text-gray-500 md:mb-10">
           <strong> And many more across the world...</strong>
         </p>
 
         {/* Testimonial Card */}
         <div className="max-w-4xl mx-auto">
           <div className="p-6 bg-white shadow-lg rounded-2xl md:pr-16 md:pl-10 md:py-10">
-            <div className="flex items-start gap-4 md:gap-6">
+            <div className="flex flex-col items-center gap-6 text-center md:flex-row md:items-start md:text-left md:gap-6">
               {/* Quote Icon */}
               <div className="flex-shrink-0">
                 <svg
-                  className="w-10 h-10 text-teal-400 md:w-12 md:h-12"
+                  className="w-10 h-10 text-blue-500 md:text-teal-400 md:w-12 md:h-12"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -115,8 +133,8 @@ const ClientsSection = () => {
               </div>
 
               {/* Testimonial Content */}
-              <div className="flex-1 text-xl md:text-2xl">
-                <p className="mb-6 italic leading-relaxed text-gray-600 md:text-base">
+              <div className="flex-1 text-base md:text-2xl">
+                <p className="mb-6 text-base italic leading-relaxed text-gray-600 md:text-base">
                   &quot;This refers to services provided by M/s KSP Hydro Engineers Pvt. Ltd. for our facilities. They are currently managing our sewage treatment plant and have consistently met our expectations with their expertise, dedicated workforce, quality assurance, compliance, safety measures, reliability, and 24/7 commitment. We highly recommend M/s KSP Hydro as specialists in water treatment services and as an excellent provider of O&M services.&quot;
                 </p>
                 <div>

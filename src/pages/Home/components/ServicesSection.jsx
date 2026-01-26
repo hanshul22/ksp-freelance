@@ -24,7 +24,7 @@ const ServicesSection = () => {
 
   return (
     <section className="relative py-16 md:py-24">
-      
+
       <div className="relative z-10 px-4 mx-auto max-w-7xl md:px-8">
         {/* Section Header */}
         <div className="mb-12 text-center md:mb-16">
@@ -62,10 +62,10 @@ const ServicesSection = () => {
             return (
               <div key={service.id} className="relative z-10 pt-8">
                 {/* Card */}
-                <div className="relative h-full px-8 py-10 bg-white shadow-lg rounded-3xl">
+                <div className="relative h-full px-8 py-10 bg-white shadow-lg rounded-3xl flex flex-col items-center text-center md:items-start md:text-left">
                   {/* Number Badge - Top Right - Overlapping card boundary */}
                   <div className="absolute -top-6 -right-3">
-                    <div 
+                    <div
                       className="flex items-center justify-center w-12 h-12 text-base font-bold text-white rounded-full shadow-md"
                       style={{ background: 'linear-gradient(135deg, #155DFC 0%, #00C950 100%)' }}
                     >
@@ -73,9 +73,9 @@ const ServicesSection = () => {
                     </div>
                   </div>
 
-                  {/* Icon Container - Top Left */}
+                  {/* Icon Container - Top Left on Desktop, Centered on Mobile */}
                   <div className="mb-8">
-                    <div 
+                    <div
                       className="flex items-center justify-center w-16 h-16 rounded-2xl"
                       style={{ background: 'linear-gradient(135deg, #DBEAFE 0%, #DCFCE7 100%)' }}
                     >
@@ -94,7 +94,7 @@ const ServicesSection = () => {
                   </p>
 
                   {/* Learn More Link */}
-                  <div className="flex items-center gap-1.5 text-sm font-medium text-amber-500">
+                  <div className="flex items-center justify-center md:justify-start gap-1.5 text-sm font-medium text-amber-500 mt-auto w-full">
                     <span>👉</span>
                     <span>Learn more</span>
                   </div>
