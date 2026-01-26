@@ -1,7 +1,102 @@
+import { useRef } from "react";
 import { Building2, Factory, Users, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const SectorsSection = () => {
+  const containerRef = useRef(null);
+
+  useGSAP(() => {
+    const mm = gsap.matchMedia();
+
+    // Hover Animation Logic (Reusable)
+    const setupHoverAnimations = () => {
+      const cards = gsap.utils.toArray('.sector-card');
+
+      cards.forEach(card => {
+        const iconContainer = card.querySelector('.sector-icon-container');
+        const icon = card.querySelector('.sector-icon');
+
+        const hoverTl = gsap.timeline({ paused: true });
+
+        // Card Lift + Shadow
+        hoverTl.to(card, {
+          y: -6,
+          boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+          duration: 0.3,
+          ease: "power2.out"
+        }, 0)
+
+          // Icon Animation
+          .to(iconContainer, {
+            y: -4,
+            scale: 1.05,
+            duration: 0.3,
+            ease: "power2.out"
+          }, 0)
+          .to(icon, {
+            scale: 1.06,
+            duration: 0.3,
+            ease: "power2.out"
+          }, 0);
+
+        card.addEventListener('mouseenter', () => hoverTl.play());
+        card.addEventListener('mouseleave', () => hoverTl.reverse());
+      });
+    };
+
+    mm.add({
+      isDesktop: "(min-width: 768px)",
+      isMobile: "(max-width: 767px)",
+      reduceMotion: "(prefers-reduced-motion: reduce)"
+    }, (context) => {
+      const { isDesktop, reduceMotion } = context.conditions;
+
+      if (reduceMotion) return;
+
+      // 1. SECTION ENTRY
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 85%",
+          toggleActions: "play none none reverse"
+        }
+      });
+
+      // Header Animation
+      tl.fromTo('.sector-header',
+        { y: 20, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.8, ease: "power2.out" }
+      )
+
+        // Cards Staggered Entry
+        .fromTo('.sector-card',
+          {
+            y: isDesktop ? 30 : 15,
+            opacity: 0
+          },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            stagger: 0.12,
+            ease: "power2.out"
+          },
+          "-=0.4"
+        );
+
+      // 2. HOVER ANIMATIONS (Desktop Only)
+      if (isDesktop) {
+        setupHoverAnimations();
+      }
+
+    });
+  }, { scope: containerRef });
+
   const sectors = [
     {
       id: 1,
@@ -30,7 +125,7 @@ const SectorsSection = () => {
   ];
 
   return (
-    <section className="relative  py-16 overflow-hidden md:py-24">
+    <section ref={containerRef} className="relative py-16 overflow-hidden md:py-24 sectors-section">
       {/* Mobile Background Shape - Only visible on mobile */}
       <div className="absolute inset-0 block -z-10 md:hidden">
         <svg
@@ -49,7 +144,7 @@ const SectorsSection = () => {
 
       <div className="px-4 mx-auto max-w-7xl md:px-8 my-0 md:my-0">
         {/* Section Header */}
-        <div className="mb-10 text-center md:mb-16">
+        <div className="mb-10 text-center md:mb-16 sector-header opacity-0">
           <h2 className="mb-3 text-4xl font-bold text-gray-900 md:mb-4 md:text-3xl lg:text-5xl">Sectors We Serve</h2>
           <p className="max-w-xs mx-auto text-xl leading-relaxed md:max-w-2xl md:text-lg text-slate-500 md:text-slate-600">
             Delivering reliable water and wastewater solutions across diverse sectors
@@ -63,17 +158,13 @@ const SectorsSection = () => {
             return (
               <div
                 key={sector.id}
-                className="bg-white rounded-2xl p-6 md:p-8 shadow-md md:shadow-[0_3px_0px_rgba(0,0,0,0.2)] md:hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] border border-gray-100 transition-all duration-300"
+                className="sector-card bg-white rounded-2xl p-6 md:p-8 shadow-md border border-gray-100 transition-none opacity-0"
               >
                 {/* Icon - Centered on mobile, left-aligned on desktop */}
                 <div className="flex justify-center mb-6 md:mb-6 md:justify-start">
-                  <div className="flex items-center justify-center w-16 h-16 md:w-16 md:h-16 bg-blue-50 rounded-2xl md:bg-blue-100 md:rounded-xl">
-                    <Icon className="w-8 h-8 text-blue-600 md:w-8 md:h-8 md:text-blue-600" strokeWidth={1.5} />
+                  <div className="sector-icon-container flex items-center justify-center w-16 h-16 md:w-16 md:h-16 bg-blue-50 rounded-2xl md:bg-blue-100 md:rounded-xl">
+                    <Icon className="sector-icon w-8 h-8 text-blue-600 md:w-8 md:h-8 md:text-blue-600" strokeWidth={1.5} />
                   </div>
-
-                  {/* Explore Button */}
-
-
                 </div>
 
                 {/* Title - Centered on mobile, left-aligned on desktop */}
@@ -90,7 +181,7 @@ const SectorsSection = () => {
           })}
         </div>
 
-        <div className="flex justify-center mt-10 md:mt-12">
+        <div className="flex justify-center mt-10 md:mt-12 sector-header opacity-0">
           <Link
             to="/sectors"
             className="inline-flex items-center justify-center gap-2 bg-[#1A63F4] text-white px-6 py-3 rounded-xl text-lg font-semibold hover:opacity-90 transition-all shadow-[0_4px_14px_0_rgba(26,99,244,0.39)] hover:shadow-[0_6px_20px_rgba(26,99,244,0.23)]"

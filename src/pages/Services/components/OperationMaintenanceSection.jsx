@@ -61,7 +61,7 @@ const OperationMaintenanceSection = () => {
   ];
 
   return (
-    <section className="w-full py-16 lg:py-24">
+    <section id="operation-maintenance" className="w-full py-16 lg:py-24">
       <div className="container px-4 mx-auto lg:px-8">
         {/* Header */}
         <div className="flex flex-col items-center mb-12 text-center">
@@ -79,29 +79,29 @@ const OperationMaintenanceSection = () => {
         {/* Primary Cards Grid */}
         <div className="grid grid-cols-1 gap-6 mb-12 md:grid-cols-2 lg:grid-cols-3">
           {primaryCards.map((card, index) => (
-            <div 
+            <div
               key={index}
               className="p-6 bg-white shadow-lg rounded-2xl lg:p-8"
             >
-              <div 
+              <div
                 className="flex items-center justify-center w-12 h-12 mb-5 rounded-xl"
                 style={{ background: 'linear-gradient(180deg, #00A63E 0%, #155DFC 100%)' }}
               >
                 <card.icon className="w-6 h-6 text-white" />
               </div>
-              
+
               <h3 className="mb-3 text-xl font-bold text-slate-900">
                 {card.title}
               </h3>
-              
+
               <p className="mb-5 leading-relaxed text-gray-500">
                 {card.description}
               </p>
-              
+
               <p className="mb-3 text-sm font-semibold text-slate-900">
                 Includes:
               </p>
-              
+
               <ul className="space-y-2">
                 {card.items.map((item, itemIndex) => (
                   <li key={itemIndex} className="flex items-start gap-2">
@@ -119,11 +119,11 @@ const OperationMaintenanceSection = () => {
           <h3 className="mb-10 text-2xl font-bold text-center text-slate-900">
             AMC Benefits
           </h3>
-          
+
           <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
             {benefits.map((benefit, index) => (
               <div key={index} className="flex flex-col items-center text-center">
-                <div 
+                <div
                   className="flex items-center justify-center w-12 h-12 mb-4 rounded-xl"
                   style={{ background: 'linear-gradient(180deg, #00A63E 0%, #155DFC 100%)' }}
                 >

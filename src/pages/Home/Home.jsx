@@ -1,4 +1,6 @@
 import React from 'react';
+import useSmoothScroll from '@/hooks/useSmoothScroll';
+import useScrollReveal from '@/hooks/useScrollReveal';
 import {
   Hero,
   AboutSection,
@@ -10,7 +12,15 @@ import {
   ContactCTA,
 } from './components';
 
+const SectionWrapper = ({ children, className = "", delay = 0 }) => {
+  const ref = useScrollReveal({ delay });
+  return <div ref={ref} className={className}>{children}</div>;
+};
+
 const Home = () => {
+  // Initialize smooth scrolling (Lenis + GSAP)
+  useSmoothScroll();
+
   return (
     <div className="min-h-screen bg-white">
 
@@ -33,8 +43,12 @@ const Home = () => {
           </svg>
         </div>
         <div className="relative z-10">
-          <AboutSection />
-          <SectorsSection />
+          <SectionWrapper>
+            <AboutSection />
+          </SectionWrapper>
+          <SectionWrapper>
+            <SectorsSection />
+          </SectionWrapper>
         </div>
       </div>
 
@@ -54,7 +68,7 @@ const Home = () => {
           </svg>
         </div>
 
-        <div className="absolute inset-0 z-0 hidden pointer-events-none mt-40 md:mt-80 lg:mt-[500px] xl:mt-[650px] 2xl:mt-[1450px] md:block">
+        <div className="absolute inset-0 z-0 hidden pointer-events-none mt-40 md:mt-[1100px] lg:mt-[600px] xl:mt-[750px] 2xl:mt-[1550px] md:block">
           <svg
             className="w-full"
             height="1036"
@@ -70,8 +84,12 @@ const Home = () => {
           </svg>
         </div>
         <div className="relative z-10">
-          <ProductsSection />
-          <ServicesSection />
+          <SectionWrapper>
+            <ProductsSection />
+          </SectionWrapper>
+          <SectionWrapper>
+            <ServicesSection />
+          </SectionWrapper>
           <WhyChooseUs />
         </div>
       </div>

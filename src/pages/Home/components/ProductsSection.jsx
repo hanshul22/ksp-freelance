@@ -1,7 +1,16 @@
 import { Droplet, Filter, Recycle, Factory, Settings } from 'lucide-react';
 import ProductsData from '@/data/ProductsData';
+import { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const ProductsSection = () => {
+  const containerRef = useRef(null);
+  const navigate = useNavigate();
   const iconMap = {
     'water-drop': Droplet,
     filter: Filter,
@@ -10,8 +19,94 @@ const ProductsSection = () => {
     settings: Settings,
   };
 
+  useGSAP(() => {
+    const mm = gsap.matchMedia();
+    const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    // 1. ENTRY ANIMATION (ScrollTrigger)
+    mm.add(
+      {
+        isDesktop: "(min-width: 768px)",
+        isMobile: "(max-width: 767px)",
+        reduceMotion: "(prefers-reduced-motion: reduce)"
+      },
+      (context) => {
+        const { isDesktop, reduceMotion } = context.conditions;
+
+        // Skip animations if reduced motion is preferred
+        if (reduceMotion) return;
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top 85%",
+            toggleActions: "play reverse play reverse"
+          }
+        });
+
+        // Header Fade In
+        tl.fromTo('.products-header',
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.8, ease: "power2.out" }
+        )
+          // Product Cards Staggered Entry
+          .fromTo('.product-card',
+            { y: isDesktop ? 30 : 15, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 0.8,
+              stagger: 0.12,
+              ease: "power2.out"
+            },
+            "-=0.4"
+          );
+      }
+    );
+
+    // 2. HOVER ANIMATIONS (Desktop Only)
+    // Setup hover only if not reduced motion and is desktop
+    if (!prefersReducedMotion && isDesktop) {
+      const cards = gsap.utils.toArray('.product-card');
+
+      cards.forEach(card => {
+        const image = card.querySelector('.product-image');
+        const iconBadge = card.querySelector('.product-icon-badge');
+        const icon = card.querySelector('.product-icon');
+
+        const hoverTl = gsap.timeline({ paused: true });
+
+        // Card Lift + Shadow
+        hoverTl.to(card, {
+          y: -6,
+          boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+          duration: 0.3,
+          ease: "power2.out"
+        }, 0)
+          // Image Scale
+          .to(image, {
+            scale: 1.04,
+            duration: 0.4,
+            ease: "power2.out"
+          }, 0)
+          // Icon Badge Lift
+          .to(iconBadge, {
+            y: -4,
+            scale: 1.06,
+            duration: 0.3,
+            ease: "power2.out"
+          }, 0);
+
+        card.addEventListener('mouseenter', () => hoverTl.play());
+        card.addEventListener('mouseleave', () => hoverTl.reverse());
+      });
+    }
+
+  }, { scope: containerRef });
+
   return (
-    <section className="relative py-16 mt-28">
+    <section ref={containerRef} className="relative py-16 mt-28 products-section">
       {/* Light Blue Wave Layer */}
       <div className="absolute top-3 left-0 w-full h-[20px] -translate-y-6 md:-translate-y-8 z-0 pointer-events-none">
         {/* Desktop SVG */}
@@ -30,7 +125,7 @@ const ProductsSection = () => {
         </svg>
 
         {/* Mobile SVG */}
-        
+
       </div>
 
       {/* Main Blue Background */}
@@ -65,7 +160,7 @@ const ProductsSection = () => {
 
       <div className="relative z-10 px-4 mx-auto max-w-7xl md:px-8">
         {/* Section Header */}
-        <div className="mb-12 text-center md:mb-16">
+        <div className="mb-12 text-center md:mb-16 products-header opacity-0">
           <p className="mb-3 text-sm font-semibold tracking-wide uppercase text-blue-500 md:text-white/90">
             Our Solutions
           </p>
@@ -85,7 +180,8 @@ const ProductsSection = () => {
             return (
               <div
                 key={product.id}
-                className="flex flex-col h-full overflow-hidden bg-white shadow-md rounded-2xl w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
+                onClick={() => navigate(`/products#${product.slug}`)}
+                className="product-card flex flex-col h-full overflow-hidden bg-white shadow-md rounded-2xl w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] transition-none opacity-0 cursor-pointer"
               >
                 {/* Image */}
                 <div
@@ -95,13 +191,13 @@ const ProductsSection = () => {
                   <img
                     src={product.image}
                     alt={product.title}
-                    className="object-cover w-full h-full"
+                    className="product-image object-cover w-full h-full transition-none"
                   />
 
                   {/* Icon Badge */}
-                  <div className="absolute z-10 top-3 right-3">
+                  <div className="absolute z-10 top-3 right-3 product-icon-badge">
                     <div className="flex items-center justify-center w-10 h-10 rounded-lg shadow-sm bg-white/95 backdrop-blur-sm">
-                      <Icon className="w-5 h-5 text-blue-600" strokeWidth={2} />
+                      <Icon className="product-icon w-5 h-5 text-blue-600" strokeWidth={2} />
                     </div>
                   </div>
                 </div>

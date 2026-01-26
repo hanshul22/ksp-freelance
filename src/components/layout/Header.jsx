@@ -1,26 +1,67 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
 import logo from '@/assets/images/logo.png';
 
 const Header = () => {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const containerRef = useRef(null);
+
+  useGSAP(() => {
+    const mm = gsap.matchMedia();
+    
+    mm.add({
+      isDesktop: "(min-width: 768px)",
+      isMobile: "(max-width: 767px)",
+      reduceMotion: "(prefers-reduced-motion: reduce)"
+    }, (context) => {
+      const { isDesktop, reduceMotion } = context.conditions;
+      
+      if (reduceMotion) {
+        gsap.set(containerRef.current, { opacity: 1, y: 0 });
+        return;
+      }
+
+      const tl = gsap.timeline();
+
+      // Main container drop
+      tl.from(containerRef.current, {
+        y: isDesktop ? -30 : -20,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out"
+      });
+
+      // Stagger children content
+      tl.from(".nav-content-item", {
+        y: -10,
+        opacity: 0,
+        duration: 0.5,
+        stagger: 0.1,
+        ease: "power2.out",
+        clearProps: "all" 
+      }, "-=0.4");
+    });
+  }, { scope: containerRef });
 
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
     { name: 'Products', path: '/products' },
     { name: 'Services', path: '/services' },
+    { name: 'Careers', path: '/careers' },
   ];
 
   const isActive = (path) => location.pathname === path;
 
   return (
-    <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[100%]  max-w-7xl">
+    <nav ref={containerRef} className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[100%]  max-w-7xl">
       <div className="flex items-center justify-between px-8 py-4 bg-white rounded-full shadow-lg lg:px-12">
         {/* Logo Section */}
-        <Link to="/" className="flex items-center gap-3">
+        <Link to="/" className="flex items-center gap-3 nav-content-item">
           <img 
             src={logo} 
             alt="KSP Hydro Engineers Logo" 
@@ -37,7 +78,7 @@ const Header = () => {
             <Link
               key={link.path}
               to={link.path}
-              className={`text-sm font-medium transition-colors ${
+              className={`text-sm font-medium transition-colors nav-content-item ${
                 isActive(link.path)
                   ? 'text-black'
                   : 'text-black hover:text-gray-700'
@@ -50,7 +91,7 @@ const Header = () => {
           {/* Contact Button */}
           <Link
             to="/contact"
-            className="bg-blue-600 text-white px-6 py-2.5 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors shadow-md"
+            className="bg-blue-600 text-white px-6 py-2.5 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors shadow-md nav-content-item"
           >
             Contact
           </Link>
@@ -59,7 +100,7 @@ const Header = () => {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="p-2 text-gray-600 lg:hidden hover:text-gray-900"
+          className="p-2 text-gray-600 lg:hidden hover:text-gray-900 nav-content-item"
         >
           {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>

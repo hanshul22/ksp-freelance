@@ -45,12 +45,12 @@ const processSteps = [
 
 const DesignEngineeringSection = () => {
   return (
-    <section className="relative w-full py-12 overflow-hidden lg:py-16">
+    <section id="design-engineering" className="relative w-full py-12 overflow-hidden lg:py-16">
 
       <div className="container relative z-10 px-4 mx-auto">
         {/* Header */}
         <div className="mb-16 text-center">
-          <div 
+          <div
             className="inline-flex items-center justify-center mb-6 w-14 h-14 rounded-xl"
             style={{ background: 'linear-gradient(180deg, #155DFC 0%, #0092B8 100%)' }}
           >
@@ -67,11 +67,11 @@ const DesignEngineeringSection = () => {
         {/* Cards Grid */}
         <div className="grid grid-cols-1 gap-8 mb-16 md:grid-cols-2 lg:grid-cols-3">
           {cards.map((card, index) => (
-            <div 
+            <div
               key={index}
               className="p-8 bg-white shadow-lg rounded-2xl"
             >
-              <div 
+              <div
                 className="inline-flex items-center justify-center w-12 h-12 mb-6 rounded-xl"
                 style={{ background: 'linear-gradient(180deg, #155DFC 0%, #0092B8 100%)' }}
               >

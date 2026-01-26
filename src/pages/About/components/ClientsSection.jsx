@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import {
   Client1,
   Client2,
@@ -13,8 +14,15 @@ import {
   Client12,
   Client13,
 } from '@/assets';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const ClientsSection = () => {
+  const containerRef = useRef(null);
+
   // Row 1 logos (moving right to left)
   const row1Logos = [
     { src: Client1, alt: 'Tata Realty' },
@@ -36,8 +44,73 @@ const ClientsSection = () => {
     { src: Client13, alt: 'Marriott' },
   ];
 
+  useGSAP(() => {
+    const mm = gsap.matchMedia();
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Selectors
+    const header = '.clients-header';
+    const subtitle = '.clients-subtitle';
+    const note = '.clients-note';
+
+    // Initial States
+    if (!prefersReduced) {
+      gsap.set([header, subtitle, note], { opacity: 0, y: 20 });
+    } else {
+      gsap.set([header, subtitle, note], { opacity: 0 });
+    }
+
+    mm.add({
+      isDesktop: "(min-width: 768px)",
+      isMobile: "(max-width: 767px)"
+    }, (context) => {
+      const { isDesktop } = context.conditions;
+
+      // Adjust initial Y for mobile
+      if (!prefersReduced && !isDesktop) {
+        gsap.set([header, subtitle, note], { y: 12 });
+      }
+
+      // Main Scroll Timeline
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 85%",
+          toggleActions: "play reverse play reverse"
+        }
+      });
+
+      if (!prefersReduced) {
+        tl.to(header, {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power2.out"
+        })
+          .to(subtitle, {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power2.out"
+          }, "-=0.6")
+          .to(note, {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power2.out"
+          }, "-=0.4");
+      } else {
+        // Reduced Motion
+        tl.to(header, { opacity: 1, duration: 0.6 })
+          .to(subtitle, { opacity: 1, duration: 0.6 }, "-=0.4")
+          .to(note, { opacity: 1, duration: 0.6 }, "-=0.4");
+      }
+    });
+
+  }, { scope: containerRef });
+
   return (
-    <section className="relative w-full px-4 py-16 overflow-hidden md:px-8 md:py-20">
+    <section ref={containerRef} className="clients-section relative w-full px-4 py-16 overflow-hidden md:px-8 md:py-20">
       {/* CSS Animations */}
       <style>{`
         @keyframes scrollLeft {
@@ -75,10 +148,10 @@ const ClientsSection = () => {
       <div className="relative z-10 mx-auto max-w-7xl">
         {/* Section Header */}
         <div className="mb-12 text-center">
-          <h2 className="mb-4 text-3xl font-bold md:text-4xl text-slate-900">
+          <h2 className="clients-header mb-4 text-3xl font-bold md:text-4xl text-slate-900">
             Our Esteemed Clients
           </h2>
-          <p className="max-w-2xl mx-auto text-base leading-relaxed md:text-lg text-slate-500">
+          <p className="clients-subtitle max-w-2xl mx-auto text-base leading-relaxed md:text-lg text-slate-500">
             Trusted by industry leaders across multiple sectors for reliable and sustainable water solutions
           </p>
         </div>
@@ -151,7 +224,7 @@ const ClientsSection = () => {
         </div>
 
         {/* Footer Text */}
-        <p className="mt-10 text-sm text-center text-slate-500">
+        <p className="clients-note mt-10 text-sm text-center text-slate-500">
           And many more across the world...
         </p>
       </div>

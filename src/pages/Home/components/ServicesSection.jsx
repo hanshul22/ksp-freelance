@@ -1,31 +1,174 @@
 import { Lightbulb, Cog, Headphones } from 'lucide-react';
+import { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const ServicesSection = () => {
+  const containerRef = useRef(null);
+  const navigate = useNavigate();
+
   const services = [
     {
       id: '01',
       icon: Lightbulb,
       title: 'Design Engineering & Consultancy',
       description: 'We assess requirements, select the right technology, and design efficient, compliant solutions tailored to real-world conditions.',
+      slug: 'design-engineering'
     },
     {
       id: '02',
       icon: Cog,
       title: 'Erection & Commissioning',
       description: 'On-site execution, installation, and commissioning of water infrastructure projects. Our teams ensure seamless integration, system readiness, and reliable performance from day one.',
+      slug: 'erection-commissioning'
     },
     {
       id: '03',
       icon: Headphones,
       title: 'Operation & Maintenance',
       description: 'Long-term operation and maintenance support to keep systems running efficiently. From routine monitoring to troubleshooting and compliance, we ensure uninterrupted performance.',
+      slug: 'operation-maintenance'
     },
   ];
 
-  return (
-    <section className="relative py-16 md:py-24">
+  const handleServiceClick = (slug) => {
+    navigate(`/services#${slug}`);
+  };
 
-      <div className="relative z-10 px-4 mx-auto max-w-7xl md:px-8">
+  useGSAP(() => {
+    const mm = gsap.matchMedia();
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    mm.add(
+      {
+        isDesktop: "(min-width: 768px)",
+        isMobile: "(max-width: 767px)",
+      },
+      (context) => {
+        const { isDesktop } = context.conditions;
+
+        if (prefersReducedMotion) return;
+
+        // --- DESKTOP ANIMATION (PINNED) ---
+        if (isDesktop) {
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: containerRef.current,
+              start: "top top",
+              end: "+=200%",
+              pin: true,
+              pinSpacing: true,
+              scrub: 1, // Smooth scrubbing
+              anticipatePin: 1
+            }
+          });
+
+          // 1. Initial State: Header visible, Cards hidden
+          gsap.set('.service-card', { y: 100, opacity: 0 });
+          gsap.set('.service-line-progress', { scaleX: 0 });
+
+          // 2. Animate Connecting Line (Progressive)
+          tl.to('.service-line-progress', {
+            scaleX: 1,
+            duration: 1.5,
+            ease: "none",
+            transformOrigin: "left center"
+          }, 0);
+
+          // 3. Reveal Cards Sequentially
+          const cards = gsap.utils.toArray('.service-card');
+          cards.forEach((card, index) => {
+            // Calculate staggered start time relative to line progress
+            const startTime = index * 0.5;
+
+            tl.to(card, {
+              y: 0,
+              opacity: 1,
+              duration: 0.8,
+              ease: "power2.out"
+            }, startTime);
+          });
+        }
+
+        // --- MOBILE ANIMATION (NORMAL SCROLL) ---
+        else {
+          // Reset any potential pinned styles
+          gsap.set('.service-card', { y: 30, opacity: 0 });
+
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: containerRef.current,
+              start: "top 80%",
+              toggleActions: "play reverse play reverse"
+            }
+          });
+
+          tl.to('.service-card', {
+            y: 0,
+            opacity: 1,
+            duration: 0.6,
+            stagger: 0.2,
+            ease: "power2.out"
+          });
+        }
+      }
+    );
+
+    // --- MICRO ANIMATIONS (HOVER - DESKTOP ONLY) ---
+    if (!prefersReducedMotion && window.matchMedia("(min-width: 768px)").matches) {
+      const cards = gsap.utils.toArray('.service-card');
+
+      cards.forEach(card => {
+        const innerCard = card.querySelector('.service-card-inner');
+        const icon = card.querySelector('.service-icon');
+        const link = card.querySelector('.learn-more');
+
+        // Create hover timeline
+        const hoverTl = gsap.timeline({ paused: true });
+
+        // Card Lift (Targeting Inner Card to avoid conflict with ScrollTrigger transform)
+        if (innerCard) {
+          hoverTl.to(innerCard, {
+            y: -4,
+            boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+            duration: 0.3,
+            ease: "power2.out"
+          }, 0);
+        }
+
+        // Icon Float & Scale
+        if (icon) {
+          hoverTl.to(icon, {
+            y: -4,
+            scale: 1.05,
+            duration: 0.3,
+            ease: "power2.out"
+          }, 0);
+        }
+
+        // Link Slide
+        if (link) {
+          hoverTl.to(link, {
+            x: 4,
+            duration: 0.3,
+            ease: "power2.out"
+          }, 0);
+        }
+
+        card.addEventListener('mouseenter', () => hoverTl.play());
+        card.addEventListener('mouseleave', () => hoverTl.reverse());
+      });
+    }
+
+  }, { scope: containerRef });
+
+  return (
+    <section ref={containerRef} className="relative py-16 md:py-24 services-section bg-gray-50">
+      <div className="relative z-10 px-4 mx-auto max-w-7xl md:px-8 h-full flex flex-col justify-center">
         {/* Section Header */}
         <div className="mb-12 text-center md:mb-16">
           <p className="mb-3 text-sm font-semibold tracking-wide text-teal-600 uppercase">
@@ -43,26 +186,24 @@ const ServicesSection = () => {
         <div className="relative grid grid-cols-1 gap-12 pt-8 md:grid-cols-3 md:gap-10">
           {/* Connecting Lines - Desktop Only */}
           <div className="absolute hidden md:block top-[55%] left-0 right-0 z-0 px-8">
-            <div className="flex justify-between max-w-5xl mx-auto">
-              {/* Line 1: Card 01 → Card 02 */}
-              <div className="flex items-center justify-center flex-1">
-                <div className="w-16 h-px ml-auto mr-4 bg-[#B9F8CF]"></div>
-              </div>
-              {/* Spacer for middle card */}
-              <div className="flex-1"></div>
-              {/* Line 2: Card 02 → Card 03 */}
-              <div className="flex items-center justify-center flex-1">
-                <div className="w-16 h-px ml-4 mr-auto bg-[#B9F8CF]"></div>
-              </div>
+            <div className="relative flex justify-between max-w-5xl mx-auto">
+              {/* Base Line (Faint) */}
+              <div className="absolute top-0 left-0 w-full h-px bg-gray-200"></div>
+
+              {/* Progress Line (Animated) */}
+              <div className="absolute top-0 left-0 w-full h-px bg-[#00C950] service-line-progress origin-left scale-x-0"></div>
             </div>
           </div>
 
           {services.map((service) => {
             const Icon = service.icon;
             return (
-              <div key={service.id} className="relative z-10 pt-8">
+              <div key={service.id} className="relative z-10 pt-8 service-card opacity-0">
                 {/* Card */}
-                <div className="relative h-full px-8 py-10 bg-white shadow-lg rounded-3xl flex flex-col items-center text-center md:items-start md:text-left">
+                <div
+                  onClick={() => handleServiceClick(service.slug)}
+                  className="relative h-full px-8 py-10 bg-white shadow-lg rounded-3xl flex flex-col items-center text-center md:items-start md:text-left service-card-inner cursor-pointer hover:shadow-xl transition-shadow duration-300"
+                >
                   {/* Number Badge - Top Right - Overlapping card boundary */}
                   <div className="absolute -top-6 -right-3">
                     <div
@@ -74,9 +215,9 @@ const ServicesSection = () => {
                   </div>
 
                   {/* Icon Container - Top Left on Desktop, Centered on Mobile */}
-                  <div className="mb-8">
+                  <div className="mb-8 service-icon-container">
                     <div
-                      className="flex items-center justify-center w-16 h-16 rounded-2xl"
+                      className="flex items-center justify-center w-16 h-16 rounded-2xl service-icon"
                       style={{ background: 'linear-gradient(135deg, #DBEAFE 0%, #DCFCE7 100%)' }}
                     >
                       <Icon className="w-8 h-8 text-cyan-500" strokeWidth={1.5} />
@@ -94,7 +235,7 @@ const ServicesSection = () => {
                   </p>
 
                   {/* Learn More Link */}
-                  <div className="flex items-center justify-center md:justify-start gap-1.5 text-sm font-medium text-amber-500 mt-auto w-full">
+                  <div className="flex items-center justify-center md:justify-start gap-1.5 text-sm font-medium text-amber-500 mt-auto w-full learn-more cursor-pointer">
                     <span>👉</span>
                     <span>Learn more</span>
                   </div>

@@ -1,11 +1,112 @@
+import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { waterDrop } from '@/assets';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
-  return (
+  const containerRef = useRef(null);
 
-    <section className="relative min-h-screen md:min-h-[95vh]" >
+  useGSAP(() => {
+    const mm = gsap.matchMedia();
+
+    // Responsive Animations
+    mm.add({
+      isDesktop: "(min-width: 768px)",
+      isMobile: "(max-width: 767px)",
+      reduceMotion: "(prefers-reduced-motion: reduce)"
+    }, (context) => {
+      const { isDesktop, isMobile, reduceMotion } = context.conditions;
+
+      if (reduceMotion) return;
+
+      const tl = gsap.timeline();
+
+      // 2. HERO VISUAL (Water Drop)
+      // Floating motion - infinite loop
+      gsap.to('.hero-visual', {
+        y: isDesktop ? 20 : 10,
+        duration: 2.5,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut"
+      });
+
+      // Entrance Animations Timeline
+      // 3. HERO HEADLINE
+      tl.fromTo('.hero-headline-line',
+        {
+          y: isDesktop ? 40 : 20,
+          opacity: 0
+        },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          stagger: 0.2,
+          ease: "power3.out",
+          delay: 0.2
+        }
+      )
+
+        // 4. DESCRIPTION TEXT
+        .fromTo('.hero-description',
+          {
+            y: 20,
+            opacity: 0
+          },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            ease: "power2.out"
+          },
+          "-=0.6"
+        )
+
+        // 5. CTA BUTTONS
+        .fromTo('.hero-cta',
+          {
+            scale: isDesktop ? 0.95 : 1, // No scale on mobile to avoid tap issues
+            y: 10,
+            opacity: 0,
+            visibility: 'hidden' // Ensure hidden initially
+          },
+          {
+            scale: 1,
+            y: 0,
+            opacity: 1,
+            visibility: 'visible',
+            duration: 0.6,
+            stagger: 0.1,
+            ease: "back.out(1.7)"
+          },
+          "-=0.4"
+        );
+
+      // 6. TRUST STATS (ScrollTrigger)
+      gsap.from('.hero-trust-item', {
+        scrollTrigger: {
+          trigger: '.hero-trust-row',
+          start: "top 85%",
+          toggleActions: "play none none reverse"
+        },
+        y: isDesktop ? 30 : 15,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: "power2.out"
+      });
+
+    });
+  }, { scope: containerRef });
+
+  return (
+    <section ref={containerRef} className="relative min-h-screen md:min-h-[95vh]">
       {/* Background Wave Decoration - Desktop */}
       <div className="absolute inset-0 z-0 hidden pointer-events-none md:block">
         <svg
@@ -23,10 +124,8 @@ const Hero = () => {
       {/* Background Wave Decoration - Mobile */}
       <div className="absolute inset-0 z-0 block pointer-events-none md:hidden mt-24" style={{ backgroundColor: '#FFFFFF' }}>
         <svg
-
           className="absolute top-0 left-0 w-full h-auto"
           viewBox="0 0 375 400"
-
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           preserveAspectRatio="xMidYMin slice"
@@ -35,8 +134,6 @@ const Hero = () => {
         </svg>
       </div>
 
-
-
       {/* Main Content */}
       <div className="relative px-5 pt-24 pb-12 mx-auto md:pt-48 max-w-7xl md:px-8">
         <div className="flex flex-col-reverse items-center justify-between gap-8 md:flex-row md:gap-12 lg:gap-20">
@@ -44,11 +141,11 @@ const Hero = () => {
           {/* Left Content - Text Block */}
           <div className="w-full text-center space-y-7 md:w-1/2 md:text-left">
             <h1 className="text-[2.25rem] leading-tight md:text-5xl lg:text-[3.25rem] font-bold tracking-tight">
-              <span className="block mb-1 text-gray-900">Transforming Water</span>
-              <span className="block py-3 bg-clip-text text-transparent bg-gradient-to-r from-[#155DFC] via-[#00B8DB] to-[#00C950]">Enhancing Lives</span>
+              <span className="block mb-1 text-gray-900 hero-headline-line">Transforming Water</span>
+              <span className="block py-3 bg-clip-text text-transparent bg-gradient-to-r from-[#155DFC] via-[#00B8DB] to-[#00C950] hero-headline-line">Enhancing Lives</span>
             </h1>
 
-            <p className="max-w-[700px] mx-auto text-xl md:text-lg leading-relaxed text-gray-500 md:mx-0">
+            <p className="max-w-[700px] mx-auto text-xl md:text-lg leading-relaxed text-gray-500 md:mx-0 hero-description">
               We design and deliver reliable, cost-effective, and sustainable water and wastewater solutions for governments, industries, institutions, and organization.
             </p>
 
@@ -56,7 +153,7 @@ const Hero = () => {
             <div className="flex flex-col gap-3.5 pt-2 md:flex-row">
               <Link
                 to="/products"
-                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#1D4ED8] to-[#0EA5E9] text-white px-8 py-4 rounded-xl text-[15px] font-semibold hover:opacity-90 transition-all shadow-lg hover:shadow-xl w-full md:w-auto"
+                className="hero-cta inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#1D4ED8] to-[#0EA5E9] text-white px-8 py-4 rounded-xl text-[15px] font-semibold hover:opacity-90 transition-all shadow-lg hover:shadow-xl w-full md:w-auto"
               >
                 Explore Our Solutions
                 <ArrowRight className="w-4 h-4" />
@@ -64,7 +161,7 @@ const Hero = () => {
 
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-white text-[#1D4ED8] px-8 py-4 rounded-xl text-[15px] font-semibold border-2 border-[#1D4ED8] hover:bg-blue-50 transition-all w-full md:w-auto"
+                className="hero-cta inline-flex items-center justify-center gap-2 bg-white text-[#1D4ED8] px-8 py-4 rounded-xl text-[15px] font-semibold border-2 border-[#1D4ED8] hover:bg-blue-50 transition-all w-full md:w-auto"
               >
                 Schedule a Consultation
               </Link>
@@ -72,7 +169,7 @@ const Hero = () => {
           </div>
 
           {/* Right Content - Water Drop Illustration */}
-          <div className="relative flex items-center justify-center w-full md:w-1/2">
+          <div className="relative flex items-center justify-center w-full md:w-1/2 hero-visual">
             <div className="relative w-full max-w-[200px] md:max-w-[340px]">
               {/* Soft Glow Behind Droplet */}
               <div
@@ -95,26 +192,22 @@ const Hero = () => {
           </div>
         </div>
 
-
-
-
         {/* Trust Indicators Row */}
-        <div className="pt-6 pb-0  md:pt-8 md:mt-12 lg:mt-40 md:pb-8">
+        <div className="pt-6 pb-0 md:pt-8 md:mt-12 lg:mt-40 md:pb-8 hero-trust-row">
           <div className="flex flex-wrap items-center justify-center text-center gap-x-8 gap-y-3">
-            <div className="flex items-center justify-center gap-3">
+            <div className="flex items-center justify-center gap-3 hero-trust-item">
               <div className="flex-shrink-0 w-3 h-3 bg-green-500 rounded-full" />
               <span className="text-[12px] md:text-xl font-medium text-gray-500">ISO Certified</span>
             </div>
 
-            <div className="flex items-center justify-center gap-3">`
+            <div className="flex items-center justify-center gap-3 hero-trust-item">
               <div className="flex-shrink-0 w-3 h-3 bg-blue-500 rounded-full" />
               <span className="text-[12px] md:text-xl font-medium text-gray-500">20+ Years Experience</span>
             </div>
 
-            <div className="flex items-center justify-center gap-3">`
+            <div className="flex items-center justify-center gap-3 hero-trust-item">
               <div className="flex-shrink-0 w-3 h-3 rounded-full bg-cyan-500" />
               <span className="text-[12px] md:text-xl font-medium text-gray-500">500+ Projects Delivered</span>
-
             </div>
           </div>
         </div>

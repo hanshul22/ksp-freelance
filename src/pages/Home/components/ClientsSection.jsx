@@ -1,21 +1,21 @@
-
 import { Client1, Client2, Client3, Client4, Client5, Client6, Client7, Client8, Client9, Client10, Client11 } from '@/assets';
+import { useRef } from 'react';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-
+gsap.registerPlugin(ScrollTrigger);
 
 const ClientsSection = () => {
-  // Row 1 clients - scrolls left
-  const clientsRow1 = [
+  const containerRef = useRef(null);
+
+  const clients = [
     { id: 1, logo: Client1, name: 'Impact Kerala' },
     { id: 2, logo: Client2, name: 'RUIDP' },
     { id: 3, logo: Client3, name: 'Assam Cancer Care Foundation' },
     { id: 4, logo: Client4, name: 'DCSEM' },
     { id: 5, logo: Client5, name: 'CPWD' },
     { id: 6, logo: Client6, name: 'Marriott' },
-  ];
-
-  // Row 2 clients - scrolls right
-  const clientsRow2 = [
     { id: 7, logo: Client7, name: 'Harvest Gold' },
     { id: 8, logo: Client8, name: 'Avery Dennison' },
     { id: 9, logo: Client9, name: 'OJI JK Packaging' },
@@ -23,12 +23,116 @@ const ClientsSection = () => {
     { id: 11, logo: Client11, name: 'The Lalit' },
   ];
 
-  // Duplicate arrays for seamless infinite scroll
-  const duplicatedRow1 = [...clientsRow1, ...clientsRow1, ...clientsRow1];
-  const duplicatedRow2 = [...clientsRow2, ...clientsRow2, ...clientsRow2];
+  useGSAP(() => {
+    const mm = gsap.matchMedia();
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    mm.add({
+      isDesktop: "(min-width: 768px)",
+      isMobile: "(max-width: 767px)",
+    }, (context) => {
+      const { isDesktop } = context.conditions;
+
+      // --- SCROLL ANIMATION ---
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 85%",
+          toggleActions: "play reverse play reverse"
+        }
+      });
+
+      if (prefersReducedMotion) {
+        tl.to('.clients-header, .client-card, .testimonial-card', {
+          opacity: 1,
+          duration: 0.5,
+          stagger: 0.1
+        });
+      } else {
+        // 1. Header Content
+        tl.from('.clients-header', {
+          y: 20,
+          opacity: 0,
+          duration: 0.8,
+          stagger: 0.15,
+          ease: "power2.out"
+        });
+
+        // 2. Client Grid
+        tl.from('.client-wrapper', {
+          y: isDesktop ? 20 : 12,
+          opacity: 0,
+          duration: 0.6,
+          stagger: {
+            amount: 0.8,
+            grid: "auto",
+            from: "start"
+          },
+          ease: "power2.out"
+        }, "-=0.4");
+
+        // 3. Testimonial Card
+        tl.from('.testimonial-card', {
+          y: 30,
+          opacity: 0,
+          duration: 0.8,
+          ease: "power2.out"
+        }, "-=0.2");
+      }
+
+      // --- MICRO INTERACTIONS (Desktop Only) ---
+      if (isDesktop && !prefersReducedMotion) {
+        // Logo Card Hover
+        const cards = gsap.utils.toArray('.client-card');
+
+        cards.forEach(card => {
+          const logo = card.querySelector('.client-logo');
+
+          const hoverTl = gsap.timeline({ paused: true });
+
+          // Card Lift & Border
+          hoverTl.to(card, {
+            y: -3,
+            borderColor: "rgba(37, 99, 235, 0.3)", // Subtle blue hint
+            boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.08)",
+            duration: 0.25,
+            ease: "power2.out"
+          }, 0);
+
+          // Logo Scale
+          if (logo) {
+            hoverTl.to(logo, {
+              scale: 1.05,
+              duration: 0.25,
+              ease: "power2.out"
+            }, 0);
+          }
+
+          card.addEventListener('mouseenter', () => hoverTl.play());
+          card.addEventListener('mouseleave', () => hoverTl.reverse());
+        });
+
+        // Testimonial Card Hover
+        const testimonialCard = containerRef.current.querySelector('.testimonial-card');
+        if (testimonialCard) {
+          const tHoverTl = gsap.timeline({ paused: true });
+
+          tHoverTl.to(testimonialCard, {
+            boxShadow: "0 20px 40px -5px rgba(0, 0, 0, 0.12)",
+            duration: 0.3,
+            ease: "power2.out"
+          });
+
+          testimonialCard.addEventListener('mouseenter', () => tHoverTl.play());
+          testimonialCard.addEventListener('mouseleave', () => tHoverTl.reverse());
+        }
+      }
+    });
+
+  }, { scope: containerRef });
 
   return (
-    <section className="relative py-16 overflow-hidden md:py-24">
+    <section ref={containerRef} className="clients-section relative py-16 overflow-hidden md:py-24">
       {/* Background SVG */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         {/* Mobile SVG */}
@@ -67,58 +171,41 @@ const ClientsSection = () => {
       <div className="relative z-10 px-4 mx-auto max-w-7xl md:px-8">
         {/* Section Header */}
         <div className="mb-12 text-center md:mb-16">
-          <p className="mb-3 hidden text-sm font-semibold tracking-wide text-blue-600 uppercase md:block">
+          <p className="clients-header mb-3 hidden text-sm font-semibold tracking-wide text-blue-600 uppercase md:block">
             Trusted Partnerships
           </p>
-          <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">
+          <h2 className="clients-header mb-4 text-3xl font-bold text-gray-900 md:text-4xl">
             Our Clients
           </h2>
-          <p className="max-w-3xl mx-auto text-base text-gray-600">
+          <p className="clients-header max-w-3xl mx-auto text-base text-gray-600">
             Proud to work with leading organizations across hospitality, government, healthcare, industry, and institutions
           </p>
         </div>
 
-        {/* Client Logos - Row 1 (Scrolls Left) */}
-        <div className="relative mb-6 overflow-hidden">
-          <div className="flex animate-scroll-left hover:pause-animation">
-            {duplicatedRow1.map((client, index) => (
-              <div key={`row1-${client.id}-${index}`} className="flex-shrink-0 mx-3">
-                <div className="flex items-center justify-center h-24 p-4 bg-white border border-gray-100 shadow-sm w-36 sm:w-40 sm:h-28 md:w-44 md:h-28 rounded-xl">
-                  <img
-                    src={client.logo}
-                    alt={client.name}
-                    className="object-contain w-full h-full"
-                  />
-                </div>
+        {/* Client Logos - Grid Layout */}
+        <div className="flex flex-wrap items-center justify-center gap-4 mb-16 md:gap-6 lg:gap-8">
+          {clients.map((client) => (
+            <div key={client.id} className="client-wrapper">
+              <div
+                className="client-card flex items-center justify-center h-24 p-6 bg-white border border-gray-100 shadow-sm rounded-xl md:h-32"
+              >
+                <img
+                  src={client.logo}
+                  alt={client.name}
+                  className="client-logo object-contain w-full h-full transition-none"
+                />
               </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Client Logos - Row 2 (Scrolls Right) */}
-        <div className="relative mb-8 overflow-hidden">
-          <div className="flex animate-scroll-right hover:pause-animation">
-            {duplicatedRow2.map((client, index) => (
-              <div key={`row2-${client.id}-${index}`} className="flex-shrink-0 mx-3">
-                <div className="flex items-center justify-center h-24 p-4 bg-white border border-gray-100 shadow-sm w-36 sm:w-40 sm:h-28 md:w-44 md:h-28 rounded-xl">
-                  <img
-                    src={client.logo}
-                    alt={client.name}
-                    className="object-contain w-full h-full"
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
 
         {/* "And many more" text */}
-        <p className="mb-12 text-sm text-center text-gray-500 md:mb-10">
+        <p className="clients-header mb-12 text-sm text-center text-gray-500 md:mb-10">
           <strong> And many more across the world...</strong>
         </p>
 
         {/* Testimonial Card */}
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto testimonial-card">
           <div className="p-6 bg-white shadow-lg rounded-2xl md:pr-16 md:pl-10 md:py-10">
             <div className="flex flex-col items-center gap-6 text-center md:flex-row md:items-start md:text-left md:gap-6">
               {/* Quote Icon */}
@@ -150,39 +237,6 @@ const ClientsSection = () => {
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes scroll-left {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-33.333%);
-          }
-        }
-
-        @keyframes scroll-right {
-          0% {
-            transform: translateX(-33.333%);
-          }
-          100% {
-            transform: translateX(0);
-          }
-        }
-
-        .animate-scroll-left {
-          animation: scroll-left 25s linear infinite;
-        }
-
-        .animate-scroll-right {
-          animation: scroll-right 25s linear infinite;
-        }
-
-        .animate-scroll-left:hover,
-        .animate-scroll-right:hover {
-          animation-play-state: paused;
-        }
-      `}</style>
     </section>
   );
 };

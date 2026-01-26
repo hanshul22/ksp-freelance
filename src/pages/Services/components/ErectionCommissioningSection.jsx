@@ -39,11 +39,11 @@ const primaryCards = [
 
 const ErectionCommissioningSection = () => {
   return (
-    <section className="w-full py-12 lg:py-16">
+    <section id="erection-commissioning" className="w-full py-12 lg:py-16">
       <div className="container px-4 mx-auto">
         {/* Header */}
         <div className="mb-12 text-center">
-          <div 
+          <div
             className="inline-flex items-center justify-center mb-6 w-14 h-14 rounded-xl"
             style={{ background: 'linear-gradient(180deg, #F54900 0%, #E7000B 100%)' }}
           >
@@ -60,11 +60,11 @@ const ErectionCommissioningSection = () => {
         {/* Primary Cards Grid */}
         <div className="grid grid-cols-1 gap-6 mb-8 md:grid-cols-2 lg:grid-cols-3">
           {primaryCards.map((card, index) => (
-            <div 
+            <div
               key={index}
               className="bg-[#fef7f0] rounded-2xl p-6 shadow-sm"
             >
-              <div 
+              <div
                 className="inline-flex items-center justify-center w-12 h-12 mb-5 rounded-xl"
                 style={{ background: 'linear-gradient(180deg, #F54900 0%, #E7000B 100%)' }}
               >
@@ -98,7 +98,7 @@ const ErectionCommissioningSection = () => {
           </h3>
           <div className="grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-8">
             <div className="flex flex-col items-center text-center">
-              <div 
+              <div
                 className="inline-flex items-center justify-center w-12 h-12 mb-4 rounded-xl"
                 style={{ background: 'linear-gradient(180deg, #F54900 0%, #E7000B 100%)' }}
               >
@@ -107,7 +107,7 @@ const ErectionCommissioningSection = () => {
               <span className="text-sm text-gray-600">Operator training sessions</span>
             </div>
             <div className="flex flex-col items-center text-center">
-              <div 
+              <div
                 className="inline-flex items-center justify-center w-12 h-12 mb-4 rounded-xl"
                 style={{ background: 'linear-gradient(180deg, #F54900 0%, #E7000B 100%)' }}
               >
@@ -116,7 +116,7 @@ const ErectionCommissioningSection = () => {
               <span className="text-sm text-gray-600">Initial troubleshooting support</span>
             </div>
             <div className="flex flex-col items-center text-center">
-              <div 
+              <div
                 className="inline-flex items-center justify-center w-12 h-12 mb-4 rounded-xl"
                 style={{ background: 'linear-gradient(180deg, #F54900 0%, #E7000B 100%)' }}
               >
@@ -125,7 +125,7 @@ const ErectionCommissioningSection = () => {
               <span className="text-sm text-gray-600">Documentation and manuals</span>
             </div>
             <div className="flex flex-col items-center text-center">
-              <div 
+              <div
                 className="inline-flex items-center justify-center w-12 h-12 mb-4 rounded-xl"
                 style={{ background: 'linear-gradient(180deg, #F54900 0%, #E7000B 100%)' }}
               >
