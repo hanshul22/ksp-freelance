@@ -1,0 +1,214 @@
+import { User, Mail, Phone, Briefcase, MessageSquare, Send } from 'lucide-react';
+
+const HowToApplySection = () => {
+  return (
+    <section className="relative w-full py-16 md:py-20 overflow-hidden bg-white">
+      {/* Background Curved Shape - Desktop */}
+      <div className="absolute top-0 right-0 hidden md:block pointer-events-none">
+        <svg
+          width="400"
+          height="300"
+          viewBox="0 0 400 300"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M400 0C400 0 380 50 350 100C300 180 320 250 400 300V0Z"
+            fill="#D5F5E3"
+            fillOpacity="0.5"
+          />
+        </svg>
+      </div>
+
+      {/* Background Curved Shape - Mobile */}
+      <div className="absolute top-0 right-0 block md:hidden pointer-events-none">
+        <svg
+          width="150"
+          height="200"
+          viewBox="0 0 150 200"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M150 0C150 0 130 40 110 80C80 140 100 180 150 200V0Z"
+            fill="#D5F5E3"
+            fillOpacity="0.5"
+          />
+        </svg>
+      </div>
+
+      <div className="container relative z-10 px-4 mx-auto lg:px-8">
+        {/* Section Heading */}
+        <h2 className="mb-6 text-2xl font-bold text-center md:text-3xl lg:text-4xl text-slate-900">
+          How to Apply
+        </h2>
+
+        {/* Introductory Text */}
+        <div className="max-w-2xl mx-auto mb-10 text-center">
+          <p className="mb-4 text-sm leading-relaxed text-gray-600 md:text-base">
+            "We are always open to connecting with individuals who are passionate about water
+            engineering, sustainability, and execution excellence.
+          </p>
+          <p className="text-sm leading-relaxed text-gray-600 md:text-base">
+            If you believe your skills and mindset align with KSP Hydro,
+            <br className="hidden md:block" />
+            we'd be happy to hear from you."
+          </p>
+        </div>
+
+        {/* Step Indicator Cards */}
+        <div className="grid grid-cols-1 gap-4 mb-8 md:grid-cols-2 md:gap-6 max-w-3xl mx-auto">
+          {/* Step 1 */}
+          <div className="flex items-start gap-4 p-5 rounded-xl bg-cyan-50">
+            <div className="flex items-center justify-center w-8 h-8 text-sm font-bold text-white rounded-full shrink-0 bg-cyan-500">
+              1
+            </div>
+            <div>
+              <h3 className="mb-1 text-sm font-bold text-slate-900 md:text-base">
+                Fill out the application form
+              </h3>
+              <p className="text-xs text-gray-600 md:text-sm">
+                Complete the form below with your details and area of interest
+              </p>
+            </div>
+          </div>
+
+          {/* Step 2 */}
+          <div className="flex items-start gap-4 p-5 rounded-xl bg-emerald-50">
+            <div className="flex items-center justify-center w-8 h-8 text-sm font-bold text-white rounded-full shrink-0 bg-emerald-500">
+              2
+            </div>
+            <div>
+              <h3 className="mb-1 text-sm font-bold text-slate-900 md:text-base">
+                Email your resume
+              </h3>
+              <p className="text-xs text-gray-600 md:text-sm">
+                Send your resume to:
+              </p>
+              <a
+                href="mailto:proposal@ksphydro.com"
+                className="text-xs font-medium text-blue-600 underline md:text-sm"
+              >
+                proposal@ksphydro.com
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Form Container */}
+        <div className="max-w-3xl mx-auto bg-white rounded-2xl shadow-lg p-6 md:p-8">
+          <form className="space-y-5">
+            {/* Full Name */}
+            <div>
+              <label className="block mb-2 text-sm font-medium text-slate-900">
+                Full Name <span className="text-red-500">*</span>
+              </label>
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
+                  <User className="w-5 h-5 text-gray-400" />
+                </div>
+                <input
+                  type="text"
+                  placeholder="Enter your full name"
+                  className="w-full py-3 pl-12 pr-4 text-sm border border-gray-200 rounded-lg bg-white focus:outline-none focus:border-blue-500"
+                />
+              </div>
+            </div>
+
+            {/* Email and Phone - Two columns on desktop */}
+            <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+              {/* Email Address */}
+              <div>
+                <label className="block mb-2 text-sm font-medium text-slate-900">
+                  Email Address <span className="text-red-500">*</span>
+                </label>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
+                    <Mail className="w-5 h-5 text-gray-400" />
+                  </div>
+                  <input
+                    type="email"
+                    placeholder="your.email@example.com"
+                    className="w-full py-3 pl-12 pr-4 text-sm border border-gray-200 rounded-lg bg-white focus:outline-none focus:border-blue-500"
+                  />
+                </div>
+              </div>
+
+              {/* Phone Number */}
+              <div>
+                <label className="block mb-2 text-sm font-medium text-slate-900">
+                  Phone Number <span className="text-red-500">*</span>
+                </label>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
+                    <Phone className="w-5 h-5 text-gray-400" />
+                  </div>
+                  <input
+                    type="tel"
+                    placeholder="+91 98765 43210"
+                    className="w-full py-3 pl-12 pr-4 text-sm border border-gray-200 rounded-lg bg-white focus:outline-none focus:border-blue-500"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Area of Interest */}
+            <div>
+              <label className="block mb-2 text-sm font-medium text-slate-900">
+                Area of Interest <span className="text-red-500">*</span>
+              </label>
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
+                  <Briefcase className="w-5 h-5 text-gray-400" />
+                </div>
+                <input
+                  type="text"
+                  placeholder=""
+                  className="w-full py-3 pl-12 pr-4 text-sm border border-gray-200 rounded-lg bg-white focus:outline-none focus:border-blue-500"
+                />
+              </div>
+            </div>
+
+            {/* Message */}
+            <div>
+              <label className="block mb-2 text-sm font-medium text-slate-900">
+                Message <span className="text-red-500">*</span>
+              </label>
+              <div className="relative">
+                <div className="absolute top-3 left-0 flex items-start pl-4 pointer-events-none">
+                  <MessageSquare className="w-5 h-5 text-gray-400" />
+                </div>
+                <textarea
+                  rows={5}
+                  placeholder="Tell us about your experience, skills, and why you'd like to join KSP Hydro..."
+                  className="w-full py-3 pl-12 pr-4 text-sm border border-gray-200 rounded-lg bg-white resize-none focus:outline-none focus:border-blue-500"
+                />
+              </div>
+            </div>
+
+            {/* Submit Button */}
+            <button
+              type="submit"
+              className="flex items-center justify-center w-full gap-2 py-3.5 text-sm font-semibold text-white bg-blue-600 rounded-lg md:text-base"
+            >
+              <Send className="w-4 h-4 md:w-5 md:h-5" />
+              Submit Application
+            </button>
+          </form>
+
+          {/* Required Fields Note */}
+          <p className="mt-4 text-xs text-center text-gray-500 md:text-sm">
+            <span className="text-red-500">*</span> Required fields
+          </p>
+        </div>
+
+        {/* Footer Info Text */}
+        <p className="max-w-2xl mx-auto mt-8 text-sm text-center text-gray-500 md:text-base">
+          Our team reviews every application and will reach out if there is a suitable opportunity.
+        </p>
+      </div>
+    </section>
+  );
+};
+
+export default HowToApplySection;
