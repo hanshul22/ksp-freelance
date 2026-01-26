@@ -1,4 +1,4 @@
-import { Lightbulb, Cog, Headphones, ArrowRight } from 'lucide-react';
+import { Lightbulb, Cog, Headphones } from 'lucide-react';
 
 const ServicesSection = () => {
   const services = [
@@ -57,7 +57,7 @@ const ServicesSection = () => {
             </div>
           </div>
 
-          {services.map((service, index) => {
+          {services.map((service) => {
             const Icon = service.icon;
             return (
               <div key={service.id} className="relative z-10 pt-8">
