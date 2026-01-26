@@ -4,7 +4,9 @@ import { waterDrop } from '@/assets';
 
 const Hero = () => {
   return (
+
     <section className="relative min-h-screen md:min-h-[95vh]" >
+
       
       {/* Background Wave Decoration - Desktop */}
       <div className="absolute inset-0 z-0 hidden pointer-events-none md:block">
@@ -22,8 +24,10 @@ const Hero = () => {
       {/* Background Wave Decoration - Mobile */}
       <div className="absolute inset-0 z-0 block pointer-events-none md:hidden" style={{ backgroundColor: '#FFFFFF' }}>
         <svg 
+
           className="absolute top-0 left-0 w-full h-auto"
           viewBox="0 0 375 400"
+
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           preserveAspectRatio="xMidYMin slice"
@@ -59,7 +63,9 @@ const Hero = () => {
                 />
               </div>
             </div>
+
           </div>
+        </div>
 
           {/* Left Content - Text Block */}
           <div className="w-full space-y-7 text-center md:w-1/2 md:text-left">
@@ -91,28 +97,23 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right Column - Water Drop Illustration - Desktop Only */}
-          <div className="relative items-center justify-center hidden w-full md:flex md:w-1/2">
-            <div className="relative w-full max-w-sm lg:max-w-lg xl:max-w-xs">
-              {/* Soft Glow Behind Droplet */}
-              <div 
-                className="absolute inset-0 rounded-full blur-3xl"
-                style={{
-                  background: 'radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, rgba(14, 165, 233, 0.08) 50%, transparent 70%)',
-                  transform: 'scale(1.2)',
-                }}
-              />
-              
-              {/* Water Droplet Image */}
-              <div className="relative flex items-center justify-center w-full p-8 aspect-square">
-                <img 
-                  src={waterDrop} 
-                  alt="Water Droplet" 
-                  className="object-contain w-full h-full drop-shadow-2xl"
-                />
-              </div>
-            </div>
-          </div>
+
+        {/* CTA Buttons */}
+        <div className="flex flex-col gap-3 w-full max-w-xs md:max-w-sm">
+          <Link
+            to="/products"
+            className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#155DFC] to-[#0092B8] text-white px-6 py-3.5 rounded-xl text-sm font-semibold shadow-md w-full"
+          >
+            Explore Our Solutions
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+          
+          <Link
+            to="/contact"
+            className="inline-flex items-center justify-center gap-2 bg-white text-blue-600 px-6 py-3.5 rounded-xl text-sm font-semibold border-2 border-blue-600 w-full"
+          >
+            Schedule a Consultation
+          </Link>
         </div>
 
         {/* Trust Indicators Row */}
@@ -131,6 +132,7 @@ const Hero = () => {
             <div className="flex items-center justify-center gap-2">
               <div className="flex-shrink-0 w-2 h-2 bg-green-500 rounded-full" />
               <span className="text-[12px] md:text-base font-medium text-gray-500">ISO Certified</span>
+
             </div>
           </div>
         </div>
