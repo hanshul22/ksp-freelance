@@ -27,7 +27,7 @@ const Services = () => {
   }, [hash]);
 
   return (
-    <main className="relative">
+    <main className="relative bg-white">
       {/* Background SVG - Desktop only */}
       <div className="absolute top-0 left-0 right-0 z-0 hidden pointer-events-none md:block">
         <svg

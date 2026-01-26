@@ -1,4 +1,10 @@
+import React, { useRef } from 'react';
 import { Wrench, HardHat, ClipboardCheck, GraduationCap, Shield, ListChecks, CheckCircle, MonitorPlay, Headphones, FileText, Settings } from 'lucide-react';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const primaryCards = [
   {
@@ -38,8 +44,149 @@ const primaryCards = [
 
 
 const ErectionCommissioningSection = () => {
+  const containerRef = useRef(null);
+
+  useGSAP(() => {
+    const mm = gsap.matchMedia();
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Element Selection via Structure
+    const container = containerRef.current.querySelector('.container');
+    if (!container) return;
+
+    // Section 1: Header
+    const headerBlock = container.children[0];
+    const headerIconWrapper = headerBlock.children[0];
+    const headerTitle = headerBlock.children[1];
+    const headerDesc = headerBlock.children[2];
+
+    // Section 2: Cards
+    const cardsGrid = container.children[1];
+    const executionCards = gsap.utils.toArray(cardsGrid.children);
+
+    // Section 3: Handover Strip
+    const handoverStrip = container.children[2];
+    const handoverItemsGrid = handoverStrip.querySelector('.grid');
+    const handoverItems = handoverItemsGrid ? gsap.utils.toArray(handoverItemsGrid.children) : [];
+
+    // Initial States
+    const allElements = [headerIconWrapper, headerTitle, headerDesc, ...executionCards, handoverStrip];
+
+    if (prefersReduced) {
+      gsap.set(allElements, { opacity: 0 });
+    } else {
+      gsap.set(allElements, { opacity: 0 });
+      // Y values set inside matchMedia
+    }
+
+    mm.add({
+      isDesktop: "(min-width: 768px)",
+      isMobile: "(max-width: 767px)",
+    }, (context) => {
+      const { isDesktop } = context.conditions;
+
+      const headerY = isDesktop ? 22 : 14;
+      const cardY = isDesktop ? 30 : 16;
+      const stripY = isDesktop ? 20 : 14;
+
+      if (!prefersReduced) {
+        gsap.set([headerIconWrapper, headerTitle, headerDesc], { y: headerY });
+        gsap.set(executionCards, { y: cardY });
+        gsap.set(handoverStrip, { y: stripY });
+      }
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 85%",
+          toggleActions: "play reverse play reverse"
+        }
+      });
+
+      // 1. Header Reveal
+      if (!prefersReduced) {
+        tl.to(headerIconWrapper, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" })
+          .to(headerTitle, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }, "-=0.4")
+          .to(headerDesc, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }, "-=0.4");
+      } else {
+        tl.to([headerIconWrapper, headerTitle, headerDesc], { opacity: 1, duration: 0.6, stagger: 0.1 });
+      }
+
+      // 2. Execution Cards Reveal
+      if (!prefersReduced) {
+        tl.to(executionCards, {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          stagger: 0.14,
+          ease: "power2.out"
+        }, "-=0.2");
+      } else {
+        tl.to(executionCards, { opacity: 1, duration: 0.8, stagger: 0.14 }, "-=0.2");
+      }
+
+      // 3. Handover Strip Reveal
+      if (!prefersReduced) {
+        tl.to(handoverStrip, {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power2.out"
+        }, "-=0.2");
+      } else {
+        tl.to(handoverStrip, { opacity: 1, duration: 0.8 }, "-=0.2");
+      }
+
+      // Micro-interactions (Desktop Only)
+      if (isDesktop && !prefersReduced) {
+        // Execution Cards Hover
+        executionCards.forEach(card => {
+          const iconWrapper = card.querySelector('div'); // First div is icon wrapper
+
+          card.addEventListener('mouseenter', () => {
+            gsap.to(card, {
+              y: -3,
+              boxShadow: "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -1px rgb(0 0 0 / 0.06)", // slightly increased shadow (default is shadow-sm)
+              duration: 0.25,
+              ease: "power2.out"
+            });
+            if (iconWrapper) {
+              gsap.to(iconWrapper, { y: -2, scale: 1.05, duration: 0.25, ease: "power2.out" });
+            }
+          });
+
+          card.addEventListener('mouseleave', () => {
+            gsap.to(card, {
+              y: 0,
+              boxShadow: "0 1px 2px 0 rgb(0 0 0 / 0.05)", // shadow-sm (original)
+              duration: 0.25,
+              ease: "power2.out"
+            });
+            if (iconWrapper) {
+              gsap.to(iconWrapper, { y: 0, scale: 1, duration: 0.25, ease: "power2.out" });
+            }
+          });
+        });
+
+        // Handover Items Hover
+        handoverItems.forEach(item => {
+          const iconWrapper = item.querySelector('div'); // First div is icon wrapper
+          if (iconWrapper) {
+            item.addEventListener('mouseenter', () => {
+              gsap.to(iconWrapper, { scale: 1.06, duration: 0.25, ease: "power2.out" });
+            });
+            item.addEventListener('mouseleave', () => {
+              gsap.to(iconWrapper, { scale: 1, duration: 0.25, ease: "power2.out" });
+            });
+          }
+        });
+      }
+    });
+
+  }, { scope: containerRef });
+
   return (
-    <section id="erection-commissioning" className="w-full py-12 lg:py-16">
+    <section ref={containerRef} id="erection-commissioning" className="w-full py-12 lg:py-16">
       <div className="container px-4 mx-auto">
         {/* Header */}
         <div className="mb-12 text-center">
