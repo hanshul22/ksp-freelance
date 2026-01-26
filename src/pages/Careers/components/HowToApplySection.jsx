@@ -1,8 +1,88 @@
+import { useRef } from 'react';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { User, Mail, Phone, Briefcase, MessageSquare, Send } from 'lucide-react';
 
+gsap.registerPlugin(ScrollTrigger);
+
 const HowToApplySection = () => {
+  const sectionRef = useRef(null);
+  const headingRef = useRef(null);
+  const introRef = useRef(null);
+  const stepsContainerRef = useRef(null);
+  const stepCardRefs = useRef([]);
+  const formContainerRef = useRef(null);
+  const submitButtonRef = useRef(null);
+
+  useGSAP(() => {
+    // Respect prefers-reduced-motion
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+
+    const ctx = gsap.context(() => {
+      // Set initial states
+      gsap.set(headingRef.current, { opacity: 0, y: 20 });
+      gsap.set(introRef.current, { opacity: 0, y: 16 });
+      gsap.set(stepCardRefs.current, { opacity: 0, y: 20, scale: 0.98 });
+      gsap.set(formContainerRef.current, { opacity: 0, y: 24 });
+      gsap.set(submitButtonRef.current, { opacity: 0, y: 10 });
+
+      // Create timeline with ScrollTrigger
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top 80%',
+          once: true,
+        },
+        defaults: { ease: 'power3.out' },
+      });
+
+      // Heading animation
+      tl.to(headingRef.current, {
+        opacity: 1,
+        y: 0,
+        duration: 0.7,
+      })
+      // Intro text animation
+      .to(introRef.current, {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+      }, '-=0.4')
+      // Step cards staggered
+      .to(stepCardRefs.current, {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.6,
+        stagger: {
+          each: 0.15,
+        },
+      }, '-=0.3')
+      // Form container
+      .to(formContainerRef.current, {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+      }, '-=0.3')
+      // Submit button subtle emphasis
+      .to(submitButtonRef.current, {
+        opacity: 1,
+        y: 0,
+        duration: 0.4,
+        ease: 'power2.out',
+      }, '-=0.4');
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="relative w-full py-16 md:py-20 overflow-hidden bg-white">
+    <section 
+      ref={sectionRef}
+      className="relative w-full py-16 md:py-20 overflow-hidden bg-white"
+    >
       {/* Background Curved Shape - Desktop */}
       <div className="absolute top-0 right-0 hidden md:block pointer-events-none">
         <svg
@@ -39,12 +119,18 @@ const HowToApplySection = () => {
 
       <div className="container relative z-10 px-4 mx-auto lg:px-8">
         {/* Section Heading */}
-        <h2 className="mb-6 text-2xl font-bold text-center md:text-3xl lg:text-4xl text-slate-900">
+        <h2 
+          ref={headingRef}
+          className="mb-6 text-2xl font-bold text-center md:text-3xl lg:text-4xl text-slate-900"
+        >
           How to Apply
         </h2>
 
         {/* Introductory Text */}
-        <div className="max-w-2xl mx-auto mb-10 text-center">
+        <div 
+          ref={introRef}
+          className="max-w-2xl mx-auto mb-10 text-center"
+        >
           <p className="mb-4 text-sm leading-relaxed text-gray-600 md:text-base">
             "We are always open to connecting with individuals who are passionate about water
             engineering, sustainability, and execution excellence.
@@ -57,9 +143,15 @@ const HowToApplySection = () => {
         </div>
 
         {/* Step Indicator Cards */}
-        <div className="grid grid-cols-1 gap-4 mb-8 md:grid-cols-2 md:gap-6 max-w-3xl mx-auto">
+        <div 
+          ref={stepsContainerRef}
+          className="grid grid-cols-1 gap-4 mb-8 md:grid-cols-2 md:gap-6 max-w-3xl mx-auto"
+        >
           {/* Step 1 */}
-          <div className="flex items-start gap-4 p-5 rounded-xl bg-cyan-50">
+          <div 
+            ref={(el) => (stepCardRefs.current[0] = el)}
+            className="flex items-start gap-4 p-5 rounded-xl bg-cyan-50"
+          >
             <div className="flex items-center justify-center w-8 h-8 text-sm font-bold text-white rounded-full shrink-0 bg-cyan-500">
               1
             </div>
@@ -74,7 +166,10 @@ const HowToApplySection = () => {
           </div>
 
           {/* Step 2 */}
-          <div className="flex items-start gap-4 p-5 rounded-xl bg-emerald-50">
+          <div 
+            ref={(el) => (stepCardRefs.current[1] = el)}
+            className="flex items-start gap-4 p-5 rounded-xl bg-emerald-50"
+          >
             <div className="flex items-center justify-center w-8 h-8 text-sm font-bold text-white rounded-full shrink-0 bg-emerald-500">
               2
             </div>
@@ -96,7 +191,10 @@ const HowToApplySection = () => {
         </div>
 
         {/* Form Container */}
-        <div className="max-w-3xl mx-auto bg-white rounded-2xl shadow-lg p-6 md:p-8">
+        <div 
+          ref={formContainerRef}
+          className="max-w-3xl mx-auto bg-white rounded-2xl shadow-lg p-6 md:p-8"
+        >
           <form className="space-y-5">
             {/* Full Name */}
             <div>
@@ -188,6 +286,7 @@ const HowToApplySection = () => {
 
             {/* Submit Button */}
             <button
+              ref={submitButtonRef}
               type="submit"
               className="flex items-center justify-center w-full gap-2 py-3.5 text-sm font-semibold text-white bg-blue-600 rounded-lg md:text-base"
             >
