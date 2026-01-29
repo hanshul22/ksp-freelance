@@ -11,9 +11,9 @@ const Footer = () => {
           {/* Left Column - Company Info */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <img 
-                src={logo} 
-                alt="KSP Hydro Engineers Logo" 
+              <img
+                src={logo}
+                alt="KSP Hydro Engineers Logo"
                 className="h-11 w-11"
               />
               <div className="text-base font-semibold leading-tight">
@@ -21,7 +21,7 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Sustainable water and wastewater treatment solutions engineered for 
+              Sustainable water and wastewater treatment solutions engineered for
               industries, institutions, and communities.
             </p>
           </div>
@@ -30,23 +30,29 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="text-base font-semibold">Quick Links</h3>
             <nav className="flex flex-col space-y-3">
-              <Link 
-                to="/about" 
+              <Link
+                to="/about"
                 className="text-gray-400 hover:text-blue-400 transition-colors text-sm"
               >
                 About Us
               </Link>
-              <Link 
-                to="/products" 
+              <Link
+                to="/products"
                 className="text-gray-400 hover:text-blue-400 transition-colors text-sm"
               >
                 Our Products
               </Link>
-              <Link 
-                to="/services" 
+              <Link
+                to="/services"
                 className="text-gray-400 hover:text-blue-400 transition-colors text-sm"
               >
                 Services
+              </Link>
+              <Link
+                to="/careers"
+                className="text-gray-400 hover:text-blue-400 transition-colors text-sm"
+              >
+                Careers
               </Link>
             </nav>
           </div>
@@ -55,23 +61,25 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="text-base font-semibold">Contact</h3>
             <div className="flex flex-col space-y-3">
-              <a 
-                href="tel:+91XXXXXXXXXX" 
+              <a
+                href="tel:+911414042078"
                 className="flex items-center gap-3 text-gray-400 hover:text-blue-400 transition-colors text-sm"
               >
                 <Phone className="w-4 h-4 text-blue-500 flex-shrink-0" />
-                <span>+91 XXXXX XXXXX</span>
+                <span>+91-141-4042078, 7073472044</span>
               </a>
-              <a 
-                href="mailto:info@ksphydro.com" 
+              <a
+                href="mailto:proposal@ksphydro.com"
                 className="flex items-center gap-3 text-gray-400 hover:text-blue-400 transition-colors text-sm"
               >
                 <Mail className="w-4 h-4 text-blue-500 flex-shrink-0" />
-                <span>info@ksphydro.com</span>
+                <span>proposal@ksphydro.com</span>
               </a>
               <div className="flex items-start gap-3 text-gray-400 text-sm">
                 <MapPin className="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5" />
-                <span>Address</span>
+                <span className="leading-relaxed">
+                  KSP Hydro Engineers Pvt Ltd, S-1 A/8, Arya Square Mall, Above Kanha Restaurant, Subhash Nagar, Jaipur – 302016
+                </span>
               </div>
             </div>
           </div>
@@ -88,14 +96,14 @@ const Footer = () => {
             © 2026 KSP Hydro Engineers Pvt. Ltd. All rights reserved.
           </p>
           <div className="flex gap-8">
-            <Link 
-              to="/privacy-policy" 
+            <Link
+              to="/privacy-policy"
               className="hover:text-gray-300 transition-colors"
             >
               Privacy Policy
             </Link>
-            <Link 
-              to="/terms-of-service" 
+            <Link
+              to="/terms-of-service"
               className="hover:text-gray-300 transition-colors"
             >
               Terms of Service

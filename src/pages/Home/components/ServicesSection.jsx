@@ -43,6 +43,11 @@ const ServicesSection = () => {
     const mm = gsap.matchMedia();
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+    // Initial State: Set opacity to 0 immediately to avoid FOUC, unless reduced motion
+    if (!prefersReducedMotion) {
+      gsap.set('.service-card', { opacity: 0 });
+    }
+
     mm.add(
       {
         isDesktop: "(min-width: 768px)",
@@ -51,7 +56,11 @@ const ServicesSection = () => {
       (context) => {
         const { isDesktop } = context.conditions;
 
-        if (prefersReducedMotion) return;
+        if (prefersReducedMotion) {
+          // Fade in for reduced motion
+          gsap.to('.service-card', { opacity: 1, duration: 0.8, stagger: 0.2 });
+          return;
+        }
 
         // --- DESKTOP ANIMATION (PINNED) ---
         if (isDesktop) {
@@ -167,8 +176,8 @@ const ServicesSection = () => {
   }, { scope: containerRef });
 
   return (
-    <section ref={containerRef} className="relative py-16 md:py-24 services-section bg-gray-50">
-      <div className="relative z-10 px-4 mx-auto max-w-7xl md:px-8 h-full flex flex-col justify-center">
+    <section ref={containerRef} className="relative py-16 md:py-24 services-section">
+      <div className="relative z-10 flex flex-col justify-center h-full px-4 mx-auto max-w-7xl md:px-8">
         {/* Section Header */}
         <div className="mb-12 text-center md:mb-16">
           <p className="mb-3 text-sm font-semibold tracking-wide text-teal-600 uppercase">
@@ -198,11 +207,11 @@ const ServicesSection = () => {
           {services.map((service) => {
             const Icon = service.icon;
             return (
-              <div key={service.id} className="relative z-10 pt-8 service-card opacity-0">
+              <div key={service.id} className="relative z-10 pt-8 service-card">
                 {/* Card */}
                 <div
                   onClick={() => handleServiceClick(service.slug)}
-                  className="relative h-full px-8 py-10 bg-white shadow-lg rounded-3xl flex flex-col items-center text-center md:items-start md:text-left service-card-inner cursor-pointer hover:shadow-xl transition-shadow duration-300"
+                  className="relative flex flex-col items-center h-full px-8 py-10 text-center transition-shadow duration-300 bg-white shadow-lg cursor-pointer rounded-3xl md:items-start md:text-left service-card-inner hover:shadow-xl"
                 >
                   {/* Number Badge - Top Right - Overlapping card boundary */}
                   <div className="absolute -top-6 -right-3">

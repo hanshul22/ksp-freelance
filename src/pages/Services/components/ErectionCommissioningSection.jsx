@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Wrench, HardHat, ClipboardCheck, GraduationCap, Shield, ListChecks, CheckCircle, MonitorPlay, Headphones, FileText, Settings } from 'lucide-react';
+import { Wrench, HardHat, ClipboardCheck, Shield, CheckCircle, MonitorPlay, Headphones, FileText, Settings } from 'lucide-react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -10,34 +10,34 @@ const primaryCards = [
   {
     icon: HardHat,
     title: "Professional Installation",
-    description: "Expert installation by certified technicians ensuring quality workmanship and adherence to safety standards.",
+    description: "Execution by experienced teams following approved designs, safety norms, and quality standards.",
     items: [
-      "Equipment installation and integration",
-      "Piping and electrical work",
       "Control system setup",
-      "Safety protocol implementation"
+      "Piping and electrical works",
+      "Site coordination and supervision",
+      "Equipment installation and integration"
     ]
   },
   {
     icon: ClipboardCheck,
     title: "Testing & Validation",
-    description: "Rigorous testing protocols to ensure the system meets all performance specifications and quality standards.",
+    description: "Comprehensive testing to verify that the system performs as designed under real operating conditions.",
     items: [
-      "Performance testing",
+      "Safety system verification",
       "Quality parameter validation",
-      "Load testing",
-      "Safety system verification"
+      "Performance and load testing",
+      "Mechanical and process testing"
     ]
   },
   {
-    icon: GraduationCap,
-    title: "Handover & Training",
-    description: "Comprehensive training for your staff and complete documentation handover for smooth operations.",
+    icon: Shield,
+    title: "Safety & Quality Assurance",
+    description: "Strict safety practices and quality checks for staff, embedded at every stage of execution.",
     items: [
-      "Operator training sessions",
-      "Documentation handover",
-      "Troubleshooting guidance",
-      "Maintenance instruction"
+      "Certified installation teams",
+      "Safety protocol compliance",
+      "PPE and site safety measures",
+      "Quality checks at each milestone"
     ]
   }
 ];

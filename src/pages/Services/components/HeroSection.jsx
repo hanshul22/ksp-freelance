@@ -77,7 +77,7 @@ const HeroSection = () => {
           Our Services
         </h1>
         <p className="max-w-2xl mx-auto text-lg leading-relaxed text-black md:text-xl">
-          End-to-end water infrastructure solutions from design to ongoing support
+          End-to-end water infrastructure services, delivered from concept and execution to long-term operation and maintenance.
         </p>
       </div>
     </section>

@@ -1,6 +1,5 @@
 import { useRef } from "react";
-import { Building2, Factory, Users, ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Building2, Factory, Users } from "lucide-react";
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -142,9 +141,9 @@ const SectorsSection = () => {
         </svg>
       </div>
 
-      <div className="px-4 mx-auto max-w-7xl md:px-8 my-0 md:my-0">
+      <div className="px-4 mx-auto my-0 max-w-7xl md:px-8 md:my-0">
         {/* Section Header */}
-        <div className="mb-10 text-center md:mb-16 sector-header opacity-0">
+        <div className="mb-10 text-center opacity-0 md:mb-16 sector-header">
           <h2 className="mb-3 text-4xl font-bold text-gray-900 md:mb-4 md:text-3xl lg:text-5xl">Sectors We Serve</h2>
           <p className="max-w-xs mx-auto text-xl leading-relaxed md:max-w-2xl md:text-lg text-slate-500 md:text-slate-600">
             Delivering reliable water and wastewater solutions across diverse sectors
@@ -152,18 +151,18 @@ const SectorsSection = () => {
         </div>
 
         {/* Sectors Grid */}
-        <div className="grid grid-cols-1 md:p-0 p-6 gap-4 md:grid-cols-2 lg:grid-cols-4 md:gap-8">
+        <div className="grid grid-cols-1 gap-4 p-6 md:p-0 md:grid-cols-2 lg:grid-cols-4 md:gap-8">
           {sectors.map((sector) => {
             const Icon = sector.icon;
             return (
               <div
                 key={sector.id}
-                className="sector-card bg-white rounded-2xl p-6 md:p-8 shadow-md border border-gray-100 transition-none opacity-0"
+                className="p-6 transition-none bg-white border border-gray-100 shadow-md opacity-0 sector-card rounded-2xl md:p-8"
               >
                 {/* Icon - Centered on mobile, left-aligned on desktop */}
                 <div className="flex justify-center mb-6 md:mb-6 md:justify-start">
-                  <div className="sector-icon-container flex items-center justify-center w-16 h-16 md:w-16 md:h-16 bg-blue-50 rounded-2xl md:bg-blue-100 md:rounded-xl">
-                    <Icon className="sector-icon w-8 h-8 text-blue-600 md:w-8 md:h-8 md:text-blue-600" strokeWidth={1.5} />
+                  <div className="flex items-center justify-center w-16 h-16 sector-icon-container md:w-16 md:h-16 bg-blue-50 rounded-2xl md:bg-blue-100 md:rounded-xl">
+                    <Icon className="w-8 h-8 text-blue-600 sector-icon md:w-8 md:h-8 md:text-blue-600" strokeWidth={1.5} />
                   </div>
                 </div>
 
@@ -181,15 +180,7 @@ const SectorsSection = () => {
           })}
         </div>
 
-        <div className="flex justify-center mt-10 md:mt-12 sector-header opacity-0">
-          <Link
-            to="/sectors"
-            className="inline-flex items-center justify-center gap-2 bg-[#1A63F4] text-white px-6 py-3 rounded-xl text-lg font-semibold hover:opacity-90 transition-all shadow-[0_4px_14px_0_rgba(26,99,244,0.39)] hover:shadow-[0_6px_20px_rgba(26,99,244,0.23)]"
-          >
-            Explore Sector Solutions
-            <ArrowRight className="w-5 h-5" />
-          </Link>
-        </div>
+        
 
       </div>
     </section>

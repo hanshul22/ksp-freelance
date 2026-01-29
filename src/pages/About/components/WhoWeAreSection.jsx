@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { CheckCircle2, Factory, Building2, Users, Landmark, Droplets } from 'lucide-react';
+import { Factory, Building2, Users, Landmark, Droplets } from 'lucide-react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -8,13 +8,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 const WhoWeAreSection = () => {
   const containerRef = useRef(null);
-
-  const values = [
-    'Innovation & Excellence',
-    'Environmental Responsibility',
-    'Customer-Centric Approach',
-    'Integrity & Transparency'
-  ];
 
   const industries = [
     { icon: Factory, name: 'Industrial & Commercial' },
@@ -30,7 +23,6 @@ const WhoWeAreSection = () => {
     // Elements
     const section = containerRef.current;
     const blocks = gsap.utils.toArray('.who-block');
-    const industriesSection = '.industries-section';
     const cards = gsap.utils.toArray('.industry-card');
     const expCard = '.experience-card';
 

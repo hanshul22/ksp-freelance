@@ -31,9 +31,9 @@ const HeroSection = () => {
 
     // 2. SVG Parallax (Background)
     gsap.fromTo(bgSvg,
-      { y: (i, target) => window.innerWidth < 768 ? -15 : -30 },
+      { y: () => window.innerWidth < 768 ? -15 : -30 },
       {
-        y: (i, target) => window.innerWidth < 768 ? 15 : 30,
+        y: () => window.innerWidth < 768 ? 15 : 30,
         ease: "none",
         scrollTrigger: {
           trigger: containerRef.current,

@@ -119,12 +119,12 @@ const QuoteSection = () => {
           <div className="flex flex-col flex-1 gap-6">
             {/* Paragraph 1 */}
             <p className="md-paragraph text-base leading-relaxed text-slate-700 md:text-lg">
-              "From humble beginnings in 2003, KSP Hydro Engineers Pvt. Ltd. has been on an epic journey towards business excellence and its promise to deliver the very best to its customers. KSP's logo depicts its vision to become a one-stop solution shop for its customers within the bouquet of water & wastewater management.
+              &quot;From humble beginnings in 2003, KSP Hydro Engineers Pvt. Ltd. has been on an epic journey towards business excellence and its promise to deliver the very best to its customers. KSP&apos;s logo depicts its vision to become a one-stop solution shop for its customers within the bouquet of water & wastewater management.
             </p>
 
             {/* Paragraph 2 */}
             <p className="md-paragraph text-base leading-relaxed text-slate-700 md:text-lg">
-              'Pavati' meaning Clear Water 'Beyond Imagination' is our motive for everyone on this earth. Let us all join hands to create a better earth for generations to come.
+              &apos;Pavati&apos; meaning Clear Water &apos;Beyond Imagination&apos; is our motive for everyone on this earth. Let us all join hands to create a better earth for generations to come.
             </p>
 
             {/* Paragraph 3 with Read More */}

@@ -28,7 +28,6 @@ const WhyChooseUsSection = () => {
 
     // Section 3: Commitment Block
     const commitmentBlock = container.children[2];
-    const commitmentHeader = commitmentBlock.children[0]; // Title + Desc
     const statsGrid = commitmentBlock.children[1];
     const statsItems = statsGrid ? gsap.utils.toArray(statsGrid.children) : [];
 
@@ -172,15 +171,15 @@ const WhyChooseUsSection = () => {
     },
     {
       icon: Headphones,
-      title: "24/7 Support",
-      description: "Round-the-clock technical assistance for your peace of mind."
+      title: "Reliable Long-Term Support",
+      description: "We ensure efficient, reliable performance year after year."
     }
   ];
 
   const stats = [
     { value: "500+", label: "Projects Completed" },
-    { value: "98%", label: "Client Satisfaction" },
-    { value: "24/7", label: "Support Available" }
+    { value: "h", label: "Client Partnerships" },
+    { value: "98%", label: "Client Satisfaction" }
   ];
 
   return (
@@ -226,7 +225,7 @@ const WhyChooseUsSection = () => {
               Our Service Commitment
             </h3>
             <p className="max-w-3xl text-base leading-relaxed text-gray-500 lg:text-lg">
-              We don't just install systems — we build lasting relationships. Our commitment extends beyond project completion to ensure your water treatment infrastructure continues to deliver optimal performance year after year.
+              We go beyond installation to ensure long-term system performance. From commissioning and AMC to continuous optimization, our teams focus on reliability, compliance, and efficiency throughout the system lifecycle.
             </p>
           </div>
 

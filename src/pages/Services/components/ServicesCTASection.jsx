@@ -107,7 +107,7 @@ const ServicesCTASection = () => {
           btn.addEventListener('mouseenter', () => {
             gsap.to(btn, {
               y: -2,
-              boxShadow: "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)", // shadow-lg
+              boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)", // shadow-xl
               duration: 0.25,
               ease: "power2.out"
             });
@@ -116,11 +116,8 @@ const ServicesCTASection = () => {
           btn.addEventListener('mouseleave', () => {
             gsap.to(btn, {
               y: 0,
-              boxShadow: "none", // Reset to no shadow (or original if it had one, but these buttons look flat/border based initially or have default shadow which we might need to check. Assuming no shadow initially or simple one. The design uses bg-blue-600 or border. Let's assume resetting to 'none' or 'original' state. Since we can't easily know original computed style, and 'shadow-lg' is added, removing it is safest or setting to empty string to revert to CSS.)
-              // Actually, standard Tailwind buttons usually don't have shadow unless specified. 
-              // The primary one is bg-blue-600. Secondary is border. 
-              // Let's set boxShadow to "" to clear inline style and revert to CSS.
-              boxShadow: "",
+              // Reset to no shadow
+              boxShadow: "none",
               duration: 0.25,
               ease: "power2.out"
             });
@@ -145,22 +142,16 @@ const ServicesCTASection = () => {
 
           {/* Subtitle */}
           <p className="text-gray-500 text-lg max-w-2xl leading-relaxed mb-8">
-            Let's discuss how our services can help you achieve your water management goals
+            Let’s discuss how KSP Hydro Engineers can support your water and wastewater infrastructure from concept and execution to long-term performance.
           </p>
 
           {/* Button Group */}
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex justify-center">
             <Link
               to="/contact"
-              className="px-8 py-3 bg-blue-600 text-white font-medium rounded-lg text-center"
+              className="px-8 py-3 bg-white text-blue-600 font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
             >
-              Schedule Consultation
-            </Link>
-            <Link
-              to="/contact"
-              className="px-8 py-3 bg-white border-2 border-blue-600 text-blue-600 font-medium rounded-lg text-center"
-            >
-              Request AMC Quote
+              Schedule a Consultation
             </Link>
           </div>
         </div>

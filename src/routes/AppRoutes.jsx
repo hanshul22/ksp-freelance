@@ -1,25 +1,36 @@
+import { Suspense, lazy } from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import MainLayout from '@/components/layout/MainLayout.jsx';
-import Home from '@/pages/Home/Home.jsx';
-import About from '@/pages/About/About.jsx';
-import Products from '@/pages/Products/Products.jsx';
-import Services from '@/pages/Services/Services.jsx';
-import Careers from '@/pages/Careers/Career.jsx';
-import Contact from '@/pages/Contact/Contact.jsx';
-import NotFound from '@/pages/NotFound/NotFound.jsx';
+import { Loader2 } from 'lucide-react';
+
+// Lazy load pages for better performance (Code Splitting)
+const Home = lazy(() => import('@/pages/Home/Home.jsx'));
+const About = lazy(() => import('@/pages/About/About.jsx'));
+const Products = lazy(() => import('@/pages/Products/Products.jsx'));
+const Services = lazy(() => import('@/pages/Services/Services.jsx'));
+const Careers = lazy(() => import('@/pages/Careers/Career.jsx'));
+const Contact = lazy(() => import('@/pages/Contact/Contact.jsx'));
+const NotFound = lazy(() => import('@/pages/NotFound/NotFound.jsx'));
+
+// Loading Fallback
+const PageLoader = () => (
+  <div className="flex items-center justify-center min-h-screen">
+    <Loader2 className="w-10 h-10 text-blue-600 animate-spin" />
+  </div>
+);
 
 const router = createBrowserRouter(
   [
     {
       element: <MainLayout />,
       children: [
-        { path: '/', element: <Home /> },
-        { path: '/about', element: <About /> },
-        { path: '/products', element: <Products /> },
-        { path: '/services', element: <Services /> },
-        { path: '/careers', element: <Careers /> },
-        { path: '/contact', element: <Contact /> },
-        { path: '*', element: <NotFound /> },
+        { path: '/', element: <Suspense fallback={<PageLoader />}><Home /></Suspense> },
+        { path: '/about', element: <Suspense fallback={<PageLoader />}><About /></Suspense> },
+        { path: '/products', element: <Suspense fallback={<PageLoader />}><Products /></Suspense> },
+        { path: '/services', element: <Suspense fallback={<PageLoader />}><Services /></Suspense> },
+        { path: '/careers', element: <Suspense fallback={<PageLoader />}><Careers /></Suspense> },
+        { path: '/contact', element: <Suspense fallback={<PageLoader />}><Contact /></Suspense> },
+        { path: '*', element: <Suspense fallback={<PageLoader />}><NotFound /></Suspense> },
       ],
     },
   ],

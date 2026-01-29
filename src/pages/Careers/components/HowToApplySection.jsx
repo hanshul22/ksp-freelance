@@ -1,8 +1,10 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { User, Mail, Phone, Briefcase, MessageSquare, Send } from 'lucide-react';
+import { useToast } from '@/hooks/useToast';
+import { sendEmail, TEMPLATES } from '@/lib/emailjs';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,6 +16,31 @@ const HowToApplySection = () => {
   const stepCardRefs = useRef([]);
   const formContainerRef = useRef(null);
   const submitButtonRef = useRef(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { success, error } = useToast();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (isSubmitting) return;
+
+    setIsSubmitting(true);
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      const result = await sendEmail(data, TEMPLATES.CAREERS);
+
+      if (result.success) {
+        success(result.message);
+        e.target.reset();
+      }
+    } catch (err) {
+      error(err.message);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   useGSAP(() => {
     // Respect prefers-reduced-motion
@@ -44,82 +71,51 @@ const HowToApplySection = () => {
         y: 0,
         duration: 0.7,
       })
-      // Intro text animation
-      .to(introRef.current, {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-      }, '-=0.4')
-      // Step cards staggered
-      .to(stepCardRefs.current, {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        duration: 0.6,
-        stagger: {
-          each: 0.15,
-        },
-      }, '-=0.3')
-      // Form container
-      .to(formContainerRef.current, {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-      }, '-=0.3')
-      // Submit button subtle emphasis
-      .to(submitButtonRef.current, {
-        opacity: 1,
-        y: 0,
-        duration: 0.4,
-        ease: 'power2.out',
-      }, '-=0.4');
+        // Intro text animation
+        .to(introRef.current, {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+        }, '-=0.4')
+        // Step cards staggered
+        .to(stepCardRefs.current, {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.6,
+          stagger: {
+            each: 0.15,
+          },
+        }, '-=0.3')
+        // Form container
+        .to(formContainerRef.current, {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+        }, '-=0.3')
+        // Submit button subtle emphasis
+        .to(submitButtonRef.current, {
+          opacity: 1,
+          y: 0,
+          duration: 0.4,
+          ease: 'power2.out',
+        }, '-=0.4');
     }, sectionRef);
 
     return () => ctx.revert();
   }, []);
 
   return (
-    <section 
+    <section
       ref={sectionRef}
-      className="relative w-full py-16 md:py-20 overflow-hidden bg-white"
+      className="relative w-full py-16 md:py-20 overflow-hidden"
     >
       {/* Background Curved Shape - Desktop */}
-      <div className="absolute top-0 right-0 hidden md:block pointer-events-none">
-        <svg
-          width="400"
-          height="300"
-          viewBox="0 0 400 300"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M400 0C400 0 380 50 350 100C300 180 320 250 400 300V0Z"
-            fill="#D5F5E3"
-            fillOpacity="0.5"
-          />
-        </svg>
-      </div>
 
-      {/* Background Curved Shape - Mobile */}
-      <div className="absolute top-0 right-0 block md:hidden pointer-events-none">
-        <svg
-          width="150"
-          height="200"
-          viewBox="0 0 150 200"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M150 0C150 0 130 40 110 80C80 140 100 180 150 200V0Z"
-            fill="#D5F5E3"
-            fillOpacity="0.5"
-          />
-        </svg>
-      </div>
 
       <div className="container relative z-10 px-4 mx-auto lg:px-8">
         {/* Section Heading */}
-        <h2 
+        <h2
           ref={headingRef}
           className="mb-6 text-2xl font-bold text-center md:text-3xl lg:text-4xl text-slate-900"
         >
@@ -127,28 +123,28 @@ const HowToApplySection = () => {
         </h2>
 
         {/* Introductory Text */}
-        <div 
+        <div
           ref={introRef}
           className="max-w-2xl mx-auto mb-10 text-center"
         >
           <p className="mb-4 text-sm leading-relaxed text-gray-600 md:text-base">
-            "We are always open to connecting with individuals who are passionate about water
+            &quot;We are always open to connecting with individuals who are passionate about water
             engineering, sustainability, and execution excellence.
           </p>
           <p className="text-sm leading-relaxed text-gray-600 md:text-base">
             If you believe your skills and mindset align with KSP Hydro,
             <br className="hidden md:block" />
-            we'd be happy to hear from you."
+            we&apos;d be happy to hear from you.&quot;
           </p>
         </div>
 
         {/* Step Indicator Cards */}
-        <div 
+        <div
           ref={stepsContainerRef}
           className="grid grid-cols-1 gap-4 mb-8 md:grid-cols-2 md:gap-6 max-w-3xl mx-auto"
         >
           {/* Step 1 */}
-          <div 
+          <div
             ref={(el) => (stepCardRefs.current[0] = el)}
             className="flex items-start gap-4 p-5 rounded-xl bg-cyan-50"
           >
@@ -166,7 +162,7 @@ const HowToApplySection = () => {
           </div>
 
           {/* Step 2 */}
-          <div 
+          <div
             ref={(el) => (stepCardRefs.current[1] = el)}
             className="flex items-start gap-4 p-5 rounded-xl bg-emerald-50"
           >
@@ -191,11 +187,11 @@ const HowToApplySection = () => {
         </div>
 
         {/* Form Container */}
-        <div 
+        <div
           ref={formContainerRef}
           className="max-w-3xl mx-auto bg-white rounded-2xl shadow-lg p-6 md:p-8"
         >
-          <form className="space-y-5">
+          <form onSubmit={handleSubmit} className="space-y-5">
             {/* Full Name */}
             <div>
               <label className="block mb-2 text-sm font-medium text-slate-900">
@@ -207,8 +203,11 @@ const HowToApplySection = () => {
                 </div>
                 <input
                   type="text"
+                  name="user_name"
+                  required
+                  disabled={isSubmitting}
                   placeholder="Enter your full name"
-                  className="w-full py-3 pl-12 pr-4 text-sm border border-gray-200 rounded-lg bg-white focus:outline-none focus:border-blue-500"
+                  className="w-full py-3 pl-12 pr-4 text-sm border border-gray-200 rounded-lg bg-white focus:outline-none focus:border-blue-500 disabled:bg-gray-50 disabled:cursor-not-allowed"
                 />
               </div>
             </div>
@@ -226,8 +225,11 @@ const HowToApplySection = () => {
                   </div>
                   <input
                     type="email"
+                    name="user_email"
+                    required
+                    disabled={isSubmitting}
                     placeholder="your.email@example.com"
-                    className="w-full py-3 pl-12 pr-4 text-sm border border-gray-200 rounded-lg bg-white focus:outline-none focus:border-blue-500"
+                    className="w-full py-3 pl-12 pr-4 text-sm border border-gray-200 rounded-lg bg-white focus:outline-none focus:border-blue-500 disabled:bg-gray-50 disabled:cursor-not-allowed"
                   />
                 </div>
               </div>
@@ -243,8 +245,11 @@ const HowToApplySection = () => {
                   </div>
                   <input
                     type="tel"
+                    name="user_phone"
+                    required
+                    disabled={isSubmitting}
                     placeholder="+91 98765 43210"
-                    className="w-full py-3 pl-12 pr-4 text-sm border border-gray-200 rounded-lg bg-white focus:outline-none focus:border-blue-500"
+                    className="w-full py-3 pl-12 pr-4 text-sm border border-gray-200 rounded-lg bg-white focus:outline-none focus:border-blue-500 disabled:bg-gray-50 disabled:cursor-not-allowed"
                   />
                 </div>
               </div>
@@ -261,8 +266,11 @@ const HowToApplySection = () => {
                 </div>
                 <input
                   type="text"
+                  name="interest"
+                  required
+                  disabled={isSubmitting}
                   placeholder=""
-                  className="w-full py-3 pl-12 pr-4 text-sm border border-gray-200 rounded-lg bg-white focus:outline-none focus:border-blue-500"
+                  className="w-full py-3 pl-12 pr-4 text-sm border border-gray-200 rounded-lg bg-white focus:outline-none focus:border-blue-500 disabled:bg-gray-50 disabled:cursor-not-allowed"
                 />
               </div>
             </div>
@@ -277,9 +285,12 @@ const HowToApplySection = () => {
                   <MessageSquare className="w-5 h-5 text-gray-400" />
                 </div>
                 <textarea
+                  name="message"
+                  required
+                  disabled={isSubmitting}
                   rows={5}
                   placeholder="Tell us about your experience, skills, and why you'd like to join KSP Hydro..."
-                  className="w-full py-3 pl-12 pr-4 text-sm border border-gray-200 rounded-lg bg-white resize-none focus:outline-none focus:border-blue-500"
+                  className="w-full py-3 pl-12 pr-4 text-sm border border-gray-200 rounded-lg bg-white resize-none focus:outline-none focus:border-blue-500 disabled:bg-gray-50 disabled:cursor-not-allowed"
                 />
               </div>
             </div>
@@ -288,10 +299,11 @@ const HowToApplySection = () => {
             <button
               ref={submitButtonRef}
               type="submit"
-              className="flex items-center justify-center w-full gap-2 py-3.5 text-sm font-semibold text-white bg-blue-600 rounded-lg md:text-base"
+              disabled={isSubmitting}
+              className="flex items-center justify-center w-full gap-2 py-3.5 text-sm font-semibold text-white bg-blue-600 rounded-lg md:text-base hover:bg-blue-700 transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
             >
-              <Send className="w-4 h-4 md:w-5 md:h-5" />
-              Submit Application
+              <Send className={`w-4 h-4 md:w-5 md:h-5 ${isSubmitting ? 'animate-pulse' : ''}`} />
+              {isSubmitting ? 'Sending Application...' : 'Submit Application'}
             </button>
           </form>
 

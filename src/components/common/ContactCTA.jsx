@@ -12,7 +12,6 @@ const ContactCTA = () => {
 
   useGSAP(() => {
     const mm = gsap.matchMedia();
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     mm.add({
       isDesktop: "(min-width: 768px)",
@@ -123,7 +122,7 @@ const ContactCTA = () => {
 
           {/* Description */}
           <p className="cta-text max-w-2xl mx-auto text-sm leading-relaxed md:text-base text-white/90">
-            Ready to transform your water management? Our team is here to help you find the perfect solution.
+            Ready to upgrade or optimize your water and wastewater systems? Our experts help you design, execute, and maintain reliable, compliant solutions tailored to your needs.
           </p>
 
           {/* CTA Button */}

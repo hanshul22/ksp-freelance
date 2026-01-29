@@ -96,41 +96,9 @@ const WhyWorkWithUsSection = () => {
     <section 
       ref={sectionRef}
       className="relative w-full py-16 md:py-20 overflow-hidden" 
-      style={{ backgroundColor: '#EFFAFE' }}
     >
       {/* Background Curved Shape - Desktop */}
-      <div className="absolute inset-0 hidden md:block pointer-events-none">
-        <svg
-          className="absolute top-0 right-0 h-full"
-          viewBox="0 0 400 600"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          preserveAspectRatio="xMaxYMid slice"
-        >
-          <path
-            d="M400 0V600C350 580 280 520 250 450C220 380 200 300 220 220C240 140 300 80 350 40C380 15 400 0 400 0Z"
-            fill="#D5F5E3"
-            fillOpacity="0.6"
-          />
-        </svg>
-      </div>
-
-      {/* Background Curved Shape - Mobile */}
-      <div className="absolute inset-0 block md:hidden pointer-events-none">
-        <svg
-          className="absolute top-0 right-0 w-full h-full"
-          viewBox="0 0 375 800"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          preserveAspectRatio="xMaxYMin slice"
-        >
-          <path
-            d="M375 0C375 0 360 50 340 100C300 200 320 350 350 500C370 600 375 700 375 800V0Z"
-            fill="#D5F5E3"
-            fillOpacity="0.5"
-          />
-        </svg>
-      </div>
+      
 
       <div className="container relative z-10 px-4 mx-auto lg:px-8">
         {/* Section Heading */}

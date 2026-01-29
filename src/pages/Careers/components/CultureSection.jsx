@@ -74,7 +74,7 @@ const CultureSection = () => {
         
         <div className="space-y-8 text-lg md:text-xl text-gray-600 leading-relaxed font-normal">
           <p ref={quoteRef}>
-            "At KSP Hydro, we believe technology alone doesn't win; execution does.
+            &quot;At KSP Hydro, we believe technology alone doesn&apos;t win; execution does.
           </p>
           
           <p ref={(el) => (paragraphRefs.current[0] = el)}>
@@ -86,7 +86,7 @@ const CultureSection = () => {
           </p>
           
           <p ref={(el) => (paragraphRefs.current[2] = el)}>
-            Our people represent KSP Hydro on every site and with every client; that responsibility shapes how we work, think, and grow together."
+            Our people represent KSP Hydro on every site and with every client; that responsibility shapes how we work, think, and grow together.&quot;
           </p>
         </div>
       </div>

@@ -10,43 +10,43 @@ const cards = [
   {
     icon: Search,
     title: "Site Study & Assessment",
-    description: "Comprehensive site evaluation including water quality analysis, flow requirements, space constraints, and environmental conditions.",
+    description: "We begin with a detailed evaluation of site conditions, water characteristics, and operational requirements to establish a strong technical foundation.",
     activities: [
-      "Water quality testing and analysis",
-      "Flow rate and demand assessment",
-      "Site feasibility studies",
-      "Environmental impact evaluation"
+      "Water quality analysis",
+      "Flow and load assessment",
+      "Space and layout feasibility",
+      "Environmental and regulatory considerations"
     ]
   },
   {
     icon: ClipboardList,
     title: "Design & Planning",
-    description: "Custom engineering designs tailored to your specific requirements, ensuring optimal performance and compliance.",
+    description: "Custom system designs developed to match project requirements, ensuring performance, reliability, & compliance.",
     activities: [
-      "Detailed engineering drawings",
-      "Process flow diagrams",
-      "Equipment layout planning",
-      "Compliance documentation"
+      "Process and layout drawings",
+      "Equipment sizing and selection",
+      "Compliance and approval documentation",
+      "Process design and engineering calculations"
     ]
   },
   {
     icon: Lightbulb,
     title: "Technology Selection",
-    description: "Expert guidance in choosing the most suitable treatment technology based on your needs, budget, and long-term goals.",
+    description: "Objective guidance to select the suitable treatment technology based on lifecycle cost performance, and future scalability.",
     activities: [
-      "Technology comparison analysis",
-      "Cost-benefit evaluation",
-      "Efficiency optimization",
-      "Future scalability planning"
+      "Performance optimization",
+      "Capex and Opex evaluation",
+      "Provision for future expansion",
+      "Technology comparison (MBR, MBBR, etc.)"
     ]
   }
 ];
 
 const processSteps = [
-  { number: "01", title: "Discovery", description: "Understand requirements and constraints" },
-  { number: "02", title: "Analysis", description: "Evaluate options and feasibility" },
-  { number: "03", title: "Design", description: "Create optimized solution" },
-  { number: "04", title: "Approval", description: "Present and finalize proposal" }
+  { number: "01", title: "Discovery", description: "" },
+  { number: "02", title: "Analysis", description: "" },
+  { number: "03", title: "Design", description: "" },
+  { number: "04", title: "Approval", description: "" }
 ];
 
 const DesignEngineeringSection = () => {
@@ -207,7 +207,7 @@ const DesignEngineeringSection = () => {
             Design Engineering & Consultancy
           </h2>
           <p className="max-w-2xl mx-auto text-base leading-relaxed text-gray-600 md:text-lg">
-            Expert consulting and engineering services to create the optimal water treatment solution for your needs
+            Engineering-led consulting services to design efficient, compliant, and application-specific water and wastewater systems.
           </p>
         </div>
 
@@ -259,9 +259,11 @@ const DesignEngineeringSection = () => {
                 <h4 className="text-lg font-bold text-[#1a1f36] mb-2">
                   {step.title}
                 </h4>
-                <p className="text-sm text-gray-600">
-                  {step.description}
-                </p>
+                {step.description && (
+                  <p className="text-sm text-gray-600">
+                    {step.description}
+                  </p>
+                )}
               </div>
             ))}
           </div>
