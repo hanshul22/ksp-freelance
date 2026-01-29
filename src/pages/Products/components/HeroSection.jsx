@@ -1,7 +1,6 @@
 import { useState, useRef } from 'react';
 import {
   Waves,
-  Droplets,
   Filter,
   Recycle,
   FlaskConical,
@@ -13,7 +12,6 @@ import {
   Activity,
   Settings
 } from 'lucide-react';
-import wavesBg from '@/assets/images/products-wave-bg.png';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';

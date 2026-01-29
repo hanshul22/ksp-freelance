@@ -20,7 +20,7 @@ const Hero = () => {
       isMobile: "(max-width: 767px)",
       reduceMotion: "(prefers-reduced-motion: reduce)"
     }, (context) => {
-      const { isDesktop, isMobile, reduceMotion } = context.conditions;
+      const { isDesktop, reduceMotion } = context.conditions;
 
       if (reduceMotion) return;
 
@@ -186,6 +186,10 @@ const Hero = () => {
                   src={waterDrop}
                   alt="Water Droplet"
                   className="object-contain w-full h-full drop-shadow-2xl"
+                  width="340"
+                  height="340"
+                  fetchPriority="high"
+                  loading="eager"
                 />
               </div>
             </div>

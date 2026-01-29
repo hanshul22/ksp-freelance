@@ -156,6 +156,9 @@ const AboutSection = () => {
                 <img
                   src={aboutImage}
                   alt="Aerial view of wastewater treatment tanks at KSP Hydro Engineers facility"
+                  loading="lazy"
+                  width="400"
+                  height="400"
                   className="object-cover w-full h-full"
                 />
               </div>
@@ -171,6 +174,9 @@ const AboutSection = () => {
               <img
                 src={aboutImage}
                 alt="Aerial view of wastewater treatment tanks at KSP Hydro Engineers facility"
+                loading="lazy"
+                width="600"
+                height="400"
                 className="object-cover w-full h-full"
               />
             </div>

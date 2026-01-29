@@ -32,7 +32,6 @@ const useScrollReveal = ({
   useGSAP(() => {
     // 1. Setup MatchMedia for responsive handling
     const mm = gsap.matchMedia();
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     // Define context conditions
     mm.add({
@@ -40,7 +39,7 @@ const useScrollReveal = ({
       isMobile: "(max-width: 767px)",
       reduceMotion: "(prefers-reduced-motion: reduce)"
     }, (context) => {
-      const { isDesktop, isMobile, reduceMotion } = context.conditions;
+      const { isMobile, reduceMotion } = context.conditions;
 
       // Skip if mobile is disabled and we are on mobile
       if (!mobile && isMobile) return;
@@ -103,7 +102,7 @@ const useScrollReveal = ({
     });
 
     // Cleanup happens automatically via useGSAP scope
-    
+
   }, { scope: containerRef, dependencies: [trigger, targets, animation, scrollTrigger, stagger, delay, mobile] });
 
   return containerRef;

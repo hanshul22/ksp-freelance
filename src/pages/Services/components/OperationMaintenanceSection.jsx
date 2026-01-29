@@ -151,59 +151,59 @@ const OperationMaintenanceSection = () => {
   const primaryCards = [
     {
       icon: CalendarCheck,
-      title: "Annual Maintenance Contracts (AMC)",
-      description: "Comprehensive maintenance plans to keep your systems running at peak efficiency throughout the year.",
+      title: "Preventive & Breakdown Maintenance",
+      description: "Planned maintenance programs to minimize downtime and extend system life.",
       items: [
-        "Scheduled preventive maintenance",
-        "Priority service response",
-        "Spare parts availability",
-        "Annual system health checks"
+        "Equipment performance checks",
+        "Breakdown handling and repairs",
+        "Preventive maintenance schedules",
+        "Spares and consumables management"
       ]
     },
     {
       icon: Activity,
-      title: "Performance Monitoring",
-      description: "Continuous monitoring and optimization of system performance to ensure consistent water quality and efficiency.",
+      title: "Monitoring & Compliance",
+      description: "Ensuring systems operate within statutory and environmental norms.",
       items: [
-        "Remote monitoring systems",
-        "Performance analytics",
-        "Efficiency optimization",
-        "Quality compliance tracking"
+        "Compliance documentation",
+        "Safety and performance audits",
+        "Sludge handling as per regulations",
+        "Water testing (NABL-accredited labs)"
       ]
     },
     {
       icon: HeadphonesIcon,
-      title: "Long-term Support",
-      description: "24/7 technical support and expert assistance for any operational challenges or system upgrades.",
+      title: "Plant Operations",
+      description: "End-to-end operation of water and wastewater treatment plants by trained technical personnel.",
       items: [
-        "24/7 helpline support",
-        "Emergency breakdown service",
-        "System upgrades consultation",
-        "Spare parts supply"
+        "STP, ETP, WTP & RO",
+        "Daily operational reporting",
+        "Process monitoring and control",
+        "swimming pools, and water bodies"
       ]
     }
   ];
 
   const benefits = [
     {
-      icon: Shield,
-      title: "Extended Life",
-      description: "Prolong system lifespan"
-    },
-    {
-      icon: RefreshCw,
-      title: "Peak Performance",
-      description: "Optimal efficiency always"
+      icon: TrendingUp,
+      title: "Optimized Performance",
+      description: "Regular tuning ensures systems run at peak efficiency, reducing energy consumption and operational costs."
     },
     {
       icon: Clock,
-      title: "Reduced Downtime",
-      description: "Minimize interruptions"
+      title: "Extended Equipment Life",
+      description: "Proactive maintenance prevents premature wear and tear, protecting your investment for the long term."
     },
     {
-      icon: Settings,
-      title: "Cost Savings",
-      description: "Prevent major repairs"
+      icon: Shield,
+      title: "Regulatory Compliance",
+      description: "We handle all environmental norms, audits, and documentation, keeping you fully compliant."
+    },
+    {
+      icon: RefreshCw,
+      title: "Priority Support",
+      description: "Quick response times and dedicated technical support for any operational issues or breakdowns."
     }
   ];
 

@@ -192,6 +192,9 @@ const ClientsSection = () => {
                 <img
                   src={client.logo}
                   alt={client.name}
+                  loading="lazy"
+                  width="160"
+                  height="96"
                   className="client-logo object-contain w-full h-full transition-none"
                 />
               </div>

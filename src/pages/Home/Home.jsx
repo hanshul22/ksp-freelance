@@ -1,5 +1,4 @@
 import React from 'react';
-import useSmoothScroll from '@/hooks/useSmoothScroll';
 import useScrollReveal from '@/hooks/useScrollReveal';
 import {
   Hero,
@@ -18,9 +17,6 @@ const SectionWrapper = ({ children, className = "", delay = 0 }) => {
 };
 
 const Home = () => {
-  // Initialize smooth scrolling (Lenis + GSAP)
-  useSmoothScroll();
-
   return (
     <div className="min-h-screen bg-white">
 
@@ -87,9 +83,9 @@ const Home = () => {
           <SectionWrapper>
             <ProductsSection />
           </SectionWrapper>
-          <SectionWrapper>
-            <ServicesSection />
-          </SectionWrapper>
+          {/* <SectionWrapper> */}
+          <ServicesSection />
+          {/* </SectionWrapper> */}
           <WhyChooseUs />
         </div>
       </div>

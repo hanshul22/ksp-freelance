@@ -71,7 +71,7 @@ const HowWeWorkSection = () => {
             How KSP Hydro Works With Clients
           </h2>
           <p className="text-base md:text-lg text-gray-600 leading-relaxed">
-            At KSP Hydro Engineers, we believe in building long-term partnerships with our clients. Our comprehensive service approach ensures that from the initial consultation to ongoing maintenance, every aspect of your water treatment system is handled with expertise and care.
+            At KSP Hydro Engineers, we follow a structured and practical approach to every project, from planning and system design to installation to commissioning and ongoing operations, ensuring dependable performance at every stage.
           </p>
         </div>
       </div>

@@ -73,7 +73,6 @@ const ProductsSection = () => {
       cards.forEach(card => {
         const image = card.querySelector('.product-image');
         const iconBadge = card.querySelector('.product-icon-badge');
-        const icon = card.querySelector('.product-icon');
 
         const hoverTl = gsap.timeline({ paused: true });
 
@@ -191,6 +190,9 @@ const ProductsSection = () => {
                   <img
                     src={product.image}
                     alt={product.title}
+                    loading="lazy"
+                    width="400"
+                    height="200"
                     className="product-image object-cover w-full h-full transition-none"
                   />
 

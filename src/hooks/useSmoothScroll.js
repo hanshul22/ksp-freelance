@@ -1,7 +1,8 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import useDebounce from './useDebounce';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,6 +14,33 @@ gsap.registerPlugin(ScrollTrigger);
  */
 const useSmoothScroll = () => {
     const lenisRef = useRef(null);
+    const [windowDimensions, setWindowDimensions] = useState({ 
+        width: typeof window !== 'undefined' ? window.innerWidth : 0,
+        height: typeof window !== 'undefined' ? window.innerHeight : 0 
+    });
+    
+    // Debounce window dimensions to avoid excessive refreshes
+    const debouncedDimensions = useDebounce(windowDimensions, 200);
+
+    // Handle Resize
+    useEffect(() => {
+        const handleResize = () => {
+            setWindowDimensions({
+                width: window.innerWidth,
+                height: window.innerHeight
+            });
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    // Refresh ScrollTrigger when debounced dimensions change
+    useEffect(() => {
+        if (lenisRef.current) {
+            ScrollTrigger.refresh();
+        }
+    }, [debouncedDimensions]);
 
     useEffect(() => {
         // Check for reduced motion preference
@@ -57,18 +85,8 @@ const useSmoothScroll = () => {
         // Ensure ScrollTrigger is refreshed after Lenis init
         ScrollTrigger.refresh();
 
-        // Handle Resize to update ScrollTrigger
-        const handleResize = () => {
-            ScrollTrigger.refresh();
-        };
-
-        window.addEventListener('resize', handleResize);
-
         // Cleanup function
         return () => {
-            // Remove resize listener
-            window.removeEventListener('resize', handleResize);
-
             // Remove GSAP ticker listener
             gsap.ticker.remove(updateLenis);
 

@@ -181,7 +181,7 @@ const ServiceProcessSection = () => {
             Our Complete Service Process
           </h2>
           <p className="text-gray-500 text-lg max-w-2xl leading-relaxed">
-            From initial consultation to ongoing support, we're with you every step of the way
+            From initial consultation to ongoing support, we&apos;re with you every step of the way
           </p>
         </div>
 

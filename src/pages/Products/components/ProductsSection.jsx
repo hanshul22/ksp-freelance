@@ -3,7 +3,6 @@ import {
   Droplets,
   CheckCircle,
   Filter,
-  GitBranch,
   Recycle,
   FlaskConical,
   Layers,
@@ -378,7 +377,7 @@ const ProductSection = ({ product }) => {
             {/* Left - Treatment Process */}
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <GitBranch className="w-5 h-5 text-[#155DFC]" />
+                <Activity className="w-5 h-5 text-[#155DFC]" />
                 <span className="text-sm font-semibold text-[#0A1628]">
                   {sections.processOverview.title}
                 </span>
